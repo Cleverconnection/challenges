@@ -1,65 +1,264 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>Auth: Senha Fraca</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 480px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · EAuth: Senha Fraca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ======= Tokens de marca (Itaú) ======= */
+    :root{
+      --itau-orange: #FF6200;      /* primária */
+      --itau-blue:   #003087;      /* apoio/links */
+      --itau-yellow: #FBC305;      /* acento eventual */
+      --ink:         #1B1B1B;      /* texto principal */
+      --muted-ink:   #4B5563;      /* texto secundário */
+      --surface:     #FFFFFF;      /* fundo cartão */
+      --surface-2:   #FFF6EF;      /* fundo página (tinte laranja) */
+      --border:      #E5E7EB;      /* borda neutra */
+      --focus-ring:  rgba(255,98,0,.35); /* ring de foco AA (UI ≥3:1) */
+      --radius-lg:   20px;         /* canto “pedra” */
+      --radius-md:   14px;
+      --radius-sm:   10px;
+
+      /* Botões: por padrão, texto escuro no laranja para AA 4.5:1+ */
+      --cta-bg:      var(--itau-orange);
+      --cta-fg:      var(--ink);
+    }
+
+    /* Opcional: se quiser branco no botão, lembre de usar texto "grande" (WCAG 2.1) */
+    /* :root{ --cta-fg: #FFFFFF; } */
+
+    /* ======= Reset mínimo e layout ======= */
+    *{ box-sizing: border-box; }
+    html{ color-scheme: light; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    /* ======= Header com “pedra” e barra laranja ======= */
+    header{
+      background: var(--surface);
+      border-top: 6px solid var(--itau-orange);
+      padding: 2rem 1rem 1.25rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Pedra decorativa (sem ruído visual, respeita prefers-reduced-motion) */
+    header::before{
+      content:"";
+      position:absolute;
+      inset:auto -60px -60px auto;
+      width:180px; height:180px;
+      background: var(--itau-orange);
+      border-radius: 26% 22% 38% 24% / 33% 40% 28% 35%; /* orgânico */
+      filter: blur(18px);
+      opacity:.12;
+      transform: rotate(-8deg);
+    }
+    .brand{
+      display: inline-flex;
+      align-items: center;
+      gap:.75rem;
+    }
+    .brand-badge{
+      width:44px; height:44px;
+      background: var(--itau-orange);
+      color: var(--ink); /* contraste AA no laranja */
+      border-radius: 12px 12px 18px 12px; /* canto mais “pesado” no canto inferior direito */
+      display:grid; place-items:center;
+      font-weight: 800;
+      letter-spacing:.2px;
+      user-select: none;
+    }
+    .brand-badge span{ font-size:.9rem; }
+    .brand-title{
+      text-align:left;
+    }
+    .brand-title .eyebrow{
+      color: var(--muted-ink);
+      font-size:.85rem;
+      font-weight:600;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+    }
+    header h1{
+      margin:.25rem 0 0;
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      line-height:1.15;
+      color: var(--ink);
+    }
+    header p{
+      margin:.5rem auto 0;
+      max-width: 52ch;
+      color: var(--muted-ink);
+    }
+
+    /* ======= Card ======= */
+    main{
+      max-width: 520px;
+      margin: 2rem auto;
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(0,0,0,.06);
+    }
+
+    /* ======= Form ======= */
+    label{
+      display:block;
+      margin-top: 1rem;
+      font-weight: 650;
+    }
+    input{
+      width: 100%;
+      margin-top:.5rem;
+      padding:.8rem .9rem;
+      border:1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      color: var(--ink);
+      outline: none;
+    }
+    input::placeholder{ color:#9AA3AF; }
+    input:focus-visible{
+      border-color: var(--itau-orange);
+      box-shadow: 0 0 0 4px var(--focus-ring);
+    }
+
+    button{
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: .95rem 1rem;
+      border: none;
+      border-radius: var(--radius-md);
+      background: var(--cta-bg);
+      color: var(--cta-fg);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .06s ease, filter .12s ease;
+    }
+    button:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+    button:active{ transform: translateY(0); }
+    button:focus-visible{ box-shadow: 0 0 0 4px var(--focus-ring); }
+
+    a{ color: var(--itau-blue); text-underline-offset: 2px; }
+
+    section h2{
+      margin: 2rem 0 .5rem;
+      font-size: 1.05rem;
+    }
+    pre{
+      margin:0;
+      background: #FFFAF6;              /* sutil, derivado do laranja */
+      border: 1px solid var(--border);
+      color: #111827;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+    }
+
+    footer{
+      text-align: center;
+      padding: 1.25rem 1rem 2rem;
+      color: var(--muted-ink);
+      font-size: .95rem;
+    }
+
+    /* Acessibilidade: conteúdo invisível a olho, mas lido por leitores de tela */
+    .sr-only{
+      position:absolute !important;
+      width:1px;height:1px;
+      padding:0;border:0;overflow:hidden;
+      clip: rect(0,0,0,0); white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; }
+      header::before{ display:none; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Itau CTF – EAuth: Senha Fraca</h1>
-        <p>Faça login como administrador para acessar o token e recuperar a flag.</p>
-    </header>
-    <main>
-        <form id="login-form">
-            <label for="user">Usuário</label>
-            <input id="user" name="user" placeholder="admin" required>
-            <label for="password">Senha</label>
-            <input id="password" name="password" placeholder="••••••" type="password" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="response">Faça login para gerar um token de acesso.</pre>
-        </section>
-    </main>
-    <footer>
-        &copy; CECyber Play Labs -Itaú CTF 2025<br>
-        <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint da Flag</a
-    </footer>
-    <script>
-        const form = document.getElementById('login-form');
-        const responseBox = document.getElementById('response');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            responseBox.textContent = 'Enviando...';
-            const payload = {
-                user: form.user.value,
-                password: form.password.value
-            };
-            try {
-                const res = await fetch('/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                responseBox.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                responseBox.textContent = 'Erro: ' + error;
-            }
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>EAuth: Senha Fraca</h1>
+      </div>
+    </div>
+    <p>Entre como administrador para gerar o token e recuperar a flag.</p>
+  </header>
+
+  <main>
+    <form id="login-form" autocomplete="on" aria-describedby="login-help">
+      <p id="login-help" class="sr-only">Informe usuário e senha para gerar um token de acesso.</p>
+
+      <label for="user">Usuário</label>
+      <input id="user" name="user" placeholder="admin" required autocomplete="username" inputmode="text" />
+
+      <label for="password">Senha</label>
+      <input id="password" name="password" placeholder="••••••" type="password" required autocomplete="current-password" />
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Resposta</h2>
+      <pre id="response" role="status">Faça login para gerar um token de acesso.</pre>
+    </section>
+  </main>
+
+  <footer>
+    &copy; CECyber Play Labs — Itaú CTF 2025<br/>
+    <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const responseBox = document.getElementById('response');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      form.setAttribute('aria-busy', 'true');
+      responseBox.textContent = 'Enviando...';
+
+      const payload = {
+        user: form.user.value,
+        password: form.password.value
+      };
+
+      try {
+        const res = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
-    </script>
+
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = { raw }; }
+
+        if (!res.ok) {
+          responseBox.textContent = JSON.stringify(
+            { error: true, status: res.status, ...data }, null, 2
+          );
+        } else {
+          responseBox.textContent = JSON.stringify(data, null, 2);
+        }
+      } catch (error) {
+        responseBox.textContent = 'Erro: ' + error;
+      } finally {
+        form.removeAttribute('aria-busy');
+      }
+    });
+  </script>
 </body>
 </html>
