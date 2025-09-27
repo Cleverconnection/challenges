@@ -2,6 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
+COPY static /static
 RUN pip install flask
 ENV FLAG="ITAU2025{path_traversal_master}"
 ENV FLAG="CTF{placeholder_e5}"
