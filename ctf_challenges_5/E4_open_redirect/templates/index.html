@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>E4 – Proxy Confuso</title>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: radial-gradient(circle at top, #ffe066, #d62828); color: #003049; }
+        header { padding: 2.5rem 1rem; text-align: center; color: #003049; }
+        main { max-width: 720px; margin: 2rem auto; background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 20px; box-shadow: 0 22px 40px rgba(0,0,0,0.35); }
+        form { display: flex; flex-direction: column; gap: 1rem; }
+        input { padding: 0.9rem 1rem; border-radius: 14px; border: 2px solid #003049; font-size: 1rem; }
+        button { padding: 0.9rem 1.2rem; border-radius: 14px; border: none; background: #003049; color: #ffe066; font-weight: 600; cursor: pointer; }
+        button:hover { background: #1d3557; }
+        textarea { width: 100%; min-height: 200px; border-radius: 14px; border: 2px dashed #003049; padding: 1rem; font-family: monospace; }
+        footer { text-align: center; padding: 2rem; color: rgba(255,255,255,0.8); }
+        a { color: #003049; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itau CTF – E4: Proxy Confuso</h1>
+        <p>O endpoint <code>/fetch</code> busca qualquer URL informada. Até demais.</p>
+    </header>
+    <main>
+        <form id="fetch-form">
+            <label for="url">URL para buscar</label>
+            <input id="url" name="url" placeholder="https://example.com">
+            <button type="submit">Buscar conteúdo</button>
+        </form>
+        <section>
+            <h2>Resposta</h2>
+            <textarea id="fetch-output" readonly>Use uma URL para ver o retorno bruto.</textarea>
+        </section>
+        <section>
+            <h3>Observações</h3>
+            <ul>
+                <li>O serviço não valida destinos.</li>
+                <li>É possível acessar recursos internos.</li>
+                <li>A flag está em <code>/flag</code>.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        Experimente apontar para serviços internos da rede.</br>
+        Endpoint rápido: <a href="/fetch?url=http://localhost:8080/flag">/fetch?url=...</a>
+    </footer>
+    <script>
+        const form = document.getElementById('fetch-form');
+        const output = document.getElementById('fetch-output');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const url = form.url.value.trim();
+            if (!url) {
+                output.value = 'Informe uma URL válida';
+                return;
+            }
+            output.value = 'Buscando...';
+            try {
+                const res = await fetch(`/fetch?url=${encodeURIComponent(url)}`);
+                const text = await res.text();
+                output.value = text;
+            } catch (err) {
+                output.value = 'Erro: ' + err;
+            }
+        });
+    </script>
+</body>
+</html>
