@@ -49,11 +49,13 @@ Altere o diretório e a tag conforme o desafio desejado (`E2`, `E3`, etc.).
 
 ```bash
 sudo docker run -it --rm \
+  -e FLAG="CTF{FLAG_REAL}" \
   -p 15001:8080 \
   ctf/e1_auth_weak_pwd:latest
 ```
 
 Se desejar alterar a flag para uma instância específica, defina a variável de ambiente `FLAG` durante o `docker run`.
+A flag também é escrita em `/flag` dentro do container, facilitando integrações com scripts de verificação.
 
 ## Observações
 
