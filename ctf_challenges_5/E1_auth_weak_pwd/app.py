@@ -8,6 +8,14 @@ FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
 USERS = {
     "admin": "admin123",  # intentionally weak
     "service": "Password1",
+app = Flask(__name__, static_folder="../static", template_folder="templates")
+FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
+FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
+
+
+USERS = {
+    "admin": "admin123",  # intentionally weak
+    #"service": "Password1",
 }
 TOKENS = {}
 

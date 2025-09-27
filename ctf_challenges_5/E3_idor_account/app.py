@@ -3,6 +3,9 @@ import os
 
 app = Flask(__name__)
 FLAG = os.environ.get("FLAG", "ITAU2025{idor_bank_accounts}")
+app = Flask(__name__, static_folder="../static", template_folder="templates")
+FLAG = os.environ.get("FLAG", "ITAU2025{idor_bank_accounts}")
+FLAG = os.environ.get("FLAG", "CTF{placeholder_e3}")
 
 ACCOUNTS = {
     "1": {"id": "1", "owner": "bob", "balance": 100},

@@ -54,5 +54,73 @@
             }
         });
     </script>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E4: Proxy Confuso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E4: Proxy Confuso</h1>
+      </div>
+    </div>
+    <p>O endpoint <code>/fetch</code> aceita qualquer destino informado. Explore redirecionamentos e SSRF para chegar até a flag.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Testar proxy</h2>
+      <form id="fetch-form" aria-describedby="fetch-help">
+        <p id="fetch-help" class="sr-only">Informe uma URL completa para que o servidor realize a requisição em seu lugar.</p>
+
+        <label for="url">URL para buscar</label>
+        <input id="url" name="url" placeholder="https://example.com" inputmode="url" required>
+
+        <button type="submit">Buscar conteúdo</button>
+      </form>
+      <textarea id="fetch-output" readonly aria-live="polite" aria-atomic="true">Use uma URL para ver o retorno bruto.</textarea>
+    </section>
+
+    <section>
+      <h3>Observações</h3>
+      <ul>
+        <li>Não há validação de host, protocolo ou porta.</li>
+        <li>Recursos internos da rede ficam expostos.</li>
+        <li>A flag está servida em <code>/flag</code>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Experimente apontar para serviços internos da rede.<br>
+    Endpoint rápido: <a href="/fetch?url=http://localhost:8080/flag">/fetch?url=...</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('fetch-form');
+    const output = document.getElementById('fetch-output');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const url = form.url.value.trim();
+      if (!url) {
+        output.value = 'Informe uma URL válida.';
+        return;
+      }
+      output.value = 'Buscando...';
+
+      try {
+        const res = await fetch(`/fetch?url=${encodeURIComponent(url)}`);
+        const text = await res.text();
+        output.value = text;
+      } catch (error) {
+        output.value = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>

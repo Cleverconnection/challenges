@@ -26,6 +26,31 @@ Este diretório reúne vinte desafios independentes em Flask pensados para a edi
 | `E18_missing_tls_redirect` | TLS opcional | Serviço expõe cookies de sessão mesmo quando acessado via HTTP. | `ITAU2025{tls_redirect_missing}` |
 | `E19_file_download_path` | Download inseguro | Endpoint de download concatena caminhos permitindo fuga do diretório. | `ITAU2025{file_download_traversal}` |
 | `E20_rate_limit_none` | Brute force | Validador de OTP não impõe rate limit, permitindo força bruta ao token. | `ITAU2025{rate_limit_bypass}` |
+# Itaú CTF – Pacote de Desafios (E1–E5)
+
+Este diretório contém cinco desafios em formato de containers independentes para uso em um CTF baseado em CTFd, Proxmox ou infraestrutura similar. Cada desafio possui uma aplicação Flask com um front-end simples voltado para laboratório e o respectivo `Dockerfile` para geração da imagem.
+
+## Visão geral dos desafios
+
+| Desafio | Tema | Vetor explorado |
+|---------|------|-----------------|
+| `E1_auth_weak_pwd` | Portal de autenticação | Senhas fracas armazenadas em texto puro. |
+| `E2_jwt_noexp` | API com JWT | Token sem expiração permitindo manipulação do payload. |
+| `E3_idor_account` | Consulta de contas | Falta de controle de acesso nas rotas de conta (IDOR). |
+| `E4_open_redirect` | Proxy SSRF | Proxy que busca URLs arbitrárias sem validação. |
+| `E5_file_read` | File reader | Junção de caminhos vulnerável a path traversal. |
+
+## Flags fixas
+
+Cada serviço já inclui uma flag padrão pensada para o evento de 2025. Elas também são gravadas automaticamente em `/flag` durante o start do container.
+
+| Desafio | Flag padrão |
+|---------|-------------|
+| `E1_auth_weak_pwd` | `ITAU2025{weak_passwords_ruin_security}` |
+| `E2_jwt_noexp` | `ITAU2025{jwt_without_expiration}` |
+| `E3_idor_account` | `ITAU2025{idor_bank_accounts}` |
+| `E4_open_redirect` | `ITAU2025{ssrf_proxy_to_flag}` |
+| `E5_file_read` | `ITAU2025{path_traversal_master}` |
 
 ## Estrutura
 
@@ -49,6 +74,20 @@ sudo docker build -t ctf/e6_sql_injection_basic:latest .
 ```
 
 Altere o diretório/tag conforme o desafio desejado (`E1` até `E20`).
+    templates/     # Front-end amigável para o desafio
+    Dockerfile     # Receita da imagem do container
+```
+
+## Como construir
+
+Cada desafio pode ser construído de forma independente:
+
+```bash
+cd ctf_challenges_5/E1_auth_weak_pwd
+sudo docker build -t ctf/e1_auth_weak_pwd:latest .
+```
+
+Altere o diretório e a tag conforme o desafio desejado (`E2`, `E3`, etc.).
 
 ## Como executar localmente
 
@@ -65,5 +104,18 @@ Defina `FLAG="ITAU2025{custom}"` durante o `docker run` se quiser personalizar u
 - Nenhum desafio implementa controles de segurança reais; use apenas em ambientes isolados.
 - Os front-ends seguem o layout escuro solicitado e oferecem dicas narrativas para orientar os participantes.
 - Recursos auxiliares (arquivos, bancos, logs) são criados automaticamente dentro do container na primeira execução.
+  -e FLAG="CTF{FLAG_REAL}" \
+  -p 15001:8080 \
+  ctf/e1_auth_weak_pwd:latest
+```
+
+Se desejar alterar a flag para uma instância específica, defina a variável de ambiente `FLAG` durante o `docker run`.
+A flag também é escrita em `/flag` dentro do container, facilitando integrações com scripts de verificação.
+
+## Observações
+
+- Os desafios não implementam mecanismos de proteção deliberadamente.
+- O front-end facilita o onboarding de participantes e pode ser customizado com identidade visual.
+- Certifique-se de isolar os containers em ambientes seguros e descartar após o evento.
 
 Bom CTF! 🏦

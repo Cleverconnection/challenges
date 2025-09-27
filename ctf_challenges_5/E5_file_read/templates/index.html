@@ -54,5 +54,79 @@
             }
         });
     </script>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E5: Leitura de Arquivos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E5: Leitura de Arquivos</h1>
+      </div>
+    </div>
+    <p>O backend monta o caminho a partir de <code>?file=</code> sem qualquer normalização. Fuja de <code>/app/data</code> e encontre a flag.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Arquivos conhecidos</h2>
+      <ul>
+        {% for name in files %}
+        <li>{{ name }}</li>
+        {% else %}
+        <li>Sem arquivos listados.</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ler arquivo</h2>
+      <form id="read-form" aria-describedby="read-hint">
+        <p id="read-hint" class="sr-only">Informe um caminho relativo, válido ou usando travessia de diretórios para tentar sair de /app/data.</p>
+
+        <label for="file">Nome do arquivo</label>
+        <input id="file" name="file" placeholder="public.txt ou ../../etc/passwd" required>
+
+        <button type="submit">Ler</button>
+      </form>
+      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">Informe um caminho relativo a /app/data.</textarea>
+    </section>
+
+    <section>
+      <h3>Dicas</h3>
+      <p>O caminho é apenas concatenado. Caracteres como <code>../</code> e <code>..%2f</code> ajudam a escapar do diretório padrão.</p>
+    </section>
+  </main>
+
+  <footer>
+    Healthcheck: <a href="/health">/health</a> · Flag: <a href="/flag">/flag</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('read-form');
+    const output = document.getElementById('file-output');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const file = form.file.value.trim();
+      if (!file) {
+        output.value = 'Informe um caminho.';
+        return;
+      }
+      output.value = 'Lendo arquivo...';
+
+      try {
+        const res = await fetch(`/read?file=${encodeURIComponent(file)}`);
+        const text = await res.text();
+        output.value = text;
+      } catch (error) {
+        output.value = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>
