@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>E8 – Central de uploads</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input, button { width: 100%; padding: 0.9rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
+        button { background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itaú CTF – E8: Central de Uploads</h1>
+        <p>Arquivos enviados pelos times são publicados com nomes previsíveis.</p>
+    </header>
+    <main>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="file">Arquivo</label>
+            <input id="file" name="file" type="file" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <section>
+            <h2>Resposta</h2>
+            <pre id="upload-output">Envie um arquivo para ver como ele é publicado.</pre>
+        </section>
+        <section>
+            <h3>Dicas</h3>
+            <p>Arquivos sensíveis seguem o mesmo padrão de nomeação.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
+    </footer>
+    <script>
+        const form = document.getElementById('upload-form');
+        const output = document.getElementById('upload-output');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            output.textContent = 'Enviando...';
+            try {
+                const data = new FormData(form);
+                const res = await fetch('/upload', {
+                    method: 'POST',
+                    body: data
+                });
+                const json = await res.json();
+                output.textContent = JSON.stringify(json, null, 2);
+            } catch (error) {
+                output.textContent = 'Erro: ' + error;
+            }
+        });
+    </script>
+</body>
+</html>
