@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>E1 – Weak Password Auth</title>
+    <title>Auth: Senha Fraca</title>
     <style>
         body { font-family: Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
         header { padding: 2rem; text-align: center; background: #1b263b; }
@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <h1>Itau CTF – E1: Weak Password Portal</h1>
+        <h1>Itau CTF – EAuth: Senha Fraca</h1>
         <p>Faça login como administrador para acessar o token e recuperar a flag.</p>
     </header>
     <main>
@@ -33,15 +33,10 @@
             <h2>Resposta</h2>
             <pre id="response">Faça login para gerar um token de acesso.</pre>
         </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>As credenciais estão guardadas no servidor com senhas muito fracas.</p>
-        </section>
     </main>
     <footer>
-        &copy; 2025 Itaú CTF<br>
-        &copy; 2024 Itaú CTF<br>
-        <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN_AQUI">Endpoint da Flag</a>
+        &copy; CECyber Play Labs -Itaú CTF 2025<br>
+        <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint da Flag</a
     </footer>
     <script>
         const form = document.getElementById('login-form');
