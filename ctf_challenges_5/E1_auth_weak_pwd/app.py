@@ -4,12 +4,12 @@ import secrets
 
 app = Flask(__name__)
 FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
-FLAG = os.environ.get("FLAG", "CTF{placeholder_e1}")
+FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
 
 
 USERS = {
-    "admin": "admin123",  # intentionally weak
-    "service": "Password1",
+    "admin": "dollywood",  # intentionally weak
+    #"service": "Password1",
 }
 TOKENS = {}
 
