@@ -2,6 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
+COPY static /static
 RUN pip install flask requests
 ENV FLAG="ITAU2025{ssrf_proxy_to_flag}"
 ENV FLAG="CTF{placeholder_e4}"
