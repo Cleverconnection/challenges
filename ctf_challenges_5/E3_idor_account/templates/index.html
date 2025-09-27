@@ -1,67 +1,72 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E3 – Consulta de Contas</title>
-    <style>
-        body { margin: 0; font-family: 'Poppins', sans-serif; background: #0f0f1a; color: #fefefe; }
-        header { background: #ff914d; color: #0f0f1a; padding: 2.5rem 1rem; text-align: center; }
-        main { max-width: 840px; margin: 2rem auto; padding: 2rem; background: rgba(15, 15, 26, 0.85); border-radius: 18px; box-shadow: 0 20px 45px rgba(0,0,0,0.5); }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input { padding: 0.8rem 1rem; border-radius: 12px; border: none; font-size: 1rem; }
-        button { padding: 0.8rem 1.2rem; border-radius: 12px; border: none; background: #ff914d; color: #0f0f1a; font-size: 1rem; font-weight: 600; cursor: pointer; }
-        button:hover { background: #ffb48f; }
-        pre { background: #191933; padding: 1.2rem; border-radius: 12px; overflow-x: auto; }
-        section { margin-top: 2rem; }
-        footer { text-align: center; color: #ff914d; padding: 2rem 0; }
-        a { color: #ffb48f; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E3: IDOR em Contas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itau CTF – E3: IDOR em Contas</h1>
-        <p>Descubra qual ID esconde a flag.</p>
-    </header>
-    <main>
-        <section>
-            <h2>Buscar conta</h2>
-            <form id="account-form">
-                <label for="accid">Número da conta</label>
-                <input id="accid" name="accid" placeholder="Ex: 1" value="1">
-                <button type="submit">Consultar</button>
-            </form>
-        </section>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="account-output">Solicite uma conta para ver detalhes.</pre>
-        </section>
-        <section>
-            <h3>Contexto</h3>
-            <p>O endpoint não verifica se o usuário está autorizado a ver determinada conta. Explore as IDs.</p>
-        </section>
-    </main>
-    <footer>
-        Endpoints úteis: <code>/accounts/&lt;id&gt;</code> · <a href="/health">Healthcheck</a>
-    </footer>
-    <script>
-        const form = document.getElementById('account-form');
-        const output = document.getElementById('account-output');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const id = form.accid.value.trim();
-            if (!id) {
-                output.textContent = 'Informe um número de conta válido.';
-                return;
-            }
-            output.textContent = 'Consultando...';
-            try {
-                const res = await fetch(`/accounts/${encodeURIComponent(id)}`);
-                const data = await res.json();
-                output.textContent = JSON.stringify(data, null, 2);
-            } catch (err) {
-                output.textContent = 'Erro: ' + err;
-            }
-        });
-    </script>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E3: IDOR em Contas</h1>
+      </div>
+    </div>
+    <p>Consulte contas correntes expostas e descubra qual ID guarda a flag confidencial.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Buscar conta</h2>
+      <form id="account-form" aria-describedby="account-hint">
+        <p id="account-hint" class="sr-only">Informe um identificador de conta para visualizar os dados completos.</p>
+
+        <label for="accid">Número da conta</label>
+        <input id="accid" name="accid" placeholder="Ex.: 1" inputmode="numeric" value="1" required>
+
+        <button type="submit">Consultar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Resposta</h2>
+      <pre id="account-output" aria-live="polite" aria-atomic="true">Solicite uma conta para ver detalhes.</pre>
+    </section>
+
+    <section>
+      <h3>Contexto</h3>
+      <p>O serviço retorna qualquer conta pelo ID sem validar se você é o titular. Explore sequências previsíveis e abuse da exposição.</p>
+    </section>
+  </main>
+
+  <footer>
+    Endpoints úteis: <code>/accounts/&lt;id&gt;</code> · <a href="/health">/health</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('account-form');
+    const output = document.getElementById('account-output');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const id = form.accid.value.trim();
+      if (!id) {
+        output.textContent = 'Informe um número de conta válido.';
+        return;
+      }
+      output.textContent = 'Consultando...';
+
+      try {
+        const res = await fetch(`/accounts/${encodeURIComponent(id)}`);
+        const data = await res.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        output.textContent = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>
