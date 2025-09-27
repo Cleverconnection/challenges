@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>E6 – Busca de clientes</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 680px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
+        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itaú CTF – E6: Radar Comercial</h1>
+        <p>Analistas pesquisam clientes por nome. Mas será que só o nome pode ser buscado?</p>
+    </header>
+    <main>
+        <form id="search-form">
+            <label for="q">Nome ou termo</label>
+            <input id="q" name="q" placeholder="Bruna">
+            <button type="submit">Buscar</button>
+        </form>
+        <section>
+            <h2>Resultados</h2>
+            <pre id="results">Use a caixa acima para consultar clientes.</pre>
+        </section>
+        <section>
+            <h3>Dicas</h3>
+            <p>O relatório usa uma consulta SQL montada dinamicamente.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
+    </footer>
+    <script>
+        const form = document.getElementById('search-form');
+        const results = document.getElementById('results');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            results.textContent = 'Consultando...';
+            try {
+                const res = await fetch('/search?q=' + encodeURIComponent(form.q.value));
+                const data = await res.json();
+                results.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                results.textContent = 'Erro: ' + error;
+            }
+        });
+    </script>
+</body>
+</html>

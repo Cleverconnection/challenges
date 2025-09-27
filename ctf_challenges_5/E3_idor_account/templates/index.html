@@ -1,6 +1,64 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+    <meta charset="utf-8">
+    <title>E3 – Consulta de contas</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
+        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itaú CTF – E3: Monitor de Contas</h1>
+        <p>Será que todas as contas deveriam ser acessíveis com um simples número?</p>
+    </header>
+    <main>
+        <form id="account-form">
+            <label for="accid">ID da conta</label>
+            <input id="accid" name="accid" placeholder="1" required>
+            <button type="submit">Consultar</button>
+        </form>
+        <section>
+            <h2>Resposta</h2>
+            <pre id="account-output">Busque por IDs sequenciais e observe as diferenças.</pre>
+        </section>
+        <section>
+            <h3>Dicas</h3>
+            <p>Nem sempre há validação de proprietário em APIs internas.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
+    </footer>
+    <script>
+        const form = document.getElementById('account-form');
+        const output = document.getElementById('account-output');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            output.textContent = 'Consultando...';
+            try {
+                const res = await fetch('/accounts/' + encodeURIComponent(form.accid.value));
+                const text = await res.text();
+                try {
+                    const json = JSON.parse(text);
+                    output.textContent = JSON.stringify(json, null, 2);
+                } catch (err) {
+                    output.textContent = text;
+                }
+            } catch (error) {
+                output.textContent = 'Erro: ' + error;
+            }
+        });
+    </script>
   <meta charset="utf-8">
   <title>Itaú CTF · E3: IDOR em Contas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
