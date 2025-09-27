@@ -1,59 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E5 – Leitor de arquivos</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Itaú CTF – E5: File Hub</h1>
-        <p>Um leitor de arquivos corporativos acessa diretórios internos sem verificar o caminho.</p>
-    </header>
-    <main>
-        <form id="read-form">
-            <label for="file">Nome do arquivo</label>
-            <input id="file" name="file" placeholder="public.txt" required>
-            <button type="submit">Ler arquivo</button>
-        </form>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="read-output">Os arquivos ficam em /app/data. Será que só eles são acessíveis?</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Manipule o caminho solicitado e observe o que acontece.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const form = document.getElementById('read-form');
-        const output = document.getElementById('read-output');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            output.textContent = 'Abrindo...';
-            try {
-                const res = await fetch('/read?file=' + encodeURIComponent(form.file.value));
-                const text = await res.text();
-                output.textContent = text;
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
-        });
-    </script>
   <meta charset="utf-8">
   <title>Itaú CTF · E5: Leitura de Arquivos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,42 +15,38 @@
         <h1>E5: Leitura de Arquivos</h1>
       </div>
     </div>
-    <p>O backend monta o caminho a partir de <code>?file=</code> sem qualquer normalização. Fuja de <code>/app/data</code> e encontre a flag.</p>
+    <p>O serviço monta caminhos a partir do parâmetro <code>?file=</code> e expõe mais do que deveria.</p>
   </header>
 
   <main>
     <section>
-      <h2>Arquivos conhecidos</h2>
+      <h2>Arquivos disponíveis</h2>
       <ul>
         {% for name in files %}
         <li>{{ name }}</li>
         {% else %}
-        <li>Sem arquivos listados.</li>
+        <li>Nenhum arquivo listado.</li>
         {% endfor %}
       </ul>
     </section>
 
     <section>
       <h2>Ler arquivo</h2>
-      <form id="read-form" aria-describedby="read-hint">
-        <p id="read-hint" class="sr-only">Informe um caminho relativo, válido ou usando travessia de diretórios para tentar sair de /app/data.</p>
+      <form id="read-form" aria-describedby="read-help">
+        <p id="read-help" class="sr-only">Informe um caminho relativo enviado ao backend para visualizar o conteúdo retornado.</p>
 
-        <label for="file">Nome do arquivo</label>
-        <input id="file" name="file" placeholder="public.txt ou ../../etc/passwd" required>
+        <label for="file">Nome ou caminho</label>
+        <input id="file" name="file" placeholder="public.txt" required />
 
-        <button type="submit">Ler</button>
+        <button type="submit">Ler conteúdo</button>
       </form>
-      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">Informe um caminho relativo a /app/data.</textarea>
-    </section>
 
-    <section>
-      <h3>Dicas</h3>
-      <p>O caminho é apenas concatenado. Caracteres como <code>../</code> e <code>..%2f</code> ajudam a escapar do diretório padrão.</p>
+      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">O conteúdo solicitado aparecerá aqui.</textarea>
     </section>
   </main>
 
   <footer>
-    Healthcheck: <a href="/health">/health</a> · Flag: <a href="/flag">/flag</a>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>
@@ -112,16 +55,21 @@
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const file = form.file.value.trim();
-      if (!file) {
+      const path = form.file.value.trim();
+      if (!path) {
         output.value = 'Informe um caminho.';
         return;
       }
+
       output.value = 'Lendo arquivo...';
 
       try {
-        const res = await fetch(`/read?file=${encodeURIComponent(file)}`);
+        const res = await fetch(`/read?file=${encodeURIComponent(path)}`);
         const text = await res.text();
+        if (!res.ok) {
+          output.value = `Erro ${res.status}: ${text}`;
+          return;
+        }
         output.value = text;
       } catch (error) {
         output.value = 'Erro: ' + error;

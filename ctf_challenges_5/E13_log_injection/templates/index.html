@@ -1,62 +1,70 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E13 – Auditoria ingênua</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 720px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        textarea { width: 100%; height: 140px; border-radius: 8px; border: none; margin-top: 0.5rem; padding: 0.75rem; font-family: monospace; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; max-height: 260px; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E13: Registro de Incidentes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itaú CTF – E13: Painel de incidentes</h1>
-        <p>Mensagens são gravadas direto no log, sem saneamento.</p>
-    </header>
-    <main>
-        <form id="report-form">
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message">Falha na integração X</textarea>
-            <button type="submit">Registrar</button>
-        </form>
-        <section>
-            <h2>Logs</h2>
-            <pre id="log-output">Envie um relatório e depois leia /logs.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Caracteres de controle podem manipular o formato do log.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const form = document.getElementById('report-form');
-        const output = document.getElementById('log-output');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            output.textContent = 'Registrando...';
-            try {
-                const res = await fetch('/report', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: form.message.value })
-                });
-                await res.json();
-                const logRes = await fetch('/logs');
-                output.textContent = await logRes.text();
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E13: Registro de Incidentes</h1>
+      </div>
+    </div>
+    <p>Envie mensagens para o sistema de auditoria e acompanhe o log consolidado.</p>
+  </header>
+
+  <main>
+    <form id="report-form" aria-describedby="report-help">
+      <p id="report-help" class="sr-only">Informe o texto que será gravado diretamente no arquivo de log.</p>
+
+      <label for="message">Mensagem</label>
+      <textarea id="message" name="message">Falha na integração X</textarea>
+
+      <button type="submit">Registrar</button>
+    </form>
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Logs</h2>
+      <pre id="log-output" role="status">Os registros atualizados aparecerão aqui.</pre>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('report-form');
+    const output = document.getElementById('log-output');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      output.textContent = 'Registrando...';
+
+      try {
+        const res = await fetch('/report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: form.message.value })
         });
-    </script>
+
+        const raw = await res.text();
+        if (!res.ok) {
+          output.textContent = `Erro ${res.status}: ${raw}`;
+          return;
+        }
+
+        const logRes = await fetch('/logs');
+        output.textContent = await logRes.text();
+      } catch (error) {
+        output.textContent = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>

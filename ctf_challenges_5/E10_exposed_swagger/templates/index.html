@@ -1,51 +1,53 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E10 – Swagger exposto</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 680px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; max-height: 300px; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E10: Swagger Exposto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itaú CTF – E10: Documentação pública</h1>
-        <p>O time de suporte liberou o Swagger da API interna para facilitar os testes.</p>
-    </header>
-    <main>
-        <button id="load">Abrir swagger.json</button>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="output">Carregue o Swagger para visualizar os endpoints expostos.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Credenciais de exemplo não deveriam estar em documentação pública.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const button = document.getElementById('load');
-        const output = document.getElementById('output');
-        button.addEventListener('click', async () => {
-            output.textContent = 'Carregando...';
-            try {
-                const res = await fetch('/swagger.json');
-                const data = await res.json();
-                output.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
-        });
-    </script>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E10: Swagger Exposto</h1>
+      </div>
+    </div>
+    <p>A documentação interna ficou pública. Carregue o JSON para mapear os endpoints disponíveis.</p>
+  </header>
+
+  <main>
+    <button id="load">Abrir swagger.json</button>
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Resposta</h2>
+      <pre id="output" role="status">Carregue o Swagger para visualizar os endpoints expostos.</pre>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+  </footer>
+
+  <script>
+    const button = document.getElementById('load');
+    const output = document.getElementById('output');
+
+    button.addEventListener('click', async () => {
+      output.textContent = 'Carregando...';
+
+      try {
+        const res = await fetch('/swagger.json');
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = raw; }
+        output.textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+      } catch (error) {
+        output.textContent = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>

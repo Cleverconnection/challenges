@@ -6,7 +6,7 @@
   --ink:         #1B1B1B;      /* texto principal */
   --muted-ink:   #4B5563;      /* texto secundário */
   --surface:     #FFFFFF;      /* fundo cartão */
-  --surface-2:   #FFF6EF;      /* fundo página (tinta laranja) */
+  --surface-2:   #FFF6EF;      /* fundo página (tinte laranja) */
   --border:      #E5E7EB;      /* borda neutra */
   --focus-ring:  rgba(255,98,0,.35); /* ring de foco AA (UI ≥3:1) */
   --radius-lg:   20px;         /* canto “pedra” */
@@ -18,17 +18,17 @@
   --cta-fg:      var(--ink);
 }
 
-/* Reset mínimo e layout */
+/* ======= Reset mínimo e layout ======= */
 *{ box-sizing: border-box; }
 html{ color-scheme: light; }
 body{
   margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
   background: var(--surface-2);
   color: var(--ink);
 }
 
-/* Header com “pedra” e barra laranja */
+/* ======= Header com “pedra” e barra laranja ======= */
 header{
   background: var(--surface);
   border-top: 6px solid var(--itau-orange);
@@ -37,13 +37,14 @@ header{
   position: relative;
   overflow: hidden;
 }
+/* Pedra decorativa (sem ruído visual, respeita prefers-reduced-motion) */
 header::before{
   content:"";
   position:absolute;
   inset:auto -60px -60px auto;
   width:180px; height:180px;
   background: var(--itau-orange);
-  border-radius: 26% 22% 38% 24% / 33% 40% 28% 35%;
+  border-radius: 26% 22% 38% 24% / 33% 40% 28% 35%; /* orgânico */
   filter: blur(18px);
   opacity:.12;
   transform: rotate(-8deg);
@@ -56,8 +57,8 @@ header::before{
 .brand-badge{
   width:44px; height:44px;
   background: var(--itau-orange);
-  color: var(--ink);
-  border-radius: 12px 12px 18px 12px;
+  color: var(--ink); /* contraste AA no laranja */
+  border-radius: 12px 12px 18px 12px; /* canto mais “pesado” no canto inferior direito */
   display:grid; place-items:center;
   font-weight: 800;
   letter-spacing:.2px;
@@ -84,32 +85,24 @@ header p{
   color: var(--muted-ink);
 }
 
+/* ======= Card ======= */
 main{
-  max-width: 620px;
+  max-width: 520px;
   margin: 2rem auto;
   background: var(--surface);
-  padding: 1.8rem;
+  padding: 1.5rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: 0 16px 40px rgba(0,0,0,.06);
 }
-main > section + section{ margin-top: 2rem; }
-section h2{
-  margin: 0 0 .75rem;
-  font-size: 1.15rem;
-}
-section h3{
-  margin: 0 0 .5rem;
-  font-size: 1.05rem;
-  color: var(--muted-ink);
-}
 
+/* ======= Form ======= */
 label{
   display:block;
   margin-top: 1rem;
   font-weight: 650;
 }
-input, textarea, select{
+input, select{
   width: 100%;
   margin-top:.5rem;
   padding:.8rem .9rem;
@@ -122,17 +115,30 @@ input, textarea, select{
   font-size: 1rem;
 }
 textarea{
-  min-height: 220px;
-  resize: vertical;
+  width: 100%;
+  margin-top:.5rem;
+  padding:.8rem .9rem;
+  border:1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  color: var(--ink);
+  outline: none;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .95rem;
+  min-height: 200px;
+  resize: vertical;
 }
-input::placeholder, textarea::placeholder{ color:#9AA3AF; }
-input:focus-visible, textarea:focus-visible, select:focus-visible{
+input::placeholder,
+textarea::placeholder{ color:#9AA3AF; }
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
   border-color: var(--itau-orange);
   box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
-button{
+button,
+main > button{
   margin-top: 1.5rem;
   width: 100%;
   padding: .95rem 1rem;
@@ -145,30 +151,33 @@ button{
   cursor: pointer;
   transition: transform .06s ease, filter .12s ease;
 }
-button:hover{ filter: brightness(1.03); transform: translateY(-1px); }
-button:active{ transform: translateY(0); }
-button:focus-visible{ box-shadow: 0 0 0 4px var(--focus-ring); }
+button:hover,
+main > button:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+button:active,
+main > button:active{ transform: translateY(0); }
+button:focus-visible,
+main > button:focus-visible{ box-shadow: 0 0 0 4px var(--focus-ring); }
 
-ul{
-  padding-left: 1.1rem;
-  color: var(--muted-ink);
+section h2{
+  margin: 2rem 0 .5rem;
+  font-size: 1.05rem;
 }
-ul li + li{ margin-top:.4rem; }
-
-pre, code, textarea[readonly]{
+pre{
+  margin:0;
+  background: #FFFAF6;              /* sutil, derivado do laranja */
+  border: 1px solid var(--border);
+  color: #111827;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+textarea[readonly]{
   background: #FFFAF6;
   border: 1px solid var(--border);
   color: #111827;
   border-radius: var(--radius-sm);
-}
-pre{
-  margin:0;
   padding: 1rem;
-  overflow-x: auto;
-}
-code{
-  padding: 0 .35rem;
-  border-radius: .4rem;
+  min-height: 220px;
 }
 
 footer{
@@ -181,16 +190,13 @@ footer{
 a{ color: var(--itau-blue); text-underline-offset: 2px; }
 a:focus-visible{ outline: 4px solid var(--focus-ring); outline-offset: 2px; }
 
+/* Acessibilidade: conteúdo invisível a olho, mas lido por leitores de tela */
 .sr-only{
   position:absolute !important;
   width:1px;height:1px;
   padding:0;border:0;overflow:hidden;
   clip: rect(0,0,0,0); white-space: nowrap;
   clip-path: inset(50%);
-}
-
-@media (max-width: 640px){
-  main{ margin: 1.5rem 1rem; padding: 1.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce){

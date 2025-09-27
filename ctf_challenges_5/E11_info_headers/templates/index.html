@@ -1,55 +1,59 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E11 – Headers informativos</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E11: Headers Verbosos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itaú CTF – E11: Healthcheck verboso</h1>
-        <p>Cabecalhos de resposta podem revelar caminhos e detalhes internos.</p>
-    </header>
-    <main>
-        <button id="load">Consultar /status</button>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="output">Clique para ver os cabeçalhos da API.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Ferramentas como <code>curl -v</code> ajudam a inspecionar cabeçalhos.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const button = document.getElementById('load');
-        const output = document.getElementById('output');
-        button.addEventListener('click', async () => {
-            output.textContent = 'Consultando...';
-            try {
-                const res = await fetch('/status');
-                const data = await res.json();
-                let info = JSON.stringify(data, null, 2) + '\n\nHeaders:\n';
-                res.headers.forEach((value, key) => {
-                    info += key + ': ' + value + '\n';
-                });
-                output.textContent = info;
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E11: Headers Verbosos</h1>
+      </div>
+    </div>
+    <p>O healthcheck expõe detalhes internos nos cabeçalhos de resposta. Observe o retorno completo.</p>
+  </header>
+
+  <main>
+    <button id="load">Consultar /status</button>
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Resposta</h2>
+      <pre id="output" role="status">Clique para ver os dados e cabeçalhos retornados pela API.</pre>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+  </footer>
+
+  <script>
+    const button = document.getElementById('load');
+    const output = document.getElementById('output');
+
+    button.addEventListener('click', async () => {
+      output.textContent = 'Consultando...';
+
+      try {
+        const res = await fetch('/status');
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = raw; }
+
+        let content = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+        content += '\n\nHeaders:\n';
+        res.headers.forEach((value, key) => {
+          content += `${key}: ${value}\n`;
         });
-    </script>
+        output.textContent = content;
+      } catch (error) {
+        output.textContent = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>

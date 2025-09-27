@@ -1,51 +1,53 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E18 – Sem redirecionamento TLS</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E18: Sessões sem HTTPS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itaú CTF – E18: Sessões sem HTTPS</h1>
-        <p>O serviço deveria redirecionar para HTTPS, mas responde via HTTP mesmo assim.</p>
-    </header>
-    <main>
-        <button id="session-btn">Criar sessão</button>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="session-output">Veja como o protocolo é registrado no retorno.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Intercepte requisições HTTP e observe cookies sensíveis.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const button = document.getElementById('session-btn');
-        const output = document.getElementById('session-output');
-        button.addEventListener('click', async () => {
-            output.textContent = 'Solicitando...';
-            try {
-                const res = await fetch('/session');
-                const data = await res.json();
-                output.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
-        });
-    </script>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E18: Sessões sem HTTPS</h1>
+      </div>
+    </div>
+    <p>Teste o fluxo de criação de sessão para ver como o protocolo é tratado pelo backend.</p>
+  </header>
+
+  <main>
+    <button id="session-btn">Criar sessão</button>
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Resposta</h2>
+      <pre id="session-output" role="status">Veja como o protocolo é registrado no retorno.</pre>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+  </footer>
+
+  <script>
+    const button = document.getElementById('session-btn');
+    const output = document.getElementById('session-output');
+
+    button.addEventListener('click', async () => {
+      output.textContent = 'Solicitando...';
+
+      try {
+        const res = await fetch('/session');
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = raw; }
+        output.textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+      } catch (error) {
+        output.textContent = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>

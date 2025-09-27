@@ -1,74 +1,8 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>E1 – Weak Password Auth</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 480px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Itau CTF – E1: Weak Password Portal</h1>
-        <p>Faça login como administrador para acessar o token e recuperar a flag.</p>
-    </header>
-    <main>
-        <form id="login-form">
-            <label for="user">Usuário</label>
-            <input id="user" name="user" placeholder="admin" required>
-            <label for="password">Senha</label>
-            <input id="password" name="password" placeholder="••••••" type="password" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="response">Faça login para gerar um token de acesso.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>As credenciais estão guardadas no servidor com senhas muito fracas.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF<br>
-        <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN_AQUI">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const form = document.getElementById('login-form');
-        const responseBox = document.getElementById('response');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            responseBox.textContent = 'Enviando...';
-            const payload = {
-                user: form.user.value,
-                password: form.password.value
-            };
-            try {
-                const res = await fetch('/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                responseBox.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                responseBox.textContent = 'Erro: ' + error;
-            }
-        });
-    </script>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · EAuth: Senha Fraca</title>
+  <title>Itaú CTF · E1: Autenticação com Senha Fraca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
@@ -78,7 +12,7 @@
       <div class="brand-badge" aria-hidden="true"><span>i</span></div>
       <div class="brand-title">
         <div class="eyebrow">Itaú CTF</div>
-        <h1>EAuth: Senha Fraca</h1>
+        <h1>E1: Autenticação com Senha Fraca</h1>
       </div>
     </div>
     <p>Entre como administrador para gerar o token e recuperar a flag.</p>
@@ -104,8 +38,7 @@
   </main>
 
   <footer>
-    &copy; CECyber Play Labs — Itaú CTF 2025<br/>
-    <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint</a>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint</a>
   </footer>
 
   <script>
