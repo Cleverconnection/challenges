@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../static", template_folder="templates")
 FLAG = os.environ.get("FLAG", "ITAU2025{idor_bank_accounts}")
 FLAG = os.environ.get("FLAG", "CTF{placeholder_e3}")
 
