@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>E9 – CORS aberto</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itaú CTF – E9: API com CORS liberado</h1>
+        <p>O token de sessão é enviado para qualquer origem que fizer uma requisição.</p>
+    </header>
+    <main>
+        <button id="load">Consultar /account</button>
+        <section>
+            <h2>Resposta</h2>
+            <pre id="output">Clique no botão para visualizar o retorno da API.</pre>
+        </section>
+        <section>
+            <h3>Dicas</h3>
+            <p>O cabeçalho <code>Access-Control-Allow-Origin: *</code> permite que qualquer site consuma o JSON.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
+    </footer>
+    <script>
+        const button = document.getElementById('load');
+        const output = document.getElementById('output');
+        button.addEventListener('click', async () => {
+            output.textContent = 'Consultando...';
+            try {
+                const res = await fetch('/account', { credentials: 'include' });
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = 'Erro: ' + error;
+            }
+        });
+    </script>
+</body>
+</html>

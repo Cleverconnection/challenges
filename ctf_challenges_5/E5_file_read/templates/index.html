@@ -1,75 +1,132 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
-    <title>E5 – Leitura de Arquivos</title>
+    <title>E5 – Leitor de arquivos</title>
     <style>
-        body { margin: 0; font-family: 'Roboto', sans-serif; background: #031926; color: #f0f3bd; }
-        header { padding: 2.5rem 1rem; text-align: center; background: #468189; color: #f0f3bd; }
-        main { max-width: 800px; margin: 2rem auto; padding: 2rem; background: rgba(3, 25, 38, 0.9); border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input { padding: 0.9rem 1rem; border-radius: 12px; border: none; }
-        button { padding: 0.9rem 1.2rem; border-radius: 12px; border: none; background: #9dbebb; color: #031926; font-weight: 600; cursor: pointer; }
-        button:hover { background: #cfe0c3; }
-        textarea { width: 100%; min-height: 220px; border-radius: 12px; border: none; padding: 1rem; font-family: monospace; background: #0f3b57; color: #f0f3bd; }
-        ul { list-style: none; padding: 0; }
-        li { background: #0f3b57; margin: 0.5rem 0; padding: 0.8rem 1rem; border-radius: 10px; }
-        footer { text-align: center; color: #9dbebb; padding: 2rem 0; }
-        code { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 6px; }
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
+        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
     </style>
 </head>
 <body>
     <header>
-        <h1>Itau CTF – E5: File Reader</h1>
-        <p>O servidor monta o caminho com base no parâmetro <code>?file=</code>. Explore diretórios.</p>
+        <h1>Itaú CTF – E5: File Hub</h1>
+        <p>Um leitor de arquivos corporativos acessa diretórios internos sem verificar o caminho.</p>
     </header>
     <main>
+        <form id="read-form">
+            <label for="file">Nome do arquivo</label>
+            <input id="file" name="file" placeholder="public.txt" required>
+            <button type="submit">Ler arquivo</button>
+        </form>
         <section>
-            <h2>Arquivos conhecidos</h2>
-            <ul>
-                {% for name in files %}
-                <li>{{ name }}</li>
-                {% else %}
-                <li>Sem arquivos listados.</li>
-                {% endfor %}
-            </ul>
-        </section>
-        <section>
-            <h2>Ler arquivo</h2>
-            <form id="read-form">
-                <label for="file">Nome do arquivo</label>
-                <input id="file" name="file" placeholder="public.txt ou ../../etc/passwd">
-                <button type="submit">Ler</button>
-            </form>
-            <textarea id="file-output" readonly>Informe um caminho relativo a /app/data.</textarea>
+            <h2>Resposta</h2>
+            <pre id="read-output">Os arquivos ficam em /app/data. Será que só eles são acessíveis?</pre>
         </section>
         <section>
             <h3>Dicas</h3>
-            <p>O backend concatena caminhos sem normalização. Use diretórios relativos para fugir da pasta <code>/app/data</code>.</p>
+            <p>Manipule o caminho solicitado e observe o que acontece.</p>
         </section>
     </main>
     <footer>
-        Healthcheck: <code>/health</code> · Flag: <code>/flag</code>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
     </footer>
     <script>
         const form = document.getElementById('read-form');
-        const output = document.getElementById('file-output');
+        const output = document.getElementById('read-output');
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            const file = form.file.value.trim();
-            if (!file) {
-                output.value = 'Informe um caminho.';
-                return;
-            }
-            output.value = 'Lendo arquivo...';
+            output.textContent = 'Abrindo...';
             try {
-                const res = await fetch(`/read?file=${encodeURIComponent(file)}`);
+                const res = await fetch('/read?file=' + encodeURIComponent(form.file.value));
                 const text = await res.text();
-                output.value = text;
-            } catch (err) {
-                output.value = 'Erro: ' + err;
+                output.textContent = text;
+            } catch (error) {
+                output.textContent = 'Erro: ' + error;
             }
         });
     </script>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E5: Leitura de Arquivos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E5: Leitura de Arquivos</h1>
+      </div>
+    </div>
+    <p>O backend monta o caminho a partir de <code>?file=</code> sem qualquer normalização. Fuja de <code>/app/data</code> e encontre a flag.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Arquivos conhecidos</h2>
+      <ul>
+        {% for name in files %}
+        <li>{{ name }}</li>
+        {% else %}
+        <li>Sem arquivos listados.</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ler arquivo</h2>
+      <form id="read-form" aria-describedby="read-hint">
+        <p id="read-hint" class="sr-only">Informe um caminho relativo, válido ou usando travessia de diretórios para tentar sair de /app/data.</p>
+
+        <label for="file">Nome do arquivo</label>
+        <input id="file" name="file" placeholder="public.txt ou ../../etc/passwd" required>
+
+        <button type="submit">Ler</button>
+      </form>
+      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">Informe um caminho relativo a /app/data.</textarea>
+    </section>
+
+    <section>
+      <h3>Dicas</h3>
+      <p>O caminho é apenas concatenado. Caracteres como <code>../</code> e <code>..%2f</code> ajudam a escapar do diretório padrão.</p>
+    </section>
+  </main>
+
+  <footer>
+    Healthcheck: <a href="/health">/health</a> · Flag: <a href="/flag">/flag</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('read-form');
+    const output = document.getElementById('file-output');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const file = form.file.value.trim();
+      if (!file) {
+        output.value = 'Informe um caminho.';
+        return;
+      }
+      output.value = 'Lendo arquivo...';
+
+      try {
+        const res = await fetch(`/read?file=${encodeURIComponent(file)}`);
+        const text = await res.text();
+        output.value = text;
+      } catch (error) {
+        output.value = 'Erro: ' + error;
+      }
+    });
+  </script>
 </body>
 </html>
