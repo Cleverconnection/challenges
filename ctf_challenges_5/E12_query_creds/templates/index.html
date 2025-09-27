@@ -1,35 +1,33 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E12 – Link com credenciais</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        code { background: #1b263b; padding: 0.2rem 0.4rem; border-radius: 4px; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; word-break: break-all; }
-    </style>
+  <meta charset="utf-8">
+  <title>Itaú CTF · E12: Link com Credenciais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Itaú CTF – E12: Compartilhamento apressado</h1>
-        <p>O time de suporte envia backups por link direto com token na URL.</p>
-    </header>
-    <main>
-        <section>
-            <h2>Backup mais recente</h2>
-            <p>Link rápido enviado por e-mail:</p>
-            <p><a href="/backup?token={{ backup_token }}">/backup?token={{ backup_token }}</a></p>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Copiar e colar a URL em chats pode expor credenciais de acesso.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
+  <header>
+    <div class="brand" role="img" aria-label="Itaú CTF">
+      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+      <div class="brand-title">
+        <div class="eyebrow">Itaú CTF</div>
+        <h1>E12: Link com Credenciais</h1>
+      </div>
+    </div>
+    <p>O time compartilha backups usando parâmetros na URL. Confira o endereço utilizado.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Backup mais recente</h2>
+      <p>Link distribuído para suporte:</p>
+      <p><a href="/backup?token={{ backup_token }}">/backup?token={{ backup_token }}</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+  </footer>
 </body>
 </html>

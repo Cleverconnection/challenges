@@ -1,64 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E3 – Consulta de contas</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Itaú CTF – E3: Monitor de Contas</h1>
-        <p>Será que todas as contas deveriam ser acessíveis com um simples número?</p>
-    </header>
-    <main>
-        <form id="account-form">
-            <label for="accid">ID da conta</label>
-            <input id="accid" name="accid" placeholder="1" required>
-            <button type="submit">Consultar</button>
-        </form>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="account-output">Busque por IDs sequenciais e observe as diferenças.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <p>Nem sempre há validação de proprietário em APIs internas.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const form = document.getElementById('account-form');
-        const output = document.getElementById('account-output');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            output.textContent = 'Consultando...';
-            try {
-                const res = await fetch('/accounts/' + encodeURIComponent(form.accid.value));
-                const text = await res.text();
-                try {
-                    const json = JSON.parse(text);
-                    output.textContent = JSON.stringify(json, null, 2);
-                } catch (err) {
-                    output.textContent = text;
-                }
-            } catch (error) {
-                output.textContent = 'Erro: ' + error;
-            }
-        });
-    </script>
   <meta charset="utf-8">
   <title>Itaú CTF · E3: IDOR em Contas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,35 +15,27 @@
         <h1>E3: IDOR em Contas</h1>
       </div>
     </div>
-    <p>Consulte contas correntes expostas e descubra qual ID guarda a flag confidencial.</p>
+    <p>Consulte contas correntes pelo identificador exposto no endpoint interno.</p>
   </header>
 
   <main>
-    <section>
-      <h2>Buscar conta</h2>
-      <form id="account-form" aria-describedby="account-hint">
-        <p id="account-hint" class="sr-only">Informe um identificador de conta para visualizar os dados completos.</p>
+    <form id="account-form" aria-describedby="account-help">
+      <p id="account-help" class="sr-only">Informe um número de conta para consultar os dados retornados pela API.</p>
 
-        <label for="accid">Número da conta</label>
-        <input id="accid" name="accid" placeholder="Ex.: 1" inputmode="numeric" value="1" required>
+      <label for="accid">Número da conta</label>
+      <input id="accid" name="accid" placeholder="1" inputmode="numeric" required />
 
-        <button type="submit">Consultar</button>
-      </form>
-    </section>
+      <button type="submit">Consultar</button>
+    </form>
 
-    <section>
+    <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <pre id="account-output" aria-live="polite" aria-atomic="true">Solicite uma conta para ver detalhes.</pre>
-    </section>
-
-    <section>
-      <h3>Contexto</h3>
-      <p>O serviço retorna qualquer conta pelo ID sem validar se você é o titular. Explore sequências previsíveis e abuse da exposição.</p>
+      <pre id="account-output" role="status">O retorno da API será exibido aqui.</pre>
     </section>
   </main>
 
   <footer>
-    Endpoints úteis: <code>/accounts/&lt;id&gt;</code> · <a href="/health">/health</a>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>
@@ -112,15 +46,18 @@
       event.preventDefault();
       const id = form.accid.value.trim();
       if (!id) {
-        output.textContent = 'Informe um número de conta válido.';
+        output.textContent = 'Informe um identificador de conta.';
         return;
       }
+
       output.textContent = 'Consultando...';
 
       try {
         const res = await fetch(`/accounts/${encodeURIComponent(id)}`);
-        const data = await res.json();
-        output.textContent = JSON.stringify(data, null, 2);
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = raw; }
+        output.textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
       } catch (error) {
         output.textContent = 'Erro: ' + error;
       }

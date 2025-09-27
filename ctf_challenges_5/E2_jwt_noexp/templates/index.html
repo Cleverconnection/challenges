@@ -1,69 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <title>E2 – JWT sem expiração</title>
-    <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
-        header { padding: 2rem; text-align: center; background: #1b263b; }
-        header h1 { margin: 0; font-size: 2rem; }
-        main { max-width: 640px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
-        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background: #f4f4f4; }
-        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        footer { text-align: center; padding: 1rem; color: #778da9; }
-        a { color: #e0e1dd; }
-        ul { padding-left: 1.2rem; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Itaú CTF – E2: Tokens infinitos</h1>
-        <p>Manipule o JWT emitido pela API e descubra privilégios escondidos.</p>
-    </header>
-    <main>
-        <form id="token-form">
-            <label for="user">Usuário</label>
-            <input id="user" name="user" placeholder="guest">
-            <button type="submit">Solicitar Token</button>
-        </form>
-        <section>
-            <h2>Resposta</h2>
-            <pre id="token-output">Envie um usuário para gerar um JWT com algoritmo {{ algo }}.</pre>
-        </section>
-        <section>
-            <h3>Dicas</h3>
-            <ul>
-                <li>O token não possui <code>exp</code> ou qualquer outro limitador temporal.</li>
-                <li>O campo <code>role</code> decide quem acessa a flag.</li>
-                <li>Reaproveite o token modificado em <code>/flag</code> com o cabeçalho Authorization.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
-    </footer>
-    <script>
-        const form = document.getElementById('token-form');
-        const output = document.getElementById('token-output');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            output.textContent = 'Solicitando...';
-            try {
-                const res = await fetch('/token', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ user: form.user.value || 'guest' })
-                });
-                const data = await res.json();
-                output.textContent = JSON.stringify(data, null, 2);
-            } catch (err) {
-                output.textContent = 'Erro: ' + err;
-            }
-        });
-    </script>
   <meta charset="utf-8">
   <title>Itaú CTF · E2: JWT sem Expiração</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -78,93 +15,57 @@
         <h1>E2: JWT sem Expiração</h1>
       </div>
     </div>
-    <p>Gere um token de sessão e descubra como a ausência de <em>exp</em> abre portas para acesso prolongado.</p>
+    <p>Solicite um token de sessão para inspecionar o payload e testar privilégios ampliados.</p>
   </header>
 
   <main>
-    <section>
-      <h2>Gerar token</h2>
-      <form id="login-form" autocomplete="on" aria-describedby="login-help">
-        <p id="login-help" class="sr-only">Informe usuário e senha para receber um JWT vulnerável.</p>
+    <form id="token-form" autocomplete="on" aria-describedby="token-help">
+      <p id="token-help" class="sr-only">Informe um identificador de usuário para receber um JWT gerado sem atributo de expiração.</p>
 
-        <label for="user">Usuário</label>
-        <input id="user" name="user" placeholder="admin" autocomplete="username" required>
+      <label for="user">Usuário</label>
+      <input id="user" name="user" placeholder="guest" autocomplete="username" />
 
-        <label for="password">Senha</label>
-        <input id="password" name="password" type="password" placeholder="••••••" autocomplete="current-password" required>
+      <button type="submit">Gerar token</button>
+    </form>
 
-        <button type="submit">Gerar JWT</button>
-      </form>
-      <pre id="jwt-output" aria-live="polite" aria-atomic="true">Faça login para receber o token.</pre>
-    </section>
-
-    <section>
-      <h2>Proxy vulnerável</h2>
-      <p>Com o token em mãos, teste a chamada autenticada no proxy interno:</p>
-      <form id="fetch-form">
-        <label for="url">URL para buscar</label>
-        <input id="url" name="url" placeholder="https://example.com" inputmode="url" required>
-        <button type="submit">Buscar conteúdo</button>
-      </form>
-      <textarea id="fetch-output" readonly>Use uma URL para ver o retorno bruto.</textarea>
-    </section>
-
-    <section>
-      <h3>Observações rápidas</h3>
-      <ul>
-        <li>O backend não valida destino nem certificado.</li>
-        <li>Tokens nunca expiram — basta reutilizar.</li>
-        <li>A flag está exposta em <code>/flag</code>.</li>
-      </ul>
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Resposta</h2>
+      <pre id="token-output" role="status">Envie um usuário para gerar um JWT com algoritmo {{ algo }}.</pre>
     </section>
   </main>
 
   <footer>
-    &copy; CECyber Play Labs — Itaú CTF 2025<br>
-    Endpoints úteis: <a href="/health">/health</a> · <a href="/flag?token=TOKEN">/flag</a>
+    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>
-    const loginForm = document.getElementById('login-form');
-    const fetchForm = document.getElementById('fetch-form');
-    const jwtOutput = document.getElementById('jwt-output');
-    const fetchOutput = document.getElementById('fetch-output');
+    const form = document.getElementById('token-form');
+    const output = document.getElementById('token-output');
 
-    loginForm.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      jwtOutput.textContent = 'Enviando...';
+      output.textContent = 'Gerando token...';
 
       try {
-        const res = await fetch('/login', {
+        const res = await fetch('/token', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            user: loginForm.user.value,
-            password: loginForm.password.value
-          })
+          body: JSON.stringify({ user: form.user.value || 'guest' })
         });
-        const data = await res.json();
-        jwtOutput.textContent = JSON.stringify(data, null, 2);
-      } catch (error) {
-        jwtOutput.textContent = 'Erro: ' + error;
-      }
-    });
 
-    fetchForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const url = fetchForm.url.value.trim();
-      if (!url) {
-        fetchOutput.value = 'Informe uma URL válida.';
-        return;
-      }
-      fetchOutput.value = 'Buscando...';
+        const raw = await res.text();
+        let data;
+        try { data = JSON.parse(raw); } catch { data = { raw }; }
 
-      try {
-        const res = await fetch(`/fetch?url=${encodeURIComponent(url)}`);
-        const text = await res.text();
-        fetchOutput.value = text;
+        if (!res.ok) {
+          output.textContent = JSON.stringify(
+            { error: true, status: res.status, ...data }, null, 2
+          );
+        } else {
+          output.textContent = JSON.stringify(data, null, 2);
+        }
       } catch (error) {
-        fetchOutput.value = 'Erro: ' + error;
+        output.textContent = 'Erro: ' + error;
       }
     });
   </script>
