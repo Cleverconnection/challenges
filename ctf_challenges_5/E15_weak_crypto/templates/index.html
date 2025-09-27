@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>E15 – Token reversível</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background: #0d1b2a; color: #e0e1dd; margin: 0; }
+        header { padding: 2rem; text-align: center; background: #1b263b; }
+        main { max-width: 720px; margin: 2rem auto; background: #415a77; padding: 2rem; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; margin-top: 0.5rem; }
+        button { margin-top: 1.5rem; width: 100%; padding: 0.9rem; border: none; border-radius: 8px; background: #e0e1dd; color: #1b263b; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background: #f4f4f4; }
+        pre { background: #1b263b; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 1rem; color: #778da9; }
+        a { color: #e0e1dd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Itaú CTF – E15: Cofre Criptográfico</h1>
+        <p>Tokens são gerados com AES-ECB e chave derivada em MD5.</p>
+    </header>
+    <main>
+        <form id="token-form">
+            <label for="user">Usuário</label>
+            <input id="user" name="user" placeholder="guest">
+            <button type="submit">Gerar Token</button>
+        </form>
+        <section>
+            <h2>Resposta</h2>
+            <pre id="token-output">Gere tokens diferentes e observe o padrão.</pre>
+        </section>
+        <section>
+            <h3>Dicas</h3>
+            <p>Modos determinísticos permitem montagem de blocos reutilizando ciphertexts.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint da Flag</a>
+    </footer>
+    <script>
+        const form = document.getElementById('token-form');
+        const output = document.getElementById('token-output');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            output.textContent = 'Gerando...';
+            try {
+                const res = await fetch('/token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user: form.user.value || 'guest' })
+                });
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = 'Erro: ' + error;
+            }
+        });
+    </script>
+</body>
+</html>
