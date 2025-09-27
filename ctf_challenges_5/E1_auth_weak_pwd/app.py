@@ -8,7 +8,7 @@ FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
 
 
 USERS = {
-    "admin": "dollywood",  # intentionally weak
+    "admin": "admin123",  # intentionally weak
     #"service": "Password1",
 }
 TOKENS = {}
