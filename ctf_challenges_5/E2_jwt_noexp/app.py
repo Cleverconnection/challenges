@@ -3,6 +3,7 @@ import os
 import jwt
 
 app = Flask(__name__)
+FLAG = os.environ.get("FLAG", "ITAU2025{jwt_without_expiration}")
 FLAG = os.environ.get("FLAG", "CTF{placeholder_e2}")
 JWT_SECRET = os.environ.get("JWT_SECRET", "supersecret")
 ALGO = "HS256"

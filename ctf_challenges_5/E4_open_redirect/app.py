@@ -3,6 +3,7 @@ import os
 import requests
 
 app = Flask(__name__)
+FLAG = os.environ.get("FLAG", "ITAU2025{ssrf_proxy_to_flag}")
 FLAG = os.environ.get("FLAG", "CTF{placeholder_e4}")
 
 

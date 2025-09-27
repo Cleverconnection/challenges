@@ -12,6 +12,18 @@ Este diretório contém cinco desafios em formato de containers independentes pa
 | `E4_open_redirect` | Proxy SSRF | Proxy que busca URLs arbitrárias sem validação. |
 | `E5_file_read` | File reader | Junção de caminhos vulnerável a path traversal. |
 
+## Flags fixas
+
+Cada serviço já inclui uma flag padrão pensada para o evento de 2025. Elas também são gravadas automaticamente em `/flag` durante o start do container.
+
+| Desafio | Flag padrão |
+|---------|-------------|
+| `E1_auth_weak_pwd` | `ITAU2025{weak_passwords_ruin_security}` |
+| `E2_jwt_noexp` | `ITAU2025{jwt_without_expiration}` |
+| `E3_idor_account` | `ITAU2025{idor_bank_accounts}` |
+| `E4_open_redirect` | `ITAU2025{ssrf_proxy_to_flag}` |
+| `E5_file_read` | `ITAU2025{path_traversal_master}` |
+
 ## Estrutura
 
 ```
@@ -42,6 +54,7 @@ sudo docker run -it --rm \
   ctf/e1_auth_weak_pwd:latest
 ```
 
+Se desejar alterar a flag para uma instância específica, defina a variável de ambiente `FLAG` durante o `docker run`.
 A flag também é escrita em `/flag` dentro do container, facilitando integrações com scripts de verificação.
 
 ## Observações

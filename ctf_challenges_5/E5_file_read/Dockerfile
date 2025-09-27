@@ -3,6 +3,7 @@ WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
 RUN pip install flask
+ENV FLAG="ITAU2025{path_traversal_master}"
 ENV FLAG="CTF{placeholder_e5}"
 RUN mkdir -p /app/data && echo "decoy" > /app/data/public.txt
 EXPOSE 8080

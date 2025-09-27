@@ -3,7 +3,9 @@ import os
 import secrets
 
 app = Flask(__name__)
+FLAG = os.environ.get("FLAG", "ITAU2025{weak_passwords_ruin_security}")
 FLAG = os.environ.get("FLAG", "CTF{placeholder_e1}")
+
 
 USERS = {
     "admin": "admin123",  # intentionally weak
