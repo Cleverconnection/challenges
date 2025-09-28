@@ -2,6 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
+COPY static /app/static
 RUN pip install flask
 ENV FLAG="ITAU2025{predictable_upload_leak}"
 EXPOSE 8080

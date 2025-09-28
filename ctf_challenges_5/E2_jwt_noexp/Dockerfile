@@ -2,7 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
-COPY static /static
+COPY static /app/static
 RUN pip install flask PyJWT
 ENV FLAG="ITAU2025{jwt_without_expiration}"
 ENV JWT_SECRET="supersecret"

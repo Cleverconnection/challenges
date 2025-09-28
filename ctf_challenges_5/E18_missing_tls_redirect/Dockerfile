@@ -2,6 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py /app/
 COPY templates /app/templates
+COPY static /app/static
 RUN pip install flask
 ENV FLAG="ITAU2025{tls_redirect_missing}"
 EXPOSE 8080
