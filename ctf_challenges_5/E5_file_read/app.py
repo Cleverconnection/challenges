@@ -2,10 +2,7 @@ from flask import Flask, request, render_template
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{path_traversal_master}")
-app = Flask(__name__, static_folder="../static", template_folder="templates")
-FLAG = os.environ.get("FLAG", "ITAU2025{path_traversal_master}")
-FLAG = os.environ.get("FLAG", "CTF{placeholder_e5}")
+FLAG = "ITAU2025{path_traversal_master}"
 APP_ROOT = "/app/data"
 
 
