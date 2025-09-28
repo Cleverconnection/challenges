@@ -119,3 +119,29 @@ A flag também é escrita em `/flag` dentro do container, facilitando integraç�
 - Certifique-se de isolar os containers em ambientes seguros e descartar após o evento.
 
 Bom CTF! 🏦
+
+
+## Desafios Médios (20 pontos)
+
+| Desafio | Tema | Resumo | Flag padrão |
+|---------|------|--------|-------------|
+| `M01_auth_bypass_logic` | Auth lógico | Fluxo MFA confia em etapa enviada pelo cliente permitindo pular o token. | `ITAU2025{auth_logic_mfa_bypass}` |
+| `M02_jwt_kid_attack` | JWT | Cabeçalho `kid` e algoritmo `none` aceitos permitem forjar tokens admin. | `ITAU2025{jwt_kid_none_alg}` |
+| `M03_ssrf_internal_svc` | SSRF | Proxy de integrações alcança serviços internos com cabeçalhos customizados. | `ITAU2025{ssrf_internal_service}` |
+| `M04_concurrent_transfer_race` | Race | Transferências concorrentes debitam o mesmo saldo e duplicam créditos. | `ITAU2025{race_condition_transfer}` |
+| `M05_payment_replay` | Replay | Pagamentos sem idempotência acumulam bônus ilimitados. | `ITAU2025{payment_replay_bonus}` |
+| `M06_xml_dos_xxe_combo` | XML/XXE | Parser resolve entidades externas expondo `/flag` e aceita payloads DoS. | `ITAU2025{xml_xxe_resource_exhaust}` |
+| `M07_insecure_deserialize` | Deserialização | Servidor Java deserializa objetos arbitrários permitindo ação `admin`. | `ITAU2025{java_insecure_deserialize}` |
+| `M08_supply_chain_devops` | Supply chain | Pipeline expõe artefato com segredos e flag. | `ITAU2025{supply_chain_artifact}` |
+| `M09_privilege_escalation_api` | API roles | Merge patch aceita string em `role` promovendo usuário a admin. | `ITAU2025{api_privilege_escalation}` |
+| `M10_ssrf_s3_misuse` | SSRF/S3 | Proxy acessa bucket interno via URL arbitrária. | `ITAU2025{ssrf_s3_traversal}` |
+| `M11_confd_leak` | Config leak | Endpoint `config` devolve segredos de produção sem filtro. | `ITAU2025{config_endpoint_leak}` |
+| `M12_otp_bypass` | OTP | Códigos previsíveis dependem apenas dos dígitos do documento. | `ITAU2025{predictable_otp_bypass}` |
+| `M13_csrf_api` | CSRF | API com cookies e CORS liberado permite transferências sem token. | `ITAU2025{csrf_cookie_api}` |
+| `M14_account_merge_bug` | Merge | Fusão retorna dados completos da conta secundária com flag. | `ITAU2025{account_merge_disclosure}` |
+| `M15_ssrf_internal_metadata` | SSRF | Ferramenta lê serviço de metadados interno e vaza credenciais. | `ITAU2025{metadata_ssrf_flag}` |
+| `M16_race_balance_check` | Race | Saques simultâneos deixam saldo negativo liberando flag. | `ITAU2025{race_negative_balance}` |
+| `M17_timing_attack` | Timing | Comparação lenta de senha revela usuário/senha por tempo. | `ITAU2025{timing_leak_username}` |
+| `M18_insecure_file_serve` | Storage | Gateway concatena caminho permitindo acesso a objetos privados. | `ITAU2025{object_storage_flag}` |
+| `M19_authorization_header_splitting` | Headers | Cliente define `role` via header dividido alcançando privilégios. | `ITAU2025{auth_header_split}` |
+| `M20_log_forensics_tamper` | Logs | Console registra entradas sem sanitização e expõe flag em export. | `ITAU2025{log_tamper_flag}` |
