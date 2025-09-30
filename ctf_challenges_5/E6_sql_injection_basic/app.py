@@ -13,8 +13,7 @@ def init_db():
     created = not DB_PATH.exists()
     conn = sqlite3.connect(DB_PATH)
     if created:
-        conn.executescript(
-            """
+        schema_sql = """
             CREATE TABLE customers (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
@@ -29,10 +28,11 @@ def init_db():
                 ('Bruna', 'Conta Salário', 'Sem observações'),
                 ('Carlos', 'Conta PJ', 'Cliente novo, monitorar limites'),
                 ('Equipe Auditoria', 'Conta Especial', 'Acesso restrito');
-            INSERT INTO secrets (code, token) VALUES
-                ('flag_access', ?);
-            """,
-            (ACCESS_TOKEN,),
+        """
+        conn.executescript(schema_sql)
+        conn.execute(
+            "INSERT INTO secrets (code, token) VALUES (?, ?)",
+            ("flag_access", ACCESS_TOKEN),
         )
         conn.commit()
     conn.close()
