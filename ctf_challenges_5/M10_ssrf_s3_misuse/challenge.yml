@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{ssrf_s3_traversal}
+  - VIVO2025{ssrf_s3_traversal}
 hints:
   - content: >-
       Informe a URL interna do bucket no parâmetro <code>url</code>; a requisição ocorrerá a partir do backend.

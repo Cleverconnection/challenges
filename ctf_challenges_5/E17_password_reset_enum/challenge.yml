@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{reset_enum_abuse}
+  - VIVO2025{reset_enum_abuse}
 hints:
   - content: >-
       Observe mensagens distintas para IDs existentes vs. inexistentes e siga o link de reset.

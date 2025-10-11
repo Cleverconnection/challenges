@@ -3,7 +3,7 @@ import secrets
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{auth_logic_mfa_bypass}")
+FLAG = os.environ.get("FLAG", "VIVO2025{auth_logic_mfa_bypass}")
 USERS = {"analyst": "senh@F0rte"}
 MFA_CODES = {"analyst": "314159"}
 sessions = {}

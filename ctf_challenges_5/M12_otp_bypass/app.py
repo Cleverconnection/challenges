@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{predictable_otp_bypass}")
+FLAG = os.environ.get("FLAG", "VIVO2025{predictable_otp_bypass}")
 ACCOUNT = "98765432100"
 
 

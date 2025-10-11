@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{api_privilege_escalation}
+  - VIVO2025{api_privilege_escalation}
 hints:
   - content: >-
       Envie <code>{"role": "admin"}</code> em um PATCH — o servidor converterá a role inteira em string.

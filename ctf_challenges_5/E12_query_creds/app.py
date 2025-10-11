@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{creds_in_query}")
+FLAG = os.environ.get("FLAG", "VIVO2025{creds_in_query}")
 BACKUP_DIR = Path("/app/backups")
 BACKUP_DIR.mkdir(exist_ok=True)
 BACKUP_TOKEN = "OPS-2025-SECRET"

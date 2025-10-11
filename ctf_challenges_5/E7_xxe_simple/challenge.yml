@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{xxe_into_core}
+  - VIVO2025{xxe_into_core}
 hints:
   - content: >-
       Construa um DOCTYPE com SYSTEM file:/// apontando para um arquivo útil.

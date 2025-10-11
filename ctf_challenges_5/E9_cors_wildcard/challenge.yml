@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{cors_wildcard_token}
+  - VIVO2025{cors_wildcard_token}
 hints:
   - content: >-
       Verifique cabeçalhos CORS e tente ler dados autenticados a partir de outra origem.

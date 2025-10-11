@@ -12,7 +12,7 @@ Um fluxo de redefinição aceita identificadores numéricos e retorna links de r
 Enumerar identificadores até obter um link de reset privilegiado e usá-lo para alcançar a flag.
 
 ## Flag
-`ITAU2025{reset_enum_abuse}`
+`VIVO2025{reset_enum_abuse}`
 
 ## Dica
 Observe mensagens distintas para IDs existentes vs. inexistentes e siga o link de reset.

@@ -11,7 +11,7 @@ A função `compare_slow` itera pelos caracteres e adiciona `time.sleep(DELAY)` 
 
 ## Evidências
 - Gráfico ou tabela dos tempos coletados demonstrando diferenças de ~120ms por caractere correto.
-- Requisição final retornando `{ "status": "ok", "flag": "ITAU2025{...}" }`.
+- Requisição final retornando `{ "status": "ok", "flag": "VIVO2025{...}" }`.
 
 ## Mitigações Recomendadas
 - Usar comparação em tempo constante (`hmac.compare_digest`).

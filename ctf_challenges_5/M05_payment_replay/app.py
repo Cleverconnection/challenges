@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{payment_replay_bonus}")
+FLAG = os.environ.get("FLAG", "VIVO2025{payment_replay_bonus}")
 ledger = []
 loyalty = {"cliente": 0}
 

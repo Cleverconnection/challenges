@@ -4,7 +4,7 @@ from pathlib import Path
 import zipfile
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{public_backup_flag}")
+FLAG = os.environ.get("FLAG", "VIVO2025{public_backup_flag}")
 BACKUP_DIR = Path("/app/public")
 BACKUP_DIR.mkdir(exist_ok=True)
 ZIP_PATH = BACKUP_DIR / "backup.zip"

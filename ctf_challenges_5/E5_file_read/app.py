@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import os
 
 app = Flask(__name__)
-FLAG = "ITAU2025{path_traversal_master}"
+FLAG = "VIVO2025{path_traversal_master}"
 APP_ROOT = "/app/data"
 
 

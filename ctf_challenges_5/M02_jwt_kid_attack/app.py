@@ -5,7 +5,7 @@ import jwt
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{jwt_kid_none_alg}")
+FLAG = os.environ.get("FLAG", "VIVO2025{jwt_kid_none_alg}")
 KEY_DIR = Path(__file__).resolve().parent / "keys"
 DEFAULT_KID = "default.key"
 

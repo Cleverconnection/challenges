@@ -5,7 +5,7 @@ import requests
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{metadata_ssrf_flag}")
+FLAG = os.environ.get("FLAG", "VIVO2025{metadata_ssrf_flag}")
 
 
 @app.route("/")

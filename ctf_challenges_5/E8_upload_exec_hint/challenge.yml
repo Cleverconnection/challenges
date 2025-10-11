@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{predictable_upload_leak}
+  - VIVO2025{predictable_upload_leak}
 hints:
   - content: >-
       Liste/acuse nomes previsíveis e procure por arquivos contendo "flag".

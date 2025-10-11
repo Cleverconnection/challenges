@@ -6,7 +6,7 @@ A API confia que o cliente seguirá o fluxo correto de autenticação. O endpoin
 ## Passo a Passo
 1. **Obter `session_id`** — Envie `POST /api/start` com as credenciais fornecidas na página (`analyst` / `senh@F0rte`). A resposta inclui `session_id` e indica o próximo passo.
 2. **Ignorar MFA** — Pule `/api/mfa` e chame `POST /api/complete` com `{"session_id":"<valor>","step":"mfa_ok"}`.
-3. **Receber Flag** — O servidor devolve `{ "status": "admin", "flag": "ITAU2025{...}" }`, evidenciando o bypass.
+3. **Receber Flag** — O servidor devolve `{ "status": "admin", "flag": "VIVO2025{...}" }`, evidenciando o bypass.
 
 ## Evidências
 - Captura das respostas HTTP com status 200 e o corpo contendo o campo `flag`.

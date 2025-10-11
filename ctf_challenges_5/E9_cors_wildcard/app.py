@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template, make_response
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{cors_wildcard_token}")
+FLAG = os.environ.get("FLAG", "VIVO2025{cors_wildcard_token}")
 SESSION_TOKEN = "E9-SESSION-2025"
 
 

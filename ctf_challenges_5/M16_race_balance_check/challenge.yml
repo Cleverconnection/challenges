@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{race_negative_balance}
+  - VIVO2025{race_negative_balance}
 hints:
   - content: >-
       Envie duas requisições simultâneas retirando 1000 cada para atravessar o limite de 1500.

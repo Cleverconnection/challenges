@@ -4,7 +4,7 @@ from pathlib import Path
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{predictable_upload_leak}")
+FLAG = os.environ.get("FLAG", "VIVO2025{predictable_upload_leak}")
 UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 FLAG_NOTE = UPLOAD_DIR / "relatorio_flag.txt"

@@ -12,7 +12,7 @@ Um proxy de integrações busca conteúdo externo a partir de uma URL informada.
 Explorar o proxy para alcançar um endpoint interno protegido e obter a flag.
 
 ## Flag
-`ITAU2025{ssrf_proxy_to_flag}`
+`VIVO2025{ssrf_proxy_to_flag}`
 
 ## Dica
 Aponte o proxy para 127.0.0.1/localhost e portas não públicas.

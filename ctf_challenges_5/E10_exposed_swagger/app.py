@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{swagger_spill}")
+FLAG = os.environ.get("FLAG", "VIVO2025{swagger_spill}")
 ADMIN_KEY = "E10-ADMIN-KEY-2025"
 
 

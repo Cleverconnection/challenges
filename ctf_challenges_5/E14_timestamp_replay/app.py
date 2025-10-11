@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from collections import defaultdict
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{timestamp_replay_attack}")
+FLAG = os.environ.get("FLAG", "VIVO2025{timestamp_replay_attack}")
 BALANCES = defaultdict(int)
 TOKEN_THRESHOLD = 1000
 FLAG_TOKEN = "REPLAY-2025-CODE"

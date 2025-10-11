@@ -12,7 +12,7 @@ Um importador XML processa documentos enviados com suporte a entidades externas.
 Construir um documento XML que exponha um segredo utilizado para liberar a flag.
 
 ## Flag
-`ITAU2025{xxe_into_core}`
+`VIVO2025{xxe_into_core}`
 
 ## Dica
 Construa um `DOCTYPE` com `SYSTEM file:///` apontando para um arquivo útil.

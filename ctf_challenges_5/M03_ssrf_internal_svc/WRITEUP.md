@@ -11,7 +11,7 @@ O endpoint `/api/fetch` aceita qualquer URL HTTP e apenas bloqueia explicitament
 
 ## Evidências
 - Logs HTTP mostrando a chamada SSRF com `remote_addr=127.0.0.1` no serviço interno.
-- Resposta JSON contendo `{ "flag": "ITAU2025{...}" }` devolvida ao cliente.
+- Resposta JSON contendo `{ "flag": "VIVO2025{...}" }` devolvida ao cliente.
 
 ## Mitigações Recomendadas
 - Normalizar e validar endereços IP resolvidos (incluindo notações alternativas) antes de efetuar requisições.

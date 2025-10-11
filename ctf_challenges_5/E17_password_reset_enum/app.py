@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{reset_enum_abuse}")
+FLAG = os.environ.get("FLAG", "VIVO2025{reset_enum_abuse}")
 USERS = {
     "1001": {"email": "cliente@itau.com", "reset": "https://reset.itau/reset?token=USER-1001"},
     "4010": {"email": "suporte@itau.com", "reset": "https://reset.itau/reset?token=USER-4010"},

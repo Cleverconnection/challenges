@@ -12,7 +12,7 @@ Um painel operacional grava entradas do usuário diretamente em um arquivo de lo
 Injetar uma marcação controlada no log e utilizá-la para satisfazer a verificação que libera a flag.
 
 ## Flag
-`ITAU2025{logs_are_trust_issue}`
+`VIVO2025{logs_are_trust_issue}`
 
 ## Dica
 Envie uma entrada contendo um marcador `chave=valor` esperado pelo verificador.

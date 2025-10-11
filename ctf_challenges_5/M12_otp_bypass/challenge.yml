@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{predictable_otp_bypass}
+  - VIVO2025{predictable_otp_bypass}
 hints:
   - content: >-
       Compare a dica do endpoint <code>/api/send</code> com o número da conta e deduza que o OTP é <code>(doc % 1e6) * 3</code> mod <code>1e6</code>.

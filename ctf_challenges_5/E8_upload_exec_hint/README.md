@@ -12,7 +12,7 @@ Uma central de uploads publica arquivos enviados em uma pasta estática com nome
 Determinar o caminho de um arquivo sensível e utilizá-lo para obter a flag.
 
 ## Flag
-`ITAU2025{predictable_upload_leak}`
+`VIVO2025{predictable_upload_leak}`
 
 ## Dica
 Liste ou acesse nomes previsíveis e procure por arquivos contendo "flag".

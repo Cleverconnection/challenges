@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, make_response, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{csrf_cookie_api}")
+FLAG = os.environ.get("FLAG", "VIVO2025{csrf_cookie_api}")
 transfers = []
 
 

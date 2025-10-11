@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{api_privilege_escalation}")
+FLAG = os.environ.get("FLAG", "VIVO2025{api_privilege_escalation}")
 user = {
     "username": "analyst",
     "role": {"name": "analyst", "canApprove": False},

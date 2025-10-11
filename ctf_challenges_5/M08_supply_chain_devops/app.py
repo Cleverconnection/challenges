@@ -3,7 +3,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, send_from_directory
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{supply_chain_artifact}")
+FLAG = os.environ.get("FLAG", "VIVO2025{supply_chain_artifact}")
 ARTIFACT_DIR = Path(__file__).resolve().parent / "artifacts"
 ARTIFACT_FILE = ARTIFACT_DIR / "runner.log"
 

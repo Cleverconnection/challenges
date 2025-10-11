@@ -6,7 +6,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request, send_file
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{log_tamper_flag}")
+FLAG = os.environ.get("FLAG", "VIVO2025{log_tamper_flag}")
 LOG_DIR = Path(__file__).resolve().parent / "logs"
 LOG_FILE = LOG_DIR / "audit.log"
 

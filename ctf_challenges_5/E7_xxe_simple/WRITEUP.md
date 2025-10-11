@@ -4,7 +4,7 @@
 2. Acrescente um `DOCTYPE` declarando uma entidade externa, como `<!DOCTYPE data [ <!ENTITY secret SYSTEM "file:///etc/flag"> ]>`.
 3. Utilize a entidade no corpo do XML (`<item>&secret;</item>`) e envie novamente para o serviço.
 4. A resposta deve conter o conteúdo do arquivo referenciado; procure pelo token ou caminho indicado.
-5. Use o segredo extraído para acessar o endpoint final e obtenha a flag `ITAU2025{xxe_into_core}`.
+5. Use o segredo extraído para acessar o endpoint final e obtenha a flag `VIVO2025{xxe_into_core}`.
 
 ## Lições
 - Configure parsers XML para desabilitar DTDs e entidades externas (XXE).

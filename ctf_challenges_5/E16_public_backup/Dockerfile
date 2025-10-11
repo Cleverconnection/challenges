@@ -4,6 +4,6 @@ COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 RUN pip install flask
-ENV FLAG="ITAU2025{public_backup_flag}"
+ENV FLAG="VIVO2025{public_backup_flag}"
 EXPOSE 8080
 CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; python app.py"]

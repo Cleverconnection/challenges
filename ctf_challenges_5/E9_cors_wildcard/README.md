@@ -12,7 +12,7 @@ Uma API foi publicada com configuração CORS permissiva, permitindo que página
 Demonstrar a leitura indevida e usar o artefato exposto para recuperar a flag.
 
 ## Flag
-`ITAU2025{cors_wildcard_token}`
+`VIVO2025{cors_wildcard_token}`
 
 ## Dica
 Verifique cabeçalhos CORS e tente ler dados autenticados a partir de outra origem.

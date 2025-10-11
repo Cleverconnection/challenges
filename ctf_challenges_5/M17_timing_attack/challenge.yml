@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{timing_leak_username}
+  - VIVO2025{timing_leak_username}
 hints:
   - content: >-
       Teste <code>executivo</code> como usuário e meça o tempo por caractere para deduzir a senha numérica.
