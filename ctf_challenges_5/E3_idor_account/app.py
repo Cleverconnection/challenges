@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
-FLAG = "ITAU2025{idor_bank_accounts}"
+FLAG = "VIVO2025{idor_bank_accounts}"
 
 ACCOUNTS = {
     "1": {"id": "1", "owner": "bob", "balance": 100},

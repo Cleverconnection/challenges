@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{ssrf_internal_service}
+  - VIVO2025{ssrf_internal_service}
 hints:
   - content: >-
       Use a própria aplicação para requisitar <code>http://127.0.0.1:8080/internal/ops</code> incluindo o header <code>X-Internal-Key</code>.

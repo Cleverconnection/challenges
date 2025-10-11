@@ -4,7 +4,7 @@ import sqlite3
 from pathlib import Path
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{sqli_in_the_branch}")
+FLAG = os.environ.get("FLAG", "VIVO2025{sqli_in_the_branch}")
 DB_PATH = Path("/app/data.db")
 ACCESS_TOKEN = "E6-ACCESS-2025"
 

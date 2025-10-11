@@ -21,7 +21,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{payment_replay_bonus}
+  - VIVO2025{payment_replay_bonus}
 hints:
   - content: >-
       Replique o mesmo JSON várias vezes; não existe verificação do campo <code>reference</code>.

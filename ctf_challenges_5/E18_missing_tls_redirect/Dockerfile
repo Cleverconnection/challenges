@@ -4,6 +4,6 @@ COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 RUN pip install flask
-ENV FLAG="ITAU2025{tls_redirect_missing}"
+ENV FLAG="VIVO2025{tls_redirect_missing}"
 EXPOSE 8080
 CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; python app.py"]

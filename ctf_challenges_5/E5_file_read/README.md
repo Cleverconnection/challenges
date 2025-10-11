@@ -12,7 +12,7 @@ Um leitor de arquivos serve documentos a partir de um diretório base do contain
 Realizar travessia de diretórios para ler o arquivo de flag localizado fora da pasta pública.
 
 ## Flag
-`ITAU2025{path_traversal_master}`
+`VIVO2025{path_traversal_master}`
 
 ## Dica
 Teste sequências com `../` para sair do diretório exposto.

@@ -12,7 +12,7 @@ O motor de transações aceita o mesmo timestamp diversas vezes dentro de uma ja
 Repetir a mesma transação de forma controlada até acionar o retorno que libera a flag.
 
 ## Flag
-`ITAU2025{timestamp_replay_attack}`
+`VIVO2025{timestamp_replay_attack}`
 
 ## Dica
 Repita a requisição com o mesmo timestamp até atingir o gatilho.

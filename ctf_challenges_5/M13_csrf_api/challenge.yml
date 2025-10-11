@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{csrf_cookie_api}
+  - VIVO2025{csrf_cookie_api}
 hints:
   - content: >-
       Faça uma chamada cross-site ou use o próprio console com <code>fetch('/api/transfer', {method:'POST',credentials:'include',body:'{"to":"shadow","amount":1200}',headers:{'Content-Type':'application/json'}})</code>.

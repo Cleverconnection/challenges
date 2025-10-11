@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{headers_tell_secrets}")
+FLAG = os.environ.get("FLAG", "VIVO2025{headers_tell_secrets}")
 INTERNAL_PATH = Path("/srv/bank/flag_hint.txt")
 INTERNAL_PATH.parent.mkdir(parents=True, exist_ok=True)
 HINT_VALUE = "E11-HINT-2025"

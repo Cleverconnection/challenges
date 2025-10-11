@@ -3,7 +3,7 @@ from copy import deepcopy
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{account_merge_disclosure}")
+FLAG = os.environ.get("FLAG", "VIVO2025{account_merge_disclosure}")
 accounts = {
     "1001": {"id": "1001", "owner": "Cliente Standard", "notes": "saldo regular"},
     "2300": {"id": "2300", "owner": "Agência Digital", "notes": "conta compartilhada"},

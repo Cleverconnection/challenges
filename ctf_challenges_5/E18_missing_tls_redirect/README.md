@@ -12,7 +12,7 @@ Um serviço opera simultaneamente em HTTP e HTTPS sem forçar redirecionamento s
 Capturar informações de sessão acessando o serviço de forma não cifrada e utilizá-las para recuperar a flag.
 
 ## Flag
-`ITAU2025{tls_redirect_missing}`
+`VIVO2025{tls_redirect_missing}`
 
 ## Dica
 Acesse via HTTP simples e verifique cookies ou JSON de sessão.

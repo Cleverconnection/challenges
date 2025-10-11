@@ -5,7 +5,7 @@ import requests
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{ssrf_internal_service}")
+FLAG = os.environ.get("FLAG", "VIVO2025{ssrf_internal_service}")
 INTERNAL_KEY = "svc-admin-2025"
 
 

@@ -29,7 +29,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{timestamp_replay_attack}
+  - VIVO2025{timestamp_replay_attack}
 hints:
   - content: >-
       Repita a requisição com o mesmo timestamp até atingir o gatilho.

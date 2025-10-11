@@ -23,7 +23,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{auth_logic_mfa_bypass}
+  - VIVO2025{auth_logic_mfa_bypass}
 hints:
   - content: >-
       Observe o corpo enviado em <code>/api/complete</code> e teste valores diferentes para o campo <code>step</code>.

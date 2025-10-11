@@ -19,4 +19,4 @@ O processo de fusão de contas retorna tanto o registro primário atualizado qua
 3. Realize `POST /api/merge` definindo `primary` como uma conta comum (ex.: `1001`) e `secondary` como `7777`.
 
 ## Como Capturar a Flag
-- A resposta do merge inclui `"secondary": {"notes": "ITAU2025{...}"}`. Basta ler o JSON retornado.
+- A resposta do merge inclui `"secondary": {"notes": "VIVO2025{...}"}`. Basta ler o JSON retornado.

@@ -31,7 +31,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{jwt_without_expiration}
+  - VIVO2025{jwt_without_expiration}
 hints:
   - content: >-
       Inspecione o token e o payload; há um campo de função sem expiração para explorar.

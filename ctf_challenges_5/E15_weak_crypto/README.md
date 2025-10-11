@@ -12,7 +12,7 @@ Tokens internos são cifrados em modo de bloco sem aleatoriedade adequada, permi
 Construir um token aceito como privilegiado e obter a flag.
 
 ## Flag
-`ITAU2025{weak_crypto_modes}`
+`VIVO2025{weak_crypto_modes}`
 
 ## Dica
 Alinhe campos sensíveis em limites de bloco e faça cut-and-paste.

@@ -12,7 +12,7 @@ import java.nio.file.Path;
 import java.util.Base64;
 
 public class JobServer {
-    private static final String FLAG = System.getenv().getOrDefault("FLAG", "ITAU2025{java_insecure_deserialize}");
+    private static final String FLAG = System.getenv().getOrDefault("FLAG", "VIVO2025{java_insecure_deserialize}");
 
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);

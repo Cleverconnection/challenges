@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{swagger_spill}
+  - VIVO2025{swagger_spill}
 hints:
   - content: >-
       Abra o swagger.json e verifique valores "example" em chaves de autenticação.

@@ -5,6 +5,6 @@ COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 RUN pip install flask lxml
-ENV FLAG="ITAU2025{xml_xxe_resource_exhaust}"
+ENV FLAG="VIVO2025{xml_xxe_resource_exhaust}"
 EXPOSE 8080
 CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; python app.py"]

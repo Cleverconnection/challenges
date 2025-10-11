@@ -11,7 +11,7 @@ O proxy simplesmente usa `requests.get` para a URL fornecida. O endpoint `/s3/in
 
 ## Evidências
 - Logs do endpoint S3 registrando `remote_addr=127.0.0.1` originado pelo proxy.
-- Resposta do proxy com `status: 200` e corpo contendo `flag: ITAU2025{...}`.
+- Resposta do proxy com `status: 200` e corpo contendo `flag: VIVO2025{...}`.
 
 ## Mitigações Recomendadas
 - Implementar allowlist de destinos externos legítimos.

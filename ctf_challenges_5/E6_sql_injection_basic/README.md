@@ -12,7 +12,7 @@ Um gerador de relatórios monta consultas ao banco de dados concatenando strings
 Injetar SQL para recuperar um token ou dado que permita obter a flag do serviço.
 
 ## Flag
-`ITAU2025{sqli_in_the_branch}`
+`VIVO2025{sqli_in_the_branch}`
 
 ## Dica
 Procure parâmetros refletidos em cláusulas `LIKE` e tente `UNION` com o número correto de colunas.

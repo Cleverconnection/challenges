@@ -3,7 +3,7 @@ import time
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{timing_leak_username}")
+FLAG = os.environ.get("FLAG", "VIVO2025{timing_leak_username}")
 USERS = {"executivo": "9246"}
 DELAY = 0.12
 

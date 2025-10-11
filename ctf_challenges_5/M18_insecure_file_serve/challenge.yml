@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{object_storage_flag}
+  - VIVO2025{object_storage_flag}
 hints:
   - content: >-
       Requisite <code>?path=../private/flag.txt</code> para escapar da pasta pública.

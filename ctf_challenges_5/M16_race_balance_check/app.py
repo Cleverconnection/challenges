@@ -3,7 +3,7 @@ import time
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{race_negative_balance}")
+FLAG = os.environ.get("FLAG", "VIVO2025{race_negative_balance}")
 state = {"checking": 1500, "credit": 500}
 
 

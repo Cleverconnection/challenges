@@ -2,7 +2,7 @@ from flask import Flask, request, Response, render_template
 import requests
 
 app = Flask(__name__)
-FLAG = "ITAU2025{ssrf_proxy_to_flag}"
+FLAG = "VIVO2025{ssrf_proxy_to_flag}"
 
 
 @app.route("/")

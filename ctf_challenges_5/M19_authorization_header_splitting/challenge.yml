@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{auth_header_split}
+  - VIVO2025{auth_header_split}
 hints:
   - content: >-
       Basta anexar <code>;role=admin</code> ao header já fornecido na interface.

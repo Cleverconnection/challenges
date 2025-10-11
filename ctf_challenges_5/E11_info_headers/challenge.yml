@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{headers_tell_secrets}
+  - VIVO2025{headers_tell_secrets}
 hints:
   - content: >-
       Leia os cabeçalhos X-* e siga o caminho indicado para o arquivo de dica.
