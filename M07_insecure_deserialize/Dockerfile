@@ -3,7 +3,7 @@ WORKDIR /app
 COPY public /app/public
 COPY src /app/src
 RUN mkdir -p /app/out \
- && javac -d /app/out /app/src/com/itau/ctf/*.java
+ && javac -d /app/out /app/src/com/vivo/ctf/*.java
 ENV FLAG="VIVO2025{java_insecure_deserialize}"
 EXPOSE 8080
-CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; java -cp /app/out com.itau.ctf.JobServer"]
+CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; java -cp /app/out com.vivo.ctf.JobServer"]

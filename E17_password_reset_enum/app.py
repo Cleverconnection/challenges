@@ -4,9 +4,9 @@ import os
 app = Flask(__name__)
 FLAG = os.environ.get("FLAG", "VIVO2025{reset_enum_abuse}")
 USERS = {
-    "1001": {"email": "cliente@itau.com", "reset": "https://reset.itau/reset?token=USER-1001"},
-    "4010": {"email": "suporte@itau.com", "reset": "https://reset.itau/reset?token=USER-4010"},
-    "9001": {"email": "ceo@itau.com", "reset": "https://reset.itau/reset?token=RESET-2025-ADMIN"},
+    "1001": {"email": "cliente@vivo.com", "reset": "https://reset.vivo/reset?token=USER-1001"},
+    "4010": {"email": "suporte@vivo.com", "reset": "https://reset.vivo/reset?token=USER-4010"},
+    "9001": {"email": "ceo@vivo.com", "reset": "https://reset.vivo/reset?token=RESET-2025-ADMIN"},
 }
 
 

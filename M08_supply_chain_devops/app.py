@@ -10,7 +10,7 @@ ARTIFACT_FILE = ARTIFACT_DIR / "runner.log"
 
 def ensure_artifact():
     ARTIFACT_DIR.mkdir(exist_ok=True)
-    content = """Pipeline: release-candidate\nStatus: success\nImage pushed: registry.devops/itau/core:2025.04\nSecret token: {flag}\n""".format(flag=FLAG)
+    content = """Pipeline: release-candidate\nStatus: success\nImage pushed: registry.devops/vivo/core:2025.04\nSecret token: {flag}\n""".format(flag=FLAG)
     ARTIFACT_FILE.write_text(content)
 
 
