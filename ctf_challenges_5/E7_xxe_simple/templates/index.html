@@ -2,44 +2,44 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Importação XML</title>
+  <title>Vivo CTF · Importação XML</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Importação XML</h1>
       </div>
     </div>
-    <p>Envie XMLs para o importador de extratos e observe como o backend interpreta o conteúdo.</p>
+    <p>O time de engenharia da Vivo consome arquivos XML para atualizar o inventário de backbone. Envie cargas para o importador e veja como o backend interpreta as entidades.</p>
   </header>
 
   <main>
     <form id="xml-form" aria-describedby="xml-help">
-      <p id="xml-help" class="sr-only">Cole o conteúdo XML que será enviado ao servidor para processamento.</p>
+      <p id="xml-help" class="sr-only">Cole o conteúdo XML que será encaminhado ao importador de inventário para processamento.</p>
 
       <label for="xml">Conteúdo XML</label>
       <textarea id="xml" name="xml">&lt;?xml version="1.0"?&gt;
-<extrato>
-  <customer>0001</customer>
-  <message>Envie um XML diferente</message>
-</extrato></textarea>
+<inventario>
+  <olt>0001</olt>
+  <mensagem>Envie um XML diferente</mensagem>
+</inventario></textarea>
 
       <button type="submit">Processar</button>
     </form>
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <pre id="xml-output" role="status">Envie um XML para visualizar o processamento.</pre>
+      <pre id="xml-output" role="status">Envie um XML para visualizar a resposta do importador da Vivo.</pre>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>
