@@ -4,7 +4,7 @@
 A aplicação grava mensagens fornecidas pelo cliente diretamente no arquivo `audit.log` e permite exportar o conteúdo sem qualquer verificação. Como o arquivo já contém a flag, basta lê-la; adicionalmente, é possível encobrir rastros inserindo mensagens enganosas.
 
 ## Passo a Passo
-1. `GET /api/logs` para listar as últimas linhas — observe `vault;flag;ITAU2025{...}`.
+1. `GET /api/logs` para listar as últimas linhas — observe `vault;flag;VIVO2025{...}`.
 2. Opcionalmente, `POST /api/logs/write` com uma mensagem personalizada para adicionar ruído.
 3. `GET /api/logs/export` e abra `audit.log` dentro do ZIP para confirmar a manipulação e a presença da flag.
 

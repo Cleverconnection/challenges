@@ -12,7 +12,7 @@ Um arquivo de backup foi deixado acessível na raiz do serviço web. Ele contém
 Baixar o pacote, extrair e recuperar a flag indicada.
 
 ## Flag
-`ITAU2025{public_backup_flag}`
+`VIVO2025{public_backup_flag}`
 
 ## Dica
 Baixe `backup.zip`, extraia e procure por flag/proof no conteúdo.

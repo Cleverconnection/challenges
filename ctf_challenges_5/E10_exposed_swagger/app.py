@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{swagger_spill}")
+FLAG = os.environ.get("FLAG", "VIVO2025{swagger_spill}")
 ADMIN_KEY = "E10-ADMIN-KEY-2025"
 
 
@@ -21,7 +21,7 @@ def swagger():
     spec = {
         "openapi": "3.0.1",
         "info": {
-            "title": "Itaú Internal Ops",
+            "title": "Vivo Internal Ops",
             "version": "1.0.0",
             "description": "Spec interno para integrações de suporte."
         },

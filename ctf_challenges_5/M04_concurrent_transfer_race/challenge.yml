@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{race_condition_transfer}
+  - VIVO2025{race_condition_transfer}
 hints:
   - content: >-
       Dispare duas requisições simultâneas de mesmo valor usando ferramentas como <code>curl</code> ou <code>burp repeater</code>.

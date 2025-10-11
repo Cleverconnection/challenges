@@ -12,7 +12,7 @@ Um verificador de código temporário permite tentativas ilimitadas e usa um esp
 Realizar tentativas até encontrar o código aceito e obter a flag.
 
 ## Flag
-`ITAU2025{rate_limit_none}`
+`VIVO2025{rate_limit_none}`
 
 ## Dica
 Use paralelismo moderado e monitore a primeira resposta de sucesso.

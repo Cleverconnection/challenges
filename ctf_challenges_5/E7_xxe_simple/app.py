@@ -4,7 +4,7 @@ from pathlib import Path
 from lxml import etree
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{xxe_into_core}")
+FLAG = os.environ.get("FLAG", "VIVO2025{xxe_into_core}")
 DATA_DIR = Path("/app/data")
 SECRET_CODE_PATH = DATA_DIR / "xxe_secret.txt"
 ACCESS_CODE = "xml-core-2025"

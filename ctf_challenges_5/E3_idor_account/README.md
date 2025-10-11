@@ -12,7 +12,7 @@ Um serviço de contas expõe um endpoint de consulta por identificador numérico
 Identificar um ID de conta privilegiada e, a partir dos dados expostos, recuperar a flag.
 
 ## Flag
-`ITAU2025{idor_bank_accounts}`
+`VIVO2025{idor_bank_accounts}`
 
 ## Dica
 IDs são previsíveis; compare respostas e procure campos extras em contas de alto nível.

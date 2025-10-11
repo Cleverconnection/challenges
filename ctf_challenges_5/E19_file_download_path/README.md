@@ -12,7 +12,7 @@ Um endpoint de download aceita caminhos arbitrários para localizar arquivos, pe
 Fornecer um caminho que conduza a um arquivo com token e usá-lo para obter a flag.
 
 ## Flag
-`ITAU2025{file_download_traversal}`
+`VIVO2025{file_download_traversal}`
 
 ## Dica
 Tente caminhos absolutos ou `../` para alcançar a pasta interna alvo.

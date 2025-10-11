@@ -11,7 +11,7 @@ A função `update()` aceita tanto objetos quanto strings para o campo `role`. Q
 
 ## Evidências
 - Requisição PATCH retornando role `admin`.
-- Requisição subsequente a `/flag` devolvendo `ITAU2025{...}`.
+- Requisição subsequente a `/flag` devolvendo `VIVO2025{...}`.
 
 ## Mitigações Recomendadas
 - Validar tipos esperados com schemas (JSON Schema, Marshmallow etc.).

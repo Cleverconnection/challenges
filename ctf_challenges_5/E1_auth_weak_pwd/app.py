@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import secrets
 
 app = Flask(__name__)
-FLAG = "ITAU2025{weak_passwords_ruin_security}"
+FLAG = "VIVO2025{weak_passwords_ruin_security}"
 
 USERS = {
     "admin": "admin123",  # intentionally weak

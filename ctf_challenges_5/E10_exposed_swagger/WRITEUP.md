@@ -4,7 +4,7 @@
 2. Analise os campos `securitySchemes` ou parâmetros com valores `example` ou `default`; frequentemente contêm tokens reais ou credenciais básicas.
 3. Use as próprias ferramentas da interface para testar a rota interna mencionada na documentação (por exemplo, `/internal/flag`).
 4. Inclua o token ou header encontrado nos exemplos ao executar a requisição.
-5. Receba a resposta com a flag `ITAU2025{swagger_spill}`.
+5. Receba a resposta com a flag `VIVO2025{swagger_spill}`.
 
 ## Lições
 - Documentação pública não deve expor segredos reais ou ambientes internos.

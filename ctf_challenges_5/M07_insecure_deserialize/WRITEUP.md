@@ -16,7 +16,7 @@ A classe `DeserializeHandler` cria um `ObjectInputStream` sobre qualquer payload
 3. A resposta virá com o corpo contendo a flag.
 
 ## Evidências
-- Resposta HTTP 200 retornando `ITAU2025{...}` imediatamente após o POST.
+- Resposta HTTP 200 retornando `VIVO2025{...}` imediatamente após o POST.
 - Logs da aplicação indicando desserialização da classe `com.itau.ctf.TrustedEnvelope`.
 
 ## Mitigações Recomendadas

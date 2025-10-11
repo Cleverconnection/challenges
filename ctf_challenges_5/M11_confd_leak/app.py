@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{config_endpoint_leak}")
+FLAG = os.environ.get("FLAG", "VIVO2025{config_endpoint_leak}")
 CONFIGS = {
     "dev": {"db": "postgres://dev"},
     "prod": {

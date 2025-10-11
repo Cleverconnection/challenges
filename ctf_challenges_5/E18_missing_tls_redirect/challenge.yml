@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{tls_redirect_missing}
+  - VIVO2025{tls_redirect_missing}
 hints:
   - content: >-
       Acesse via HTTP simples e verifique cookies ou JSON de sessão.

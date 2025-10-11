@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{java_insecure_deserialize}
+  - VIVO2025{java_insecure_deserialize}
 hints:
   - content: >-
       Compile a classe <code>TrustedEnvelope</code> e gere um objeto com <code>action=admin</code> usando <code>java -jar ysoserial.jar</code> ou código próprio.

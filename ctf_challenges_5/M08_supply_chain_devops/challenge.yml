@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{supply_chain_artifact}
+  - VIVO2025{supply_chain_artifact}
 hints:
   - content: >-
       A rota <code>/api/pipelines/latest</code> informa o caminho direto para download do log com segredos.

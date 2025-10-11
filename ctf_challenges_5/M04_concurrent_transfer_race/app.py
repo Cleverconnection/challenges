@@ -3,7 +3,7 @@ import time
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{race_condition_transfer}")
+FLAG = os.environ.get("FLAG", "VIVO2025{race_condition_transfer}")
 accounts = {
     "pagamentos": {"owner": "Tesouraria", "balance": 3000},
     "cobrancas": {"owner": "Cobrança", "balance": 2800},

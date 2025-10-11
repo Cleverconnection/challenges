@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{path_traversal_master}
+  - VIVO2025{path_traversal_master}
 hints:
   - content: >-
       Teste sequências com ../ para sair do diretório exposto.

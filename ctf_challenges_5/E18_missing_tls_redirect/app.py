@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template, make_response
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{tls_redirect_missing}")
+FLAG = os.environ.get("FLAG", "VIVO2025{tls_redirect_missing}")
 SESSION_VALUE = "E18-SESSION-2025"
 
 

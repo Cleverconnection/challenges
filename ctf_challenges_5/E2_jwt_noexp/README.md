@@ -12,7 +12,7 @@ Uma API interna emite tokens JWT para aplicações de backoffice sem expiração
 Obter um token válido, ajustar o payload para elevar privilégios e acessar o recurso protegido que expõe a flag.
 
 ## Flag
-`ITAU2025{jwt_without_expiration}`
+`VIVO2025{jwt_without_expiration}`
 
 ## Dica
 Inspecione o token e o payload; há um campo de função sem expiração para explorar.

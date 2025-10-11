@@ -30,7 +30,7 @@ extra:
   minimum: 10
 connection_info: Container
 flags:
-  - ITAU2025{weak_crypto_modes}
+  - VIVO2025{weak_crypto_modes}
 hints:
   - content: >-
       Alinhe campos sensíveis em limites de bloco e faça cut-and-paste.

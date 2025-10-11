@@ -1,1 +1,1 @@
-ITAU2025{object_storage_flag}
+VIVO2025{object_storage_flag}

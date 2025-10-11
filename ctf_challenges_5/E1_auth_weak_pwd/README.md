@@ -12,7 +12,7 @@ Uma aplicação legada continua em produção para dar suporte a funcionalidades
 Encontrar credenciais válidas explorando senhas fracas, recuperar o token interno e utilizá-lo para acessar recursos protegidos e obter a flag.
 
 ## Flag
-`ITAU2025{weak_passwords_ruin_security}`
+`VIVO2025{weak_passwords_ruin_security}`
 
 ## Dica
 O token de login não é a flag; utilize-o no endpoint indicado pela aplicação para avançar.

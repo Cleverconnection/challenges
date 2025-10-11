@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{file_download_traversal}")
+FLAG = os.environ.get("FLAG", "VIVO2025{file_download_traversal}")
 BASE_DIR = Path("/app/files")
 BASE_DIR.mkdir(exist_ok=True)
 TOKEN_FILE = BASE_DIR / "flag_token.txt"

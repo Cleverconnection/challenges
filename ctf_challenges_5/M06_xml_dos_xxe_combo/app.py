@@ -3,7 +3,7 @@ from flask import Flask, jsonify, render_template, request
 from lxml import etree
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{xml_xxe_resource_exhaust}")
+FLAG = os.environ.get("FLAG", "VIVO2025{xml_xxe_resource_exhaust}")
 
 
 @app.route("/")

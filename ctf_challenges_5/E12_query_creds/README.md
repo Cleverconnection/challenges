@@ -12,7 +12,7 @@ Um link de backup foi compartilhado com um token na própria query string e cont
 Localizar o link com token válido e utilizá-lo para recuperar a flag.
 
 ## Flag
-`ITAU2025{creds_in_query}`
+`VIVO2025{creds_in_query}`
 
 ## Dica
 Procure um link com `?token=<valor>` na página inicial.

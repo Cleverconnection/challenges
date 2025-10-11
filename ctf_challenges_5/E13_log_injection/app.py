@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{logs_are_trust_issue}")
+FLAG = os.environ.get("FLAG", "VIVO2025{logs_are_trust_issue}")
 LOG_FILE = Path("/app/audit.log")
 LOG_FILE.touch(exist_ok=True)
 

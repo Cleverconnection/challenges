@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import os
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{rate_limit_bypass}")
+FLAG = os.environ.get("FLAG", "VIVO2025{rate_limit_bypass}")
 SECRET_OTP = "7391"
 FLAG_TOKEN = "RATE-LIMIT-2025"
 

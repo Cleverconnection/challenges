@@ -2,20 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Leitor Amplo</title>
+  <title>Vivo CTF · Leitor Amplo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Leitor Amplo</h1>
       </div>
     </div>
-    <p>O serviço monta caminhos a partir do parâmetro <code>?file=</code> e expõe mais do que deveria.</p>
+    <p>O painel de inventário da Vivo permite que engenheiros visualizem arquivos de configuração enviando o parâmetro <code>?file=</code>. Explore o backend para acessar itens além da pasta pública.</p>
   </header>
 
   <main>
@@ -33,20 +33,20 @@
     <section>
       <h2>Ler arquivo</h2>
       <form id="read-form" aria-describedby="read-help">
-        <p id="read-help" class="sr-only">Informe um caminho relativo enviado ao backend para visualizar o conteúdo retornado.</p>
+        <p id="read-help" class="sr-only">Informe um caminho relativo que será enviado ao backend de inventário para ler o conteúdo bruto.</p>
 
         <label for="file">Nome ou caminho</label>
-        <input id="file" name="file" placeholder="public.txt" required />
+        <input id="file" name="file" placeholder="public/logs.txt" required />
 
         <button type="submit">Ler conteúdo</button>
       </form>
 
-      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">O conteúdo solicitado aparecerá aqui.</textarea>
+      <textarea id="file-output" readonly aria-live="polite" aria-atomic="true">O conteúdo do arquivo requisitado aparece aqui.</textarea>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>

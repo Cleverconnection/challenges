@@ -22,7 +22,7 @@ extra:
   minimum: 20
 connection_info: Container
 flags:
-  - ITAU2025{account_merge_disclosure}
+  - VIVO2025{account_merge_disclosure}
 hints:
   - content: >-
       Mande <code>{"primary":"1001","secondary":"7777"}</code> para <code>/api/merge</code> e observe a resposta.

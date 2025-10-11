@@ -6,7 +6,7 @@ O backend expõe diretamente o diretório `artifacts/` sem autenticação. O job
 ## Passo a Passo
 1. Requisitar `/api/pipelines/latest` para confirmar o caminho do artefato.
 2. Baixar `http://localhost:8080/artifact/runner.log`.
-3. Ler a linha `Secret token: ITAU2025{...}` no conteúdo retornado.
+3. Ler a linha `Secret token: VIVO2025{...}` no conteúdo retornado.
 
 ## Evidências
 - Resposta 200 contendo o log completo com a flag.

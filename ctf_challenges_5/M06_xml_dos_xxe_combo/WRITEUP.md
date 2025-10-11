@@ -6,7 +6,7 @@ O parser `lxml.etree` está configurado com `resolve_entities=True`, `load_dtd=T
 ## Passo a Passo
 1. Prepare o XML com DTD inline que define `<!ENTITY flag SYSTEM "http://127.0.0.1:8080/flag">`.
 2. Envie o payload para `/api/import` utilizando `curl --data-binary @payload.xml`.
-3. A resposta JSON trará o campo `echo` com o conteúdo retornado pelo endpoint referenciado, incluindo `ITAU2025{...}`.
+3. A resposta JSON trará o campo `echo` com o conteúdo retornado pelo endpoint referenciado, incluindo `VIVO2025{...}`.
 
 ## Evidências
 - Captura do request/resposta mostrando o XML retornado com a flag.

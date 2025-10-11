@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-FLAG = os.environ.get("FLAG", "ITAU2025{auth_header_split}")
+FLAG = os.environ.get("FLAG", "VIVO2025{auth_header_split}")
 VALID_TOKEN = "svc-ops-2025"
 
 

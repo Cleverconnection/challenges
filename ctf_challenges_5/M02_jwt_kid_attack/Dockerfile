@@ -5,6 +5,6 @@ COPY keys /app/keys
 COPY templates /app/templates
 COPY static /app/static
 RUN pip install flask pyjwt
-ENV FLAG="ITAU2025{jwt_kid_none_alg}"
+ENV FLAG="VIVO2025{jwt_kid_none_alg}"
 EXPOSE 8080
 CMD ["sh", "-c", "echo -n \"$FLAG\" > /flag || true; python app.py"]
