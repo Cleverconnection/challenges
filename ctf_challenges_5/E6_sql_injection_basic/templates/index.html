@@ -2,40 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Relatório Aberto</title>
+  <title>Vivo CTF · Relatório Aberto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Relatório Aberto</h1>
       </div>
     </div>
-    <p>O relatório comercial monta consultas SQL diretamente com o termo enviado.</p>
+    <p>O time comercial da Vivo tem um relatório de churn que monta consultas SQL com o termo informado sem sanitização. Pesquise clientes e tente extrair dados adicionais.</p>
   </header>
 
   <main>
     <form id="search-form" aria-describedby="search-help">
-      <p id="search-help" class="sr-only">Informe um nome ou fragmento para realizar a pesquisa no banco de clientes.</p>
+      <p id="search-help" class="sr-only">Informe um nome ou fragmento para executar a consulta direta no banco de assinantes.</p>
 
       <label for="q">Termo de busca</label>
-      <input id="q" name="q" placeholder="Bruna" />
+      <input id="q" name="q" placeholder="Silva" />
 
       <button type="submit">Buscar</button>
     </form>
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resultados</h2>
-      <pre id="results" role="status">Use a caixa acima para consultar clientes.</pre>
+      <pre id="results" role="status">Use a caixa acima para consultar clientes da base da Vivo.</pre>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>

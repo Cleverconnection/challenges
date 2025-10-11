@@ -2,25 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Senha Fraca</title>
+  <title>Vivo CTF · Senha Fraca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Senha Fraca</h1>
       </div>
     </div>
-    <p>Entre como administrador para gerar o token e recuperar a flag.</p>
+    <p>O painel de provisão de fibra da Vivo mantém uma conta administrativa com senha fraca. Acesse o console para emitir o token de suporte.</p>
   </header>
 
   <main>
     <form id="login-form" autocomplete="on" aria-describedby="login-help">
-      <p id="login-help" class="sr-only">Informe usuário e senha para gerar um token de acesso.</p>
+      <p id="login-help" class="sr-only">Informe usuário e senha do painel de provisão para solicitar um novo token de suporte.</p>
 
       <label for="user">Usuário</label>
       <input id="user" name="user" placeholder="admin" required autocomplete="username" inputmode="text" />
@@ -33,12 +33,12 @@
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <pre id="response" role="status">Faça login para gerar um token de acesso.</pre>
+      <pre id="response" role="status">Autentique-se para gerar o token interno de suporte.</pre>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag?token=TOKEN">Endpoint</a>
   </footer>
 
   <script>

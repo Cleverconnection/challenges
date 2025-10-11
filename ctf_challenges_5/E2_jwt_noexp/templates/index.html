@@ -2,25 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Chave Persistente</title>
+  <title>Vivo CTF · Chave Persistente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Chave Persistente</h1>
       </div>
     </div>
-    <p>Solicite um token de sessão para inspecionar o payload e testar privilégios ampliados.</p>
+    <p>O centro de atendimento da Vivo gera tokens JWT para os analistas, mas esqueceu de configurar expiração. Gere um token e avalie como obter privilégios de supervisão.</p>
   </header>
 
   <main>
     <form id="token-form" autocomplete="on" aria-describedby="token-help">
-      <p id="token-help" class="sr-only">Informe um identificador de usuário para receber um JWT gerado sem atributo de expiração.</p>
+      <p id="token-help" class="sr-only">Informe um identificador de usuário para receber o JWT emitido pelo portal de atendimento sem data de expiração.</p>
 
       <label for="user">Usuário</label>
       <input id="user" name="user" placeholder="guest" autocomplete="username" />
@@ -30,12 +30,12 @@
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <pre id="token-output" role="status">Envie um usuário para gerar um JWT com algoritmo {{ algo }}.</pre>
+      <pre id="token-output" role="status">Envie um usuário para gerar o JWT de atendimento com algoritmo {{ algo }}.</pre>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>

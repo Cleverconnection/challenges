@@ -2,40 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Download Genérico</title>
+  <title>Vivo CTF · Download Genérico</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Download Genérico</h1>
       </div>
     </div>
-    <p>Informe caminhos para o serviço de arquivos e avalie o que pode ser acessado.</p>
+    <p>O portal interno da Vivo permite que técnicos baixem logs de ONTs e roteadores corporativos. Teste caminhos e veja se diretórios sensíveis podem ser expostos.</p>
   </header>
 
   <main>
     <form id="download-form" aria-describedby="download-help">
-      <p id="download-help" class="sr-only">Forneça o caminho desejado para baixar o conteúdo retornado pelo backend.</p>
+      <p id="download-help" class="sr-only">Informe o caminho desejado e o sistema retornará o conteúdo bruto provido pelo backend de suporte.</p>
 
       <label for="path">Caminho do arquivo</label>
-      <input id="path" name="path" placeholder="flag_token.txt" />
+      <input id="path" name="path" placeholder="logs/clientes/001/status.txt" />
 
       <button type="submit">Baixar</button>
     </form>
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <textarea id="download-output" readonly role="status">Veja o conteúdo dos arquivos baixados.</textarea>
+      <textarea id="download-output" readonly role="status">O conteúdo dos arquivos requisitados aparecerá aqui.</textarea>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>
