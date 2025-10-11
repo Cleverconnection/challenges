@@ -7,7 +7,7 @@ from Crypto.Util.Padding import pad, unpad
 
 app = Flask(__name__)
 FLAG = os.environ.get("FLAG", "VIVO2025{weak_crypto_modes}")
-SECRET = b"itau-static-key"
+SECRET = b"vivo-static-key"
 KEY = md5(SECRET).digest()  # derivação fraca
 
 

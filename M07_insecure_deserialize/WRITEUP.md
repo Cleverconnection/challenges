@@ -17,7 +17,7 @@ A classe `DeserializeHandler` cria um `ObjectInputStream` sobre qualquer payload
 
 ## Evidências
 - Resposta HTTP 200 retornando `VIVO2025{...}` imediatamente após o POST.
-- Logs da aplicação indicando desserialização da classe `com.itau.ctf.TrustedEnvelope`.
+- Logs da aplicação indicando desserialização da classe `com.vivo.ctf.TrustedEnvelope`.
 
 ## Mitigações Recomendadas
 - Aplicar `ObjectInputFilter` restritivo ou migrar para formatos seguros (JSON, protobuf).

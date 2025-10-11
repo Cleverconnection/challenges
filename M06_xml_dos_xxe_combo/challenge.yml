@@ -25,5 +25,5 @@ flags:
   - VIVO2025{xml_xxe_resource_exhaust}
 hints:
   - content: >-
-      Use um DTD com <code>&lt;!ENTITY itau SYSTEM "file:///flag"&gt;</code> e faça referência à entidade no corpo.
+      Use um DTD com <code>&lt;!ENTITY vivo SYSTEM "file:///flag"&gt;</code> e faça referência à entidade no corpo.
     cost: 5
