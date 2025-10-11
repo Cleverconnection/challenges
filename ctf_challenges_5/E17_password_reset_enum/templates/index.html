@@ -2,27 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Redefinição Generosa</title>
+  <title>Vivo CTF · Redefinição Generosa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Redefinição Generosa</h1>
       </div>
     </div>
-    <p>Descubra como o endpoint de recuperação responde a identificadores sequenciais.</p>
+    <p>O fluxo de esqueci minha senha do Meu Vivo responde de forma diferente para cada assinante. Observe como o endpoint se comporta ao testar identificadores sequenciais.</p>
   </header>
 
   <main>
     <form id="forgot-form" aria-describedby="forgot-help">
-      <p id="forgot-help" class="sr-only">Informe o identificador do usuário para solicitar o link de redefinição.</p>
+      <p id="forgot-help" class="sr-only">Informe o identificador do assinante para solicitar o link de redefinição.</p>
 
-      <label for="user">ID do usuário</label>
+      <label for="user">ID do assinante</label>
       <input id="user" name="user" placeholder="1001" inputmode="numeric" />
 
       <button type="submit">Solicitar reset</button>
@@ -35,7 +35,7 @@
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>

@@ -2,27 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Transação Repetida</title>
+  <title>Vivo CTF · Transação Repetida</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Transação Repetida</h1>
       </div>
     </div>
-    <p>Envie transferências com timestamp arbitrário e avalie como o motor valida os eventos.</p>
+    <p>O motor de recarga da Vivo Pay aceita transferências com timestamp informado pelo cliente. Teste envios repetidos e avalie como o backend trata eventos antigos.</p>
   </header>
 
   <main>
     <form id="transfer-form" aria-describedby="transfer-help">
-      <p id="transfer-help" class="sr-only">Informe conta, valor e timestamp para simular uma transferência processada pelo backend.</p>
+      <p id="transfer-help" class="sr-only">Informe linha, valor e timestamp para simular uma recarga processada pelo backend.</p>
 
-      <label for="account">Conta destino</label>
+      <label for="account">Linha destino</label>
       <input id="account" name="account" placeholder="000123" autocomplete="off" />
 
       <label for="amount">Valor (máx 100)</label>
@@ -36,12 +36,12 @@
 
     <section aria-live="polite" aria-atomic="true">
       <h2>Resposta</h2>
-      <pre id="transfer-output" role="status">Os detalhes da transação serão exibidos aqui.</pre>
+      <pre id="transfer-output" role="status">Os detalhes da recarga enviada serão exibidos aqui.</pre>
     </section>
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a> · <a href="/flag">Endpoint</a>
   </footer>
 
   <script>

@@ -11,7 +11,7 @@ O Job Server Java aceita objetos serializados enviados em Base64 e assume que s�
 ## Serviços Disponíveis
 - `POST /api/jobs` — Recebe `payload=<base64>` via formulário.
 - `GET /flag` — Bloqueado diretamente, apenas retornado quando um envelope com `action=admin` é desserializado.
-- Arquivos estáticos (`index.html`, `theme.css`) com instruções no tema Itaú.
+- Arquivos estáticos (`index.html`, `theme.css`) com instruções no tema Vivo.
 
 ## Como Executar
 1. Compile o projeto com `./gradlew shadowJar` ou utilize o binário fornecido na imagem Docker (feito automaticamente).

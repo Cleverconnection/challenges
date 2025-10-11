@@ -11,7 +11,7 @@ Um proxy corporativo deveria permitir apenas URLs externas, mas aceita qualquer 
 ## Serviços Disponíveis
 - `GET /api/proxy?url=` — Proxy inseguro utilizado pelo workflow.
 - `GET /s3/internal/<key>` — Simulação de bucket S3 com controle por IP (somente localhost).
-- `GET /` — Interface com instruções no tema Itaú.
+- `GET /` — Interface com instruções no tema Vivo.
 
 ## Como Executar
 1. Suba o container.

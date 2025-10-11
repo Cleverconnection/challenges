@@ -2,27 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Itaú CTF · Race Condition</title>
+  <title>Vivo CTF · Race Condition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
 </head>
 <body>
   <header>
-    <div class="brand" role="img" aria-label="Itaú CTF">
-      <div class="brand-badge" aria-hidden="true"><span>i</span></div>
+    <div class="brand" role="img" aria-label="Vivo CTF">
+      <div class="brand-badge" aria-hidden="true"><span>V</span></div>
       <div class="brand-title">
-        <div class="eyebrow">Itaú CTF</div>
+        <div class="eyebrow">Vivo CTF</div>
         <h1>Painel de Transferências</h1>
       </div>
     </div>
-    <p>Envios em paralelo usam apenas validação otimista. Duas solicitações simultâneas podem consumir o mesmo saldo.</p>
+    <p>O painel de ajustes da Vivo usa validação otimista para transferências internas. Dispare requisições em paralelo e veja como duas solicitações consomem o mesmo saldo.</p>
   </header>
 
   <main>
     <section>
       <h2>Estado das contas</h2>
       <button id="refresh">Atualizar</button>
-      <pre id="state">Clique em atualizar para ver os saldos.</pre>
+      <pre id="state">Clique em atualizar para ver os saldos das carteiras internas.</pre>
     </section>
 
     <section>
@@ -41,7 +41,7 @@
   </main>
 
   <footer>
-    © 2025 CECyber Play Labs - Itaú CTF · <a href="/health">Healthcheck</a>
+    © 2025 CECyber Play Labs - Vivo CTF · <a href="/health">Healthcheck</a>
   </footer>
 
   <script>

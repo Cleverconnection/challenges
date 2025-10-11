@@ -21,7 +21,7 @@ def swagger():
     spec = {
         "openapi": "3.0.1",
         "info": {
-            "title": "Itaú Internal Ops",
+            "title": "Vivo Internal Ops",
             "version": "1.0.0",
             "description": "Spec interno para integrações de suporte."
         },

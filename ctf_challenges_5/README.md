@@ -1,32 +1,32 @@
-# Itaú CTF – Pacote de Desafios (E1–E20)
+# Vivo CTF – Pacote de Desafios (E1–E20)
 
-Este diretório reúne vinte desafios independentes em Flask pensados para a edição 2025 do CTF Itaú. Cada serviço possui front-end padronizado com a identidade visual solicitada e um Dockerfile dedicado para facilitar o build e a publicação em ambientes CTFd, Proxmox ou infraestrutura similar.
+Este diretório reúne vinte desafios independentes em Flask pensados para a edição 2025 do CTF Vivo. Cada serviço possui front-end padronizado com a identidade visual solicitada da Telefônica/Vivo e um Dockerfile dedicado para facilitar o build e a publicação em ambientes CTFd, Proxmox ou infraestrutura similar.
 
 ## Visão geral dos desafios
 
 | Desafio | Tema | Enredo | Flag padrão |
 |---------|------|--------|-------------|
-| `E1_auth_weak_pwd` | Autenticação | Portal legado usa senhas triviais para gerar tokens internos. | `ITAU2025{weak_passwords_ruin_security}` |
-| `E2_jwt_noexp` | API JWT | Token sem expiração permite manipular o payload para escalar privilégios. | `ITAU2025{jwt_without_expiration}` |
-| `E3_idor_account` | IDOR | Consulta de contas não verifica o proprietário e expõe dados executivos. | `ITAU2025{idor_bank_accounts}` |
-| `E4_open_redirect` | SSRF | Proxy de integrações faz fetch de qualquer URL informada pelo operador. | `ITAU2025{ssrf_proxy_to_flag}` |
-| `E5_file_read` | Path traversal | Leitor corporativo acessa caminhos arbitrários dentro do container. | `ITAU2025{path_traversal_master}` |
-| `E6_sql_injection_basic` | SQL Injection | Relatório comercial monta consultas com concatenação simples permitindo UNION. | `ITAU2025{sqli_in_the_branch}` |
-| `E7_xxe_simple` | XXE | Importador XML aceita entidades externas e revela códigos internos. | `ITAU2025{xxe_into_core}` |
-| `E8_upload_exec_hint` | Upload inseguro | Central de uploads publica arquivos com nomes previsíveis ao lado de notas sigilosas. | `ITAU2025{predictable_upload_leak}` |
-| `E9_cors_wildcard` | CORS | API responde com `Access-Control-Allow-Origin: *`, expondo o token de sessão. | `ITAU2025{cors_wildcard_token}` |
-| `E10_exposed_swagger` | Swagger público | Documentação interna vazou com exemplos contendo chaves reais. | `ITAU2025{swagger_spill}` |
-| `E11_info_headers` | Headers verbosos | Healthcheck entrega cabeçalhos com caminhos e dicas de arquivos sensíveis. | `ITAU2025{headers_tell_secrets}` |
-| `E12_query_creds` | Credenciais na URL | Link de backup inclui token em query string compartilhado por e-mail. | `ITAU2025{creds_in_query}` |
-| `E13_log_injection` | Log injection | Painel de incidentes grava input bruto permitindo forjar entradas válidas. | `ITAU2025{logs_are_trust_issue}` |
-| `E14_timestamp_replay` | Replay de transações | Motor antifraude aceita o mesmo timestamp diversas vezes e acumula créditos. | `ITAU2025{timestamp_replay_attack}` |
-| `E15_weak_crypto` | Criptografia fraca | Tokens usam AES-ECB com chave derivada em MD5, permitindo corte e montagem. | `ITAU2025{weak_crypto_modes}` |
-| `E16_public_backup` | Backup público | Arquivo `backup.zip` fica acessível na raiz com flag embutida. | `ITAU2025{public_backup_flag}` |
-| `E17_password_reset_enum` | Enumeração | Portal de reset aceita qualquer ID numérico e retorna link privilegiado. | `ITAU2025{reset_enum_abuse}` |
-| `E18_missing_tls_redirect` | TLS opcional | Serviço expõe cookies de sessão mesmo quando acessado via HTTP. | `ITAU2025{tls_redirect_missing}` |
-| `E19_file_download_path` | Download inseguro | Endpoint de download concatena caminhos permitindo fuga do diretório. | `ITAU2025{file_download_traversal}` |
-| `E20_rate_limit_none` | Brute force | Validador de OTP não impõe rate limit, permitindo força bruta ao token. | `ITAU2025{rate_limit_bypass}` |
-# Itaú CTF – Pacote de Desafios (E1–E5)
+| `E1_auth_weak_pwd` | Autenticação | Portal de provisão de fibra usa credenciais triviais para gerar tokens internos. | `ITAU2025{weak_passwords_ruin_security}` |
+| `E2_jwt_noexp` | API JWT | Portal de atendimento gera JWT sem expiração permitindo manipular privilégios. | `ITAU2025{jwt_without_expiration}` |
+| `E3_idor_account` | IDOR | CRM da Vivo expõe dados de assinantes ao consultar pelo identificador. | `ITAU2025{idor_bank_accounts}` |
+| `E4_open_redirect` | SSRF | Portal de monitoramento segue qualquer URL informada pelo operador. | `ITAU2025{ssrf_proxy_to_flag}` |
+| `E5_file_read` | Path traversal | Inventário de redes lê caminhos arbitrários dentro do container. | `ITAU2025{path_traversal_master}` |
+| `E6_sql_injection_basic` | SQL Injection | Relatório de churn monta consultas com concatenação simples permitindo UNION. | `ITAU2025{sqli_in_the_branch}` |
+| `E7_xxe_simple` | XXE | Importador de inventário aceita entidades externas e revela códigos internos. | `ITAU2025{xxe_into_core}` |
+| `E8_upload_exec_hint` | Upload inseguro | Portal de instaladores publica arquivos com nomes previsíveis ao lado de notas sigilosas. | `ITAU2025{predictable_upload_leak}` |
+| `E9_cors_wildcard` | CORS | Painel Meu Vivo responde com `Access-Control-Allow-Origin: *`, expondo o token de sessão. | `ITAU2025{cors_wildcard_token}` |
+| `E10_exposed_swagger` | Swagger público | Documentação da plataforma de parceiros vazou com exemplos contendo chaves reais. | `ITAU2025{swagger_spill}` |
+| `E11_info_headers` | Headers verbosos | Healthcheck da CDN entrega cabeçalhos com caminhos e dicas de arquivos sensíveis. | `ITAU2025{headers_tell_secrets}` |
+| `E12_query_creds` | Credenciais na URL | Backup do OSS inclui token em query string compartilhado por e-mail. | `ITAU2025{creds_in_query}` |
+| `E13_log_injection` | Log injection | SIEM da Vivo grava input bruto permitindo forjar entradas válidas. | `ITAU2025{logs_are_trust_issue}` |
+| `E14_timestamp_replay` | Replay de transações | Motor de recarga aceita o mesmo timestamp diversas vezes e acumula créditos. | `ITAU2025{timestamp_replay_attack}` |
+| `E15_weak_crypto` | Criptografia fraca | Tokens de agendamento usam AES-ECB com chave derivada em MD5, permitindo corte e montagem. | `ITAU2025{weak_crypto_modes}` |
+| `E16_public_backup` | Backup público | Snapshot do portal OSS fica acessível na raiz com flag embutida. | `ITAU2025{public_backup_flag}` |
+| `E17_password_reset_enum` | Enumeração | Fluxo de reset do Meu Vivo aceita qualquer ID numérico e retorna link privilegiado. | `ITAU2025{reset_enum_abuse}` |
+| `E18_missing_tls_redirect` | TLS opcional | Portal legado expõe cookies de sessão mesmo quando acessado via HTTP. | `ITAU2025{tls_redirect_missing}` |
+| `E19_file_download_path` | Download inseguro | Portal interno de logs concatena caminhos permitindo fuga do diretório. | `ITAU2025{file_download_traversal}` |
+| `E20_rate_limit_none` | Brute force | Portal de ativação valida OTP sem rate limit, permitindo força bruta. | `ITAU2025{rate_limit_bypass}` |
+# Vivo CTF – Pacote de Desafios (E1–E5)
 
 Este diretório contém cinco desafios em formato de containers independentes para uso em um CTF baseado em CTFd, Proxmox ou infraestrutura similar. Cada desafio possui uma aplicação Flask com um front-end simples voltado para laboratório e o respectivo `Dockerfile` para geração da imagem.
 
