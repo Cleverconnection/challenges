@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Supervisora do Apollo</title>
+    <style>
+      body { background: #030b19; color: #f0f7ff; font-family: "Barlow", sans-serif; margin: 0; padding: 2rem; }
+      main { max-width: 820px; margin: auto; background: rgba(6, 18, 44, 0.9); border-radius: 14px; padding: 2.5rem; box-shadow: 0 0 40px rgba(0,0,0,0.45); }
+      h1 { margin-top: 0; }
+      code { background: rgba(255,255,255,0.1); padding: 0.25rem 0.45rem; border-radius: 4px; }
+      ul { line-height: 1.7; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Supervisora do Apollo</h1>
+      <p>Margaret Hamilton redefiniu a confiabilidade do software ao liderar a equipe de voo do Apollo 11. Você foi
+      convidada para revisar o console que monitora alarmes do Módulo Lunar. A rotina correta precisa ser reativada
+      antes que a tripulação toque o solo.</p>
+      <p>Console disponível:</p>
+      <ul>
+        <li><code>GET /alarms</code> — lista alarmes ativos (1201, 1202...).</li>
+        <li><code>GET /checklist</code> — detalha as etapas de recuperação.</li>
+        <li><code>GET /guidance?program=...</code> — aguarda o código completo responsável por priorizar a fila de tarefas.</li>
+      </ul>
+      <p>Reconstrua o comando sugerido por Hamilton nas anotações da checklist, informe-o em caixa alta no endpoint
+      <code>/guidance</code> e recupere a mensagem da missão.</p>
+      <p><strong>Flag:</strong> `CTF{...}`.</p>
+    </main>
+  </body>
+</html>

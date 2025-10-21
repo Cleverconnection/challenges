@@ -1,0 +1,27 @@
+name: Trinity — A Hacker que Libertou Consciências
+category: Cultura Pop / OSINT
+value: 100
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Trinity foi a responsável por despertar Neo em Matrix. No primeiro encontro, ele descobre que o hacker que invadiu
+    um órgão governamental não era um homem. Resgate esse momento e explique a origem da surpresa.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Pesquise o diálogo entre Neo e Trinity no clube. Depois envie a resposta para <code>/verify</code> com o motivo da
+    surpresa em formato textual para receber a flag.</p>
+  <p>Formato: <code>CTF{motivo_da_surpresa}</code>.</p>
+type: container
+extra:
+  initial: 100
+  delay: 0
+  minimum: 100
+connection_info:
+  container:
+    flags:
+      - CTF{Banco_de_Dados_da_Receita}
+    hints:
+      - content: Revise a fala em que Trinity confessa a invasão a um banco de dados governamental.
+        cost: 0
+      - content: O endpoint aceita respostas equivalentes a "Banco de Dados da Receita".
+        cost: 5

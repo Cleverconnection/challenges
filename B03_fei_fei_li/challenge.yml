@@ -1,0 +1,28 @@
+name: Atlas de Visão
+category: Web
+value: 200
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Fei-Fei Li disponibilizou o painel interno do ImageNet para que você reconstrua a etiqueta que nomeou a primeira
+    versão do dataset. Os segmentos do catálogo foram separados e precisam ser reagrupados para liberar o acesso ao
+    laboratório de visão computacional.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Consulte <code>/dataset</code>, combine os fragmentos textuais e envie a tag montada em <code>/vision</code> usando um
+    corpo JSON. Se o valor estiver correto, a aplicação revela a flag.
+  </p>
+type: container
+extra:
+  initial: 200
+  delay: 0
+  minimum: 200
+connection_info:
+  container:
+    flags:
+      - CTF{Seeing_The_Unseen}
+    hints:
+      - content: Os fragmentos retornados em <code>/dataset</code> formam o nome "IMAGENET-2009".
+        cost: 0
+      - content: Envie um JSON com a lista <code>{"tags": ["IMAGENET-2009"]}</code> para <code>/vision</code>.
+        cost: 15

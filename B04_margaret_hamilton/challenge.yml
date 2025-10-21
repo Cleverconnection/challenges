@@ -1,0 +1,28 @@
+name: Supervisora do Apollo
+category: Web
+value: 170
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Margaret Hamilton deixou um console de monitoramento do Módulo Lunar para testar novas equipes de engenharia.
+    Alarmes 1201/1202 foram disparados e você precisa aplicar o override planejado por ela antes que o pouso seja
+    abortado.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Consulte <code>/checklist</code>, encontre o código recomendado e envie-o como parâmetro em <code>/guidance</code> para
+    receber a flag.
+  </p>
+type: container
+extra:
+  initial: 170
+  delay: 0
+  minimum: 170
+connection_info:
+  container:
+    flags:
+      - CTF{Software_On_The_Moon}
+    hints:
+      - content: A checklist expõe textualmente a string necessária para o parâmetro <code>program</code>.
+        cost: 0
+      - content: O endpoint aceita somente caixa alta: <code>PROG1201-OVERRIDE</code>.
+        cost: 10

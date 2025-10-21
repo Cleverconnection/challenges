@@ -1,0 +1,30 @@
+name: Depuradora do Mark I
+category: Web
+value: 150
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Grace Hopper deixou um console de manutenção que registra a sequência de fitas perfuradas do Harvard Mark I.
+    Um bug reapareceu e precisa ser neutralizado: somente quem reconstruir o opcode secreto consegue ativar o patch.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Acesse <code>/console</code>, colete as iniciais das fitas e reenvie o nome da linguagem pioneira de Hopper em
+    <code>/punchcard</code>. Ao informar o opcode correto, a aplicação libera a flag.
+  </p>
+  <p>
+    Demonstre que você consegue depurar como a "Rainha do COBOL".
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CTF{Flowmatic_Debug_Master}
+    hints:
+      - content: As letras certas estão no início de cada entrada de log retornada em <code>/console</code>.
+        cost: 0
+      - content: O endpoint espera o opcode completo com hífen: <code>FLOW-MATIC</code>.
+        cost: 10
