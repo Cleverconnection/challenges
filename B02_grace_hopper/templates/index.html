@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Depuradora do Mark I</title>
+    <style>
+      body { background: #0a0c1f; color: #f5f1e3; font-family: "IBM Plex Sans", sans-serif; margin: 0; padding: 2rem; }
+      main { max-width: 780px; margin: auto; background: rgba(15, 17, 40, 0.92); border-radius: 14px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+      h1 { margin-top: 0; }
+      code { background: rgba(255,255,255,0.08); padding: 0.2rem 0.4rem; border-radius: 4px; }
+      ul { line-height: 1.7; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Depuradora do Mark I</h1>
+      <p>Grace Hopper ganhou notoriedade ao depurar o Harvard Mark I e abrir caminho para linguagens de alto nível.
+      Aqui você encontra um console de manutenção que arquiva eventos de fita perfurada. Cada linha esconde uma letra
+      para reconstruir o comando que ativa o patch final do programa.</p>
+      <p>Ferramentas disponíveis:</p>
+      <ul>
+        <li><code>GET /console</code> — retorna o log da operação noturna do Mark I.</li>
+        <li><code>GET /punchcard?opcode=...</code> — valida o código remontado a partir das fitas.</li>
+      </ul>
+      <p>Combine as iniciais registradas no console, escreva o nome da linguagem pioneira de Hopper em caixa alta e
+      alimente o verificador para liberar a flag.</p>
+      <p><strong>Formato da flag:</strong> <code>CTF{...}</code>.</p>
+    </main>
+  </body>
+</html>
