@@ -1,0 +1,16 @@
+name: "Root Bridge Live"
+module: "radia_perlman"
+category: "Network"
+type: "dynamic"
+value: 150
+state: "visible"
+description: |
+  ⚙️ **Simule uma rede STP em container**  
+  Gere uma topologia simples, provoque loop e capture BPDU de reconvergência.
+  \
+  Comandos úteis:
+  brctl addbr br0
+  brctl stp br0 on
+  ip link set br0 up
+  tcpdump -i br0 ether proto 0x0026 -vvv
+flag: "CECYBER{root_change_detected}"
