@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Weaving the Tree</title>
+</head>
+<body>
+  <h1>Weaving the Tree</h1>
+  <p>
+    Radia Perlman apelidou o Spanning Tree Protocol de “poesia em movimento”. Nesta simulação,
+    você recebe os sinais brutos de uma malha que está retomando o equilíbrio após uma eleição de
+    <em>root bridge</em> disputada por duas bridges de laboratório.
+  </p>
+  <p>
+    Baixe o script de geração ou replique os dados manualmente. A flag segue o formato
+    <code>CECYBER{root_&lt;bridgeID&gt;_&lt;portID&gt;}</code> e pode ser validada no endpoint <code>/verify</code>.
+  </p>
+  <ul>
+    <li><code>GET /pcap-script</code> — retorna o gerador em Python que produz o PCAP.</li>
+    <li><code>GET /bpdu</code> — lista os campos relevantes dos BPDUs que inspiraram a captura.</li>
+    <li><code>POST /verify</code> — envia sua flag em JSON (<code>{"flag": "..."}</code>).</li>
+  </ul>
+</body>
+</html>

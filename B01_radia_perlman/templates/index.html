@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Guardiã das Árvores Digitais</title>
+    <style>
+      body { font-family: "Fira Sans", Arial, sans-serif; background-color: #0b1d26; color: #f2f7ff; margin: 0; padding: 2rem; }
+      main { max-width: 760px; margin: auto; background: rgba(4, 26, 35, 0.85); padding: 2rem; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.45); }
+      h1 { margin-top: 0; }
+      code { background: rgba(255,255,255,0.08); padding: 0.15rem 0.35rem; border-radius: 4px; }
+      a { color: #6fe2ff; }
+      ul { line-height: 1.6; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Guardiã das Árvores Digitais</h1>
+      <p>Radia Perlman deixou uma marca eterna ao ensinar redes a convergirem em harmonia. A frota de switches
+      do laboratório perdeu a memória do <em>root bridge</em> e aguarda por alguém que saiba decifrar o protocolo.</p>
+      <p>Você recebe um console de suporte com três comandos expostos:</p>
+      <ul>
+        <li><code>GET /topology</code> — retorna a lista completa de switches do domínio Spanning Tree.</li>
+        <li><code>GET /bridge/&lt;nome&gt;</code> — consulta individual com prioridade, MAC e uplinks.</li>
+        <li><code>GET /flag</code> — exige o header <code>X-Root-Bridge</code> preenchido corretamente.</li>
+      </ul>
+      <p>O formato do identificador esperado é <code>prioridade.MAC</code>, igual ao utilizado nas mensagens
+      de eleição do Spanning Tree Protocol. O analisador aceita letras maiúsculas.</p>
+      <p>Converta os dados em um plano sem laços, reporte o identificador raiz e recupere a mensagem de Perlman.</p>
+      <p class="hint">Dica histórica: Radia sempre priorizou a estabilidade. O menor par <code>(prioridade, MAC)</code>
+      governa o domínio.</p>
+    </main>
+  </body>
+</html>
