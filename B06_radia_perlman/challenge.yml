@@ -1,0 +1,33 @@
+name: Weaving the Tree
+category: Forensics
+value: 120
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Inspirada pelos poemas que escreveu para explicar o Spanning Tree Protocol, Radia Perlman
+    disponibilizou uma amostra dos BPDUs que tecem a recuperação de uma malha acadêmica. O arquivo
+    final não é distribuído no repositório; você precisa gerar sua própria captura a partir do roteiro
+    oficial.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Reconstrua o PCAP executando o script fornecido, identifique o <em>root bridge</em> vencedor e a
+    porta que foi bloqueada para eliminar o loop. Envie a flag no endpoint <code>/verify</code> para
+    validar sua leitura.
+  </p>
+  <p>
+    Mostre que entende cada batida das árvores digitais que Radia desenhou.
+  </p>
+type: container
+extra:
+  initial: 120
+  delay: 0
+  minimum: 120
+connection_info:
+  container:
+    flags:
+      - CECYBER{root_32768_001122334466}
+    hints:
+      - content: Baixe o gerador com <code>curl &lt;host&gt;:8080/pcap-script</code> e execute em seu ambiente.
+        cost: 0
+      - content: Compare o campo <em>Bridge Identifier</em> do segundo BPDU para encontrar o novo root.
+        cost: 10
