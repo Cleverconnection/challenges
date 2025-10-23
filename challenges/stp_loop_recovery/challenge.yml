@@ -1,0 +1,12 @@
+name: "STP Loop Recovery"
+module: "radia_perlman"
+category: "Network"
+type: "container"
+value: 150
+state: "visible"
+description: |
+  🔁 **Monte dois bridges e crie um loop físico**  
+  Observe o STP atuando, identifique a porta que entra em blocking e recupere a flag.
+  \
+  Dica: execute `brctl showstp br0` e observe o campo `port id`.
+flag: "CECYBER{loop_blocked_successfully}"

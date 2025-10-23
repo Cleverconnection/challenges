@@ -1,0 +1,19 @@
+name: "Weaving the Tree"
+module: "radia_perlman"
+category: "Forensics"
+type: "standard"
+value: 100
+state: "visible"
+description: |
+  🕸️ **Analise o PCAP gerado com BPDUs**
+  Identifique:
+  - Root ID inicial
+  - Bridge ID que assume root
+  - Porta que entrou em blocking
+  - Flag oculta no campo LLDP description
+  \
+  Flag: `CECYBER{root_<bridgeID>_<portID>}`
+  \
+  Gere o arquivo com `python3 artifacts/generate_pcap.py` antes de distribuir o desafio.
+file: "weaving_the_tree.pcap"
+flag: "CECYBER{root_32768_001122334466}"
