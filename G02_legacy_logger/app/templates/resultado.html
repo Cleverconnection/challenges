@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Resultado da Tradução{% endblock %}
+{% block content %}
+<section class="resultado">
+    <h2>Saída traduzida</h2>
+    <pre>{% for linha in linhas %}{{ linha }}
+{% endfor %}</pre>
+    <p>Lembre-se: Hopper defendia que códigos fossem claros e legíveis. Continue explorando!</p>
+</section>
+{% endblock %}

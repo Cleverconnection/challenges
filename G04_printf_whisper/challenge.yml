@@ -1,0 +1,19 @@
+name: "G04 — Printf Whisper"
+category: "Programação"
+description: |-
+  <p><strong>Contexto:</strong> Uma cadete do laboratório lilás montou um serviço que ecoa mensagens
+  para honrar Grace Hopper. Porém, ela esqueceu de validar as strings de formatação e deixou a flag
+  carregada em memória.</p>
+
+  <p>Compile <code>src/printf_whisper.c</code>, exponha o binário em uma porta TCP e utilize a vulnerabilidade
+  de format string para vazar a flag.</p>
+
+type: container
+value: 15
+connection_info: "nc HOST PORT"
+flags:
+  - "CTF{grace_printf_confiança}"
+hints:
+  - content: >-
+      Experimente enviar <code>%1$s</code>. O primeiro argumento variádico passado ao <code>printf</code> é a flag.
+    cost: 5

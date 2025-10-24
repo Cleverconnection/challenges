@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Laboratório de Tradução{% endblock %}
+{% block content %}
+<section class="laboratorio">
+    <h2>Laboratório de Tradução de Logs</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" alt="Almirante Grace Hopper">
+    <p>O console abaixo mostra como a oficina aplica ROT13 em registros históricos. Observe o resultado e replique em outros arquivos.</p>
+    <pre>{% for linha in linhas %}{{ linha }}
+{% endfor %}</pre>
+</section>
+{% endblock %}
