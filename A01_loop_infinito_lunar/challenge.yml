@@ -1,0 +1,21 @@
+name: "A01 — Loop Infinito Lunar"
+category: "Sistemas Embarcados"
+description: |-
+  <p><strong>Contexto:</strong> A Navegadora Lunar, inspirada no software de Margaret Hamilton,
+  mantém um processo de controle que deveria garantir a órbita segura. Entretanto, um erro de
+  configuração deixou a sentinela de laço travada e o sistema nunca sai do ciclo de correção.</p>
+
+  <p>Explore os registros expostos em <code>/var/log/navegadora/loop.log</code>, interprete as mensagens
+  que citam a engenheira-chefe e ajuste o arquivo de configuração em <code>/app/config/controle_loop.json</code>
+  para liberar o estado correto. Quando o processo reconhecer <em>ORBITA_ESTAVEL</em>, ele registrará a
+  confirmação da missão e revelará a flag.</p>
+
+type: container
+value: 10
+connection_info: "Container"
+flags:
+  - "CTF{loop_infinito_corrigido}"
+hints:
+  - content: >-
+      Concentre-se na chave <code>sentinela_laco</code> e no estado esperado pelo log.
+    cost: 5

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="painel">
+  <h2>Trajetória e Alertas</h2>
+  <img src="{{ url_for('static', filename='images/trajetoria.svg') }}" alt="Trajetória da Apollo" class="ilustracao">
+  <p>Acompanhe a cadência dos alertas e confirme se o modo SAFE_FLIGHT foi restaurado.</p>
+  <ul>
+  {% for linha in log %}
+    <li>{{ linha }}</li>
+  {% else %}
+    <li>Sem registros adicionais.</li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

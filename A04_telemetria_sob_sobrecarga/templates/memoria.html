@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="painel">
+  <h2>Memória da Equipe</h2>
+  <img src="{{ url_for('static', filename='images/memoria.svg') }}" alt="Margaret Hamilton com pilha de código" class="ilustracao">
+  <p>Margaret Hamilton documentava cada falha possível para que nada surpreendesse a tripulação.</p>
+  <p>Releia o log para encontrar pistas do subsistema que está desistindo primeiro e ajuste a configuração.</p>
+  <blockquote>"Se o software falha, a missão falha."</blockquote>
+</section>
+{% endblock %}

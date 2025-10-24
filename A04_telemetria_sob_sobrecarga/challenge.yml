@@ -1,0 +1,18 @@
+name: "A04 — Telemetria Sob Sobrecarga"
+category: "Sistemas Embarcados"
+description: |-
+  <p>A sala de controle virtual apresenta três telas em tons de laranja com relatos do time de Margaret
+  Hamilton. Os registros mostram que o subsistema NAV_SAFE está sendo abortado por falta de prioridade.</p>
+
+  <p>Analise <code>/data/telemetry.log</code>, ajuste <code>/app/config/config.json</code> e restaure o modo
+  <em>SAFE_FLIGHT</em>. O monitor de bordo confirmará a correção e registrará a flag nos logs.</p>
+
+type: container
+value: 15
+connection_info: "Container HTTP (porta 5000)"
+flags:
+  - "CTF{telemetria_em_modo_safe}"
+hints:
+  - content: >-
+      Reduza <code>prioridade_nav_control</code> e altere o campo <code>modo</code> para SAFE_FLIGHT.
+    cost: 5
