@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Painel pHash do ImageNet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Painel pHash — Galeria Azul</h1>
+      <p>"A curiosidade é o combustível da visão computacional." — Fei-Fei Li</p>
+      <nav>
+        <a href="{{ url_for('catalogo') }}" target="_blank">Ver catálogo JSON</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/catalogo.png') }}" alt="Catálogo do ImageNet">
+        <div>
+          <h2>Correspondência perceptual</h2>
+          <p>Este painel exibe os hashes perceptuais calculados para imagens históricas do ImageNet.</p>
+          <p>Envie um JSON para <code>/comparar</code> com o pHash que deseja testar. Se corresponder à foto da
+          inauguração do ImageNet, a flag será revelada.</p>
+        </div>
+      </section>
+      <section class="painel">
+        <h3>Exemplo de requisição</h3>
+        <pre>curl -X POST http://host:5007/comparar \<br>  -H "Content-Type: application/json" \<br>  -d '{"phash":"abcdef1234567890"}'</pre>
+        <p>A resposta incluirá o nome da imagem com a menor distância de Hamming.</p>
+      </section>
+    </main>
+  </body>
+</html>

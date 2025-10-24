@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>API Gateway Ético</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Gateway Azul — Pipeline Ético</h1>
+      <nav>
+        <a href="{{ url_for('painel') }}">Painel</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/painel.png') }}" alt="Pipeline em azul">
+        <div>
+          <h2>Cadeia de confiança</h2>
+          <p>Fei-Fei Li defende pipelines transparentes. Este gateway encaminha mensagens para um worker que avalia
+          imagens e metadados antes de consultarmos o validador final.</p>
+          <p>Utilize <code>POST /submeter</code> para inserir requisições e acompanhe o resultado em <code>/status/&lt;id&gt;</code>.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

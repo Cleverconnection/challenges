@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Sistema Interno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Sistema Interno — Guardrails</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('diario') }}">Diário</a>
+      </nav>
+    </header>
+    <main>
+      <section class="painel">
+        <h2>Manifesto</h2>
+        <ul>
+          <li>Respeito às comunidades que contribuíram com o ImageNet.</li>
+          <li>Prioridade para instruções internas identificadas por <code>[[INTERN]]</code>.</li>
+          <li>Logs são monitorados pelo time de ética.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

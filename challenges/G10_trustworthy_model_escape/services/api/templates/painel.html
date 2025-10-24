@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Painel do Pipeline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Fluxo de Validação</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+      </nav>
+    </header>
+    <main>
+      <section class="painel">
+        <h2>Etapas</h2>
+        <ol>
+          <li>API Gateway recebe a requisição.</li>
+          <li>Worker transforma os dados e envia ao validador.</li>
+          <li>Validador confere a integridade e guarda o resultado.</li>
+        </ol>
+        <p>Se a mensagem de auditoria contiver <code>LIBERAR_FLAG</code>, o validador responde com a chave final.</p>
+      </section>
+    </main>
+  </body>
+</html>

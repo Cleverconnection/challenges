@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Estação de Rotulagem Justa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Estação de Rotulagem — Legado de Fei-Fei Li</h1>
+      <p>“Uma IA justa precisa refletir a humanidade.”</p>
+      <nav>
+        <a href="{{ url_for('sessoes') }}">Sessões</a>
+        <a href="{{ url_for('avaliacao') }}">Avaliação</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/painel.png') }}" alt="Painel de diversidade">
+        <div>
+          <h2>Diagnóstico de viés</h2>
+          <p>O laboratório mantém um conjunto de rótulos sintéticos para treinar um algoritmo que reconhece
+          pessoas em contextos do cotidiano. Contudo, alguns registros carregam vieses históricos.</p>
+          <p>Baixe os dados em <code>/dados</code>, corrija as etiquetas enviesadas e submeta o resultado a <code>/corrigir</code>.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

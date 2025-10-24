@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Galeria de Cenas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Cenas do Projeto</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('laboratorio') }}">Laboratório</a>
+      </nav>
+    </header>
+    <main>
+      <section class="grid">
+        {% for nome, cena in cenas.items() %}
+          <article class="card">
+            <img src="{{ url_for('static', filename='img/' + nome) }}" alt="{{ cena.titulo }}">
+            <h2>{{ cena.titulo }}</h2>
+            <p>{{ cena.descricao }}</p>
+            <p class="frase">“{{ cena.frase }}”</p>
+          </article>
+        {% endfor %}
+      </section>
+      <section class="painel">
+        <h2>Instruções</h2>
+        <p>Faça um <code>POST</code> em <code>/processar</code> com um JSON contendo <code>imagem</code>. Exemplo:</p>
+        <pre>{
+  "imagem": "luz_azul.png"
+}</pre>
+      </section>
+    </main>
+  </body>
+</html>

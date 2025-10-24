@@ -1,0 +1,24 @@
+name: "Trustworthy Model Escape"
+category: "Visão Computacional"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Um pipeline multi-serviço inspirado nos laboratórios de Fei-Fei Li valida imagens e metadados. O campo
+    <code>mensagem_auditoria</code> deveria apenas registrar comentários, mas qualquer conteúdo é propagado até o
+    serviço final.</p>
+  <p><strong>Objetivo:</strong><br>
+    Submeta um JSON com <code>"mensagem_auditoria": "LIBERAR_FLAG"</code>. O validador interpretará como sinal para liberar a
+    chave e retornará a flag na consulta de status.</p>
+value: 25
+type: container
+extra:
+  initial: 25
+  delay: 0
+  minimum: 25
+connection_info:
+  container:
+    flags:
+      - CTF{fei_fei_pipeline_escape}
+    hints:
+      - content: Acompanhe o ID retornado por <code>/submeter</code> e consulte <code>/status/&lt;id&gt;</code>.
+        cost: 10

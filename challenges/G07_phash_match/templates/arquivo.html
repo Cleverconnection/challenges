@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Arquivo pHash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Arquivo pHash</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/arquivo_lab.png') }}" alt="Arquivo de laboratório">
+        <div>
+          <h2>Memórias arquivadas</h2>
+          <p>O laboratório mantém registros das iniciativas lideradas por Fei-Fei Li para democratizar a visão
+          computacional.</p>
+          <p>Os pHash ajudam a localizar rapidamente imagens de eventos importantes, como a inauguração do ImageNet.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

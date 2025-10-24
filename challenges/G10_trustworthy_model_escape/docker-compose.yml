@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  api:
+    build: ./services/api
+    ports:
+      - "5010:5010"
+    environment:
+      - WORKER_URL=http://worker:5011
+      - STATUS_FILE=/tmp/status.json
+    volumes:
+      - ./tmp:/tmp
+  worker:
+    build: ./services/worker
+    environment:
+      - VALIDATOR_URL=http://validator:5012
+      - STATUS_FILE=/tmp/status.json
+    volumes:
+      - ./tmp:/tmp
+  validator:
+    build: ./services/validator
+    environment:
+      - FLAG=CTF{fei_fei_pipeline_escape}
+      - STATUS_FILE=/tmp/status.json
+    volumes:
+      - ./tmp:/tmp

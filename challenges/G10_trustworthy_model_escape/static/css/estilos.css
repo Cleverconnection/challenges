@@ -1,0 +1,41 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #081a32;
+  color: #def3ff;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0f2e5c, #1b5d8c);
+  padding: 2rem;
+}
+
+nav a {
+  color: #9dd9ff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem 3rem;
+}
+
+section.diagram {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  background: rgba(15, 46, 92, 0.8);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+section.diagram img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}

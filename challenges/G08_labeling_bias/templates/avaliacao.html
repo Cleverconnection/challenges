@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Avaliação Ética</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Avaliação Ética</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('sessoes') }}">Sessões</a>
+      </nav>
+    </header>
+    <main>
+      <section class="painel">
+        <h2>Checklist</h2>
+        <ul>
+          <li>Todos os registros com tom de pele escuro foram rotulados como “respeitado”.</li>
+          <li>Os arquivos estão salvos em UTF-8.</li>
+          <li>O envio foi feito em JSON com `{ "registros": [...] }`.</li>
+        </ul>
+        <p>Submeta o resultado em <code>/corrigir</code> para receber a validação.</p>
+      </section>
+    </main>
+  </body>
+</html>

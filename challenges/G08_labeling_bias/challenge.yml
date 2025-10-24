@@ -1,0 +1,24 @@
+name: "Viés de Rotulagem"
+category: "Visão Computacional"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Um dataset fictício inspirado na iniciativa de Fei-Fei Li apresenta etiquetas enviesadas. Pessoas com tom de
+    pele escuro foram marcadas como "neutro", ignorando o contexto histórico que o laboratório deseja preservar.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Baixe <code>/dados</code>, ajuste os registros afetados e envie a lista corrigida para <code>/corrigir</code>. Quando todos
+    os vieses forem removidos, o serviço responde com a flag.</p>
+value: 15
+type: container
+extra:
+  initial: 15
+  delay: 0
+  minimum: 15
+connection_info:
+  container:
+    flags:
+      - CTF{fei_fei_bias_ajustado}
+    hints:
+      - content: Mude o campo <code>atributo</code> para "respeitado" quando <code>tom_de_pele</code> for "escuro".
+        cost: 5

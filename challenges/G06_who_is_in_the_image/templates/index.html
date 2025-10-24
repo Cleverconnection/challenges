@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Galeria Azul — Quem está na imagem?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Galeria Azul de Fei-Fei Li</h1>
+      <p>"Quando o ImageNet começou, acreditávamos que a IA precisava ver o mundo como nós o vemos."</p>
+      <nav>
+        <a href="{{ url_for('galeria') }}">Galeria</a>
+        <a href="{{ url_for('laboratorio') }}">Laboratório</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <h2>Histórias do ImageNet</h2>
+          <p>Esta sala azul reúne memórias da construção do ImageNet. Cada imagem homenageia o esforço coletivo
+             de rotuladores, pesquisadores e comunidades retratadas. Clique em <strong>Galeria</strong> para
+             conhecer as cenas e descubra qual delas revela o segredo.</p>
+          <p>A equipe recorda a frase de Fei-Fei Li: <em>"Imagens são mais do que pixels, são histórias sobre pessoas."</em></p>
+        </div>
+        <img src="{{ url_for('static', filename='img/fei_fei_lab.jpg') }}" alt="Fei-Fei Li no laboratório" />
+      </section>
+      <section class="painel">
+        <h2>Painel Interativo</h2>
+        <p>Envie um JSON para <code>/processar</code> com o nome de uma imagem: <code>{"imagem":"luz_azul.png"}</code>.</p>
+        <p>Se a cor dominante estiver alinhada às memórias de Fei-Fei, você receberá uma mensagem especial.</p>
+      </section>
+    </main>
+    <footer>
+      <p>Laboratório de Visão — dedicado às pessoas e às histórias que o ImageNet registrou.</p>
+    </footer>
+  </body>
+</html>

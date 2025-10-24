@@ -1,0 +1,24 @@
+name: "Correspondência pHash"
+category: "Visão Computacional"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Fei-Fei Li reuniu pHash de imagens históricas do ImageNet. Encontre qual hash corresponde à fotografia da
+    inauguração do projeto e receba a homenagem.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Consulte <code>/catalogo</code> para ver os pHash disponíveis. Envie um JSON para <code>/comparar</code> com um hash em
+    hexadecimal. Se o hash corresponder à foto inaugural, a flag é liberada.</p>
+value: 15
+type: container
+extra:
+  initial: 15
+  delay: 0
+  minimum: 15
+connection_info:
+  container:
+    flags:
+      - CTF{fei_fei_phash_match}
+    hints:
+      - content: O hash vencedor é o que tem distância de Hamming zero para a entrada correta.
+        cost: 5
