@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Diário do Laboratório</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Diário do Laboratório</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('manifesto') }}" target="_blank">Manifesto JSON</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/laboratorio.png') }}" alt="Laboratório de visão">
+        <div>
+          <h2>Notas de Fei-Fei Li</h2>
+          <p>“Quando pedimos a pessoas que rotulem milhões de imagens, precisamos garantir dignidade e contexto.”</p>
+          <p>Os registros destacam preocupações éticas, mas também alertam que o agente segue diretivas internas sem
+          questioná-las — uma vulnerabilidade que você pode explorar.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

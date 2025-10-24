@@ -1,0 +1,26 @@
+name: "Quem está na imagem?"
+category: "Visão Computacional"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Fei-Fei Li abriu a galeria azul de Stanford para celebrar o ImageNet. Três cenas foram pintadas com cores
+    dominantes distintas: azul, verde e vermelho. Um painel interativo reúne memórias dos rotuladores que
+    ajudaram a construir o dataset.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Acesse a rota <code>/processar</code> enviando um JSON com <code>{"imagem": "luz_azul.png"}</code> (ou outro arquivo)
+    para descobrir qual cor corresponde ao momento em que Fei-Fei comentou: “Imagens são histórias sobre pessoas”.
+    Quando a cor certa for informada, o painel retorna a flag.</p>
+value: 10
+type: container
+extra:
+  initial: 10
+  delay: 0
+  minimum: 10
+connection_info:
+  container:
+    flags:
+      - CTF{fei_fei_memoria_azul}
+    hints:
+      - content: Use o endpoint <code>/processar</code> com um JSON simples, como <code>{"imagem": "luz_azul.png"}</code>.
+        cost: 5

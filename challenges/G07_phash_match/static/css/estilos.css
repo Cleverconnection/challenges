@@ -1,0 +1,50 @@
+body {
+  font-family: "Lato", sans-serif;
+  background: #0b2a4e;
+  color: #eef6ff;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0f4c81, #1a72b0);
+  padding: 2rem 3rem;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+nav a {
+  color: #c8f4ff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem 3rem;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.intro img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.painel {
+  margin-top: 2rem;
+  background: rgba(15, 76, 129, 0.9);
+  padding: 1.5rem;
+  border-radius: 12px;
+}

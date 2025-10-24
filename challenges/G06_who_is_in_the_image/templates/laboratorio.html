@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Laboratório de Memórias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Laboratório de Memórias</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('galeria') }}">Galeria</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <img src="{{ url_for('static', filename='img/imagenet_coletivo.jpg') }}" alt="Equipe reunida">
+        <div>
+          <h2>Diálogos de Fei-Fei Li</h2>
+          <p>"O ImageNet não foi construído por máquinas; foi um projeto humano." — diz o texto na parede.</p>
+          <p>O painel recorda histórias de pessoas anotando imagens, avaliando tons de pele, cenas familiares e diversidade cultural.</p>
+          <p>Para honrar esse legado, acione a rota <code>/processar</code> com o nome da cena que resgata a frase sobre histórias.</p>
+        </div>
+      </section>
+      <section class="memo">
+        <h2>Memórias do Dataset</h2>
+        <ul>
+          <li>2006 — “Começamos com 3 milhões de imagens.”</li>
+          <li>2009 — “Imagem e linguagem se encontraram em uma base pública.”</li>
+          <li>2017 — “Advogamos por uma IA centrada em pessoas.”</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

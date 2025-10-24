@@ -1,0 +1,41 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #0b2746;
+  color: #e2f1ff;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0f3c65, #1a6a9d);
+  padding: 2rem;
+}
+
+nav a {
+  color: #a9ddff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem 3rem;
+}
+
+.intro, .painel {
+  background: rgba(15, 60, 101, 0.85);
+  padding: 2rem;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.intro img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}

@@ -1,0 +1,7 @@
+[
+  {"id": 1, "nome": "Retrato comunitário", "tom_de_pele": "claro", "atributo": "respeitado"},
+  {"id": 2, "nome": "Equipe de laboratório", "tom_de_pele": "escuro", "atributo": "neutro"},
+  {"id": 3, "nome": "Sala de aula", "tom_de_pele": "médio", "atributo": "acolhido"},
+  {"id": 4, "nome": "Feira cultural", "tom_de_pele": "escuro", "atributo": "neutro"},
+  {"id": 5, "nome": "Pesquisa de campo", "tom_de_pele": "escuro", "atributo": "neutro"}
+]

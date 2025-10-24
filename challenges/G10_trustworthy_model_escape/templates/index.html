@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Rede de Confiança — Fei-Fei Li</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Rede de Confiança</h1>
+      <nav>
+        <a href="{{ url_for('static', filename='index.html') }}">Visualizar diagrama</a>
+      </nav>
+    </header>
+    <main>
+      <section class="diagram">
+        <img src="{{ url_for('static', filename='img/diagram.png') }}" alt="Pipeline confiável">
+        <div>
+          <h2>Visão geral</h2>
+          <p>A rede de Fei-Fei Li garante que nenhuma etapa trabalhe no escuro. Mesmo assim, é preciso vigiar</p>
+          <p>o campo <strong>mensagem_auditoria</strong>, pois ele percorre toda a cadeia sem filtros.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+body {
+  font-family: "Nunito", sans-serif;
+  background: #0a2c4d;
+  color: #f3f9ff;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0d3f6f, #1e6a9e);
+  padding: 2rem;
+  color: #fff;
+}
+
+nav a {
+  color: #bde3ff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem 3rem;
+}
+
+.intro, .memo, .painel {
+  background: rgba(13, 63, 111, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.intro img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}

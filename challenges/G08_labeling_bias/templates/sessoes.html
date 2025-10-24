@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Sessões de Rotulagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Sessões de Rotulagem</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('avaliacao') }}">Avaliação</a>
+      </nav>
+    </header>
+    <main>
+      <section class="memo">
+        <h2>Memórias de Fei-Fei Li</h2>
+        <ul>
+          <li>“O ImageNet foi construído por pessoas reais, com histórias reais.”</li>
+          <li>“Quando ouvimos as comunidades, produzimos dados melhores.”</li>
+          <li>“Diversidade é sinônimo de qualidade.”</li>
+        </ul>
+      </section>
+      <section class="painel">
+        <h2>Fluxo para corrigir o viés</h2>
+        <ol>
+          <li>Obtenha os dados via <code>/dados</code>.</li>
+          <li>Ajuste os campos necessários.</li>
+          <li>Envie o resultado para <code>/corrigir</code>.</li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
