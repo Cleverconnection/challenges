@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, render_template, request, abort
+from flask import Flask, jsonify, render_template, request, abort, send_file
 import os
+from pathlib import Path
 
 app = Flask(__name__)
 
@@ -70,6 +71,14 @@ def flag():
     if candidate == ROOT_BRIDGE_ID:
         return FLAG
     abort(403)
+
+
+@app.route("/pcap-script")
+def pcap_script():
+    script_path = Path(__file__).parent / "static" / "generate_root_bridge_pcap.py"
+    if not script_path.exists():
+        abort(404)
+    return send_file(script_path, as_attachment=True)
 
 
 if __name__ == "__main__":

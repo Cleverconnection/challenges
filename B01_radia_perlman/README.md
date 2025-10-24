@@ -13,8 +13,11 @@ sistema que você identificou corretamente o <em>root bridge</em>.
   - `GET /bridge/<nome>` — consulta individual, útil para validar prioridades e endereços MAC.
   - `GET /flag` — exige o header `X-Root-Bridge` contendo o identificador do switch raiz no formato
     `prioridade.MAC`.
+  - `GET /pcap-script` — disponibiliza um gerador Scapy com BPDUs extras e ruído ARP/DNS/ICMP/TCP.
 - Utilize ferramentas como `curl` ou `httpie` para experimentar rapidamente.
 
 ## Flag
 
 A flag segue o formato `CTF{...}` e é validada diretamente pela aplicação quando o header correto é enviado.
+O script distribuído gera o arquivo `guardian_tree.pcap` para quem deseja confirmar a análise em um
+sniffer, mantendo cinco BPDUs e pacotes auxiliares.

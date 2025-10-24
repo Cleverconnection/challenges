@@ -4,14 +4,18 @@
 
 O serviço expõe uma API simples que retorna a topologia de uma rede fictícia rodando Spanning Tree Protocol.
 Cada nó possui os campos `priority` e `mac`. O código Python calcula internamente o `ROOT_BRIDGE_ID` por meio de
-`min(nodes, key=(priority, mac))`. Portanto, basta replicar a mesma lógica no cliente.
+`min(nodes, key=(priority, mac))`. Para auxiliar equipes que preferem validar a lógica observando BPDUs, o
+endpoint `/pcap-script` entrega um gerador Scapy que constrói o arquivo `guardian_tree.pcap` com cinco quadros STP
+e ruído ARP/DNS/ICMP/TCP.
 
 ## Passo a Passo
 
 1. Acesse `GET /topology` e colete a lista de switches.
 2. Ordene pelos campos `priority` e `mac`. O menor valor é `4096.00:11:22:33:44:55`, referente ao `switch-alpha`.
 3. Envie uma requisição `GET /flag` com o header `X-Root-Bridge: 4096.00:11:22:33:44:55`.
-4. O servidor retorna a flag `CTF{Arvores_Digitais_Seguras}`.
+4. Caso deseje validar visualmente, gere o PCAP fornecido, filtre por `llc` e confirme que o menor identificador é
+   `4096.00:11:22:33:44:55`. Em seguida, envie uma requisição `GET /flag` com o header `X-Root-Bridge: 4096.00:11:22:33:44:55`.
+5. O servidor retorna a flag `CTF{Arvores_Digitais_Seguras}`.
 
 ## Justificativa da Pontuação
 

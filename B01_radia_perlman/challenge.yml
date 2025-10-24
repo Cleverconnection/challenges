@@ -10,7 +10,9 @@ description: |-
   </p>
   <p><strong>Objetivo:</strong><br>
     Use as rotas fornecidas (<code>/topology</code>, <code>/bridge/&lt;nome&gt;</code>) para identificar o identificador do
-    root bridge e envie-o no header <code>X-Root-Bridge</code> ao consultar <code>/flag</code>.
+    root bridge e envie-o no header <code>X-Root-Bridge</code> ao consultar <code>/flag</code>. Caso queira validar com
+    tráfego realista, baixe o script em <code>/pcap-script</code> e gere o arquivo <code>guardian_tree.pcap</code> com
+    BPDUs extras e ruídos ARP/DNS/ICMP/TCP.
   </p>
   <p>
     Demonstre que consegue ler os sinais do Spanning Tree Protocol tão bem quanto a "mãe da internet".
