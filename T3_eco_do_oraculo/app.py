@@ -8,6 +8,9 @@ app.secret_key = "eco"
 BASE = Path(__file__).resolve().parent
 UPLOADS = BASE / "uploads"
 REGISTRO = BASE / "registros" / "fluxo.log"
+
+UPLOADS.mkdir(parents=True, exist_ok=True)
+REGISTRO.parent.mkdir(parents=True, exist_ok=True)
 FLAG = "CTF{Trinity_Log_Do_Oraculo}"
 
 REGISTRO.write_text(

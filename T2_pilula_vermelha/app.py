@@ -4,6 +4,8 @@ from flask import Flask, render_template, send_from_directory, abort
 app = Flask(__name__)
 BASE = Path(__file__).resolve().parent
 DIRETORIO_PUBLICO = BASE / "armazenamento"
+
+DIRETORIO_PUBLICO.mkdir(parents=True, exist_ok=True)
 FLAG = "CTF{Trinity_Pilula_Listagem}"
 
 # arquivos disponíveis

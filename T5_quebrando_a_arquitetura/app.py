@@ -12,6 +12,9 @@ SEGREDO = BASE / "segredos" / "chave.txt"
 FRASE = "ACESSO_ZION"
 FLAG = "CTF{Trinity_Arquitetura_Liberada}"
 
+LOG.parent.mkdir(parents=True, exist_ok=True)
+SEGREDO.parent.mkdir(parents=True, exist_ok=True)
+
 SEGREDO.write_text("m0rf3u5_compartilha\n")
 
 if not LOG.exists():
