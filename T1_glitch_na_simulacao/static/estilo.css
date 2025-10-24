@@ -1,0 +1,37 @@
+body {
+  background: radial-gradient(circle, #051b2d 0%, #000000 80%);
+  color: #d0f0ff;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+header, footer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem;
+  text-align: center;
+}
+nav a {
+  color: #7fffd4;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+main {
+  padding: 2rem;
+}
+input, button {
+  font-family: inherit;
+  padding: 0.5rem;
+  border: 1px solid #7fffd4;
+  background: rgba(5, 27, 45, 0.8);
+  color: #d0f0ff;
+}
+.resultado {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #7fffd4;
+  background: rgba(5, 27, 45, 0.6);
+}
+.aviso {
+  font-style: italic;
+  color: #ffdf6b;
+}

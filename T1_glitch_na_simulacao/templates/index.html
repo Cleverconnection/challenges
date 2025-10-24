@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Glitch na Simulação</title>
+  <link rel="stylesheet" href="/static/estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Trinity observa cada anomalia</h1>
+    <nav>
+      <a href="/">Busca</a>
+      <a href="/memoria">Memória compartilhada</a>
+    </nav>
+  </header>
+  <main>
+    <section class="introducao">
+      <p>
+        "Você sente como se já tivesse sonhado com este lugar?" — Trinity sussurra enquanto monitora cada sinal que escapa de Matrix.
+      </p>
+      <p>
+        Reproduza o comportamento da busca mal protegida e capture o que fica oculto no navegador da operadora.
+      </p>
+    </section>
+    <section class="busca">
+      <form method="get" action="/">
+        <label for="campo">Procurar sinais perdidos:</label>
+        <input id="campo" name="q" value="{{ consulta }}" placeholder="digite qualquer sequência">
+        <button type="submit">Explorar</button>
+      </form>
+      {% if consulta %}
+      <div class="resultado">
+        <h2>Eco retornado:</h2>
+        <p>{{ consulta|safe }}</p>
+        <p class="aviso">Nem todo eco foi higienizado antes de ser entregue ao operador.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+  <footer>
+    <p>Trinity — "Eu não temo mais acreditar".</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Porta 22 de Zion</title>
+  <link rel="stylesheet" href="/static/painel.css">
+</head>
+<body>
+  <header>
+    <h1>Porta 22 de Zion — Painel de Trinity</h1>
+  </header>
+  <main>
+    <section>
+      <p>
+        Trinity deixou memórias públicas para novos operadores. Elas contêm fragmentos da credencial utilizada para
+        abrir a sessão remota. Combine as partes e use o canal `/ssh` para provar que pertence à resistência.
+      </p>
+      <p>
+        Lista de arquivos conhecidos:</p>
+      <ul>
+        {% for arquivo in arquivos %}
+        <li><a href="/memorias/{{ arquivo }}">{{ arquivo }}</a></li>
+        {% endfor %}
+      </ul>
+      <p class="dica">"Eu te disse que acreditava em você." — Trinity confia que você reunirá os fragmentos.</p>
+    </section>
+  </main>
+</body>
+</html>
