@@ -1,0 +1,96 @@
+:root {
+  --bg-dark: #04130a;
+  --bg-mid: #0b2d16;
+  --panel: rgba(9, 38, 20, 0.9);
+  --panel-border: rgba(71, 170, 93, 0.45);
+  --accent: #1f5f33;
+  --accent-bright: #47aa5d;
+  --text-main: #d9f2d7;
+  --text-muted: #9dd6a4;
+  --code-bg: rgba(31, 95, 51, 0.35);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Fira Sans", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #0f3c21 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+}
+
+main.container {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  box-shadow: 0 0 28px rgba(8, 52, 24, 0.55);
+  max-width: 880px;
+  width: 100%;
+  padding: 2.75rem;
+  line-height: 1.65;
+}
+
+h1, h2 {
+  color: var(--accent-bright);
+  margin-top: 0;
+  letter-spacing: 0.02em;
+}
+
+p, li {
+  font-size: 1.05rem;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--accent-bright);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+figure.radia-portrait {
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+figure.radia-portrait img {
+  max-width: 240px;
+  width: 100%;
+  border-radius: 14px;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 20px rgba(4, 19, 10, 0.75);
+}
+
+figure.radia-portrait figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+footer.note {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(71, 170, 93, 0.3);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+

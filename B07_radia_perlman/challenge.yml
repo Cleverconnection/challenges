@@ -1,0 +1,31 @@
+name: Root Bridge Live
+category: Network
+value: 150
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Para treinar novos engenheiros, Radia Perlman preparou um laboratório controlado que registra
+    todo o ciclo de reconvergência do Spanning Tree Protocol. Cada evento capturado é enviado para
+    esta API didática para que você não dependa de comandos interativos.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Analise os dados de <code>/lab</code> e <code>/timeline</code>, identifique o momento em que o root
+    bridge muda e confirme sua descoberta enviando a flag no endpoint <code>/verify</code>.
+  </p>
+  <p>
+    Demonstre que você reconhece os sinais de uma eleição STP em tempo real.
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CTF{root_change_detected}
+    hints:
+      - content: Leia primeiro <code>/lab</code> para entender como os enlaces estão pareados.
+        cost: 0
+      - content: No <code>/timeline</code>, busque pela linha que menciona <em>root takeover</em>.
+        cost: 10

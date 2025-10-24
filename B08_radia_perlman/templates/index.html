@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>STP Loop Recovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+  </head>
+  <body>
+    <main class="container">
+      <h1>STP Loop Recovery</h1>
+      <p>Radia Perlman comparava loops Ethernet a lianas que precisam ser podadas com cuidado. Nesta bancada,
+      dois bridges digitais estão prestes a se desconectar para salvar a rede: sua função é determinar qual
+      porta foi sacrificada para reequilibrar a topologia.</p>
+      <p>Os detalhes da simulação estão em <code>/topology</code> e os estados STP por porta podem ser consultados
+      em <code>/states</code>. Assim que descobrir qual interface entrou em blocking, envie a flag usando
+      <code>/verify</code>.</p>
+      <footer class="note">
+        Relembre: portas designadas mantêm o tráfego fluindo; portas em blocking protegem a floresta digital.
+      </footer>
+      <figure class="radia-portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Radia_Perlman_2014.jpg/320px-Radia_Perlman_2014.jpg" alt="Radia Perlman sorrindo">
+        <figcaption>O método cuidadoso de Radia orienta a identificação do enlace que deve dormir.</figcaption>
+      </figure>
+    </main>
+  </body>
+</html>

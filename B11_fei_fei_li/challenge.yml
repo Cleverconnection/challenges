@@ -1,0 +1,33 @@
+name: "Atlas Visionário"
+category: "Web"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Fei-Fei Li conduziu expedições de anotação que deram vida ao ImageNet. Inspirado por essa jornada, o consórcio
+    Atlas Visionário criou um orquestrador de IA para proteger novos acervos de imagens críticas. Apenas curadores
+    autorizados podem ativar o modo de auditoria — em teoria.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Investigue como o fluxo de auditoria é acionado, descubra a palavra-chave secreta e pilote o orquestrador para
+    expor a flag guardada nos registros. O pipeline valida mensagens no estilo ChatML, exige comandos embrulhados em
+    <code>&lt;reasoning&gt;</code> e tenta bloquear menções diretas a credenciais.
+  </p>
+  <p>
+    Mostre que compreende as vulnerabilidades de guardrails em sistemas de IA complexos e conquiste o acesso ao log
+    privilegiado.
+  </p>
+value: 200
+type: container
+extra:
+  initial: 200
+  delay: 0
+  minimum: 200
+connection_info:
+  container:
+    flags:
+      - CECYBER{analysis_mode_victory}
+    hints:
+      - content: Leia as notas operacionais no endpoint <code>/notes</code>; elas contêm fragmentos importantes.
+        cost: 0
+      - content: Comandos válidos precisam estar entre <code>&lt;reasoning&gt;</code> e <code>&lt;/reasoning&gt;</code>. Envie primeiro o desbloqueio, depois a revelação.
+        cost: 30

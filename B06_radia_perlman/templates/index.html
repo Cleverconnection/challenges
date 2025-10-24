@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Weaving the Tree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Weaving the Tree</h1>
+      <p>Radia Perlman descrevia BPDUs como versos que mantêm a floresta digital unida. Gere sua
+      própria captura executando o script fornecido e acompanhe cada batida da eleição STP.</p>
+      <ul>
+        <li><code>GET /bpdu</code> — lista os eventos principais que inspiraram o roteiro do PCAP.</li>
+        <li><code>GET /pcap-script</code> — baixa o gerador em Python com quadros STP e tráfego de fundo.</li>
+        <li><code>POST /verify</code> — recebe um JSON com <code>flag</code> e confirma se você entendeu a troca.</li>
+      </ul>
+      <p>Depois de reconstruir a captura, identifique qual bridge assumiu o papel de raiz e qual porta foi
+      bloqueada para eliminar o loop. Ignorar o ruído faz parte do treino.</p>
+      <footer class="note">
+        Dica rápida: o takeover acontece quando o identificador <em>32768.00:11:22:33:44:66</em> apresenta custo 0.
+      </footer>
+      <figure class="radia-portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Radia_Perlman_2014.jpg/320px-Radia_Perlman_2014.jpg" alt="Retrato de Radia Perlman">
+        <figcaption>Radia Perlman em 2014, celebrando décadas de redes tolerantes a falhas.</figcaption>
+      </figure>
+    </main>
+  </body>
+</html>

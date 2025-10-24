@@ -1,0 +1,32 @@
+name: STP Loop Recovery
+category: Network
+value: 150
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Dois bridges inspirados nos laboratórios de Radia Perlman detectaram um loop físico recém-criado.
+    Antes de a topologia entrar em colapso, o Spanning Tree Protocol promove uma poda cirúrgica que você
+    deve identificar consultando os endpoints deste serviço.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Examine <code>/topology</code>, <code>/states</code> e <code>/metrics</code> para descobrir qual
+    interface entrou em <em>blocking</em>. Envie a conclusão para <code>/verify</code> no formato
+    de flag informado.</p>
+  <p>
+    Relembre os poemas de Radia sobre equilíbrio: somente uma porta precisa dormir para que a floresta digital
+    permaneça saudável.
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CTF{loop_blocked_successfully}
+    hints:
+      - content: Em <code>/states</code> apenas uma interface aparece como <code>blocking</code>.
+        cost: 0
+      - content: Use <code>/metrics</code> para validar que o fluxo de BPDUs caiu naquela porta.
+        cost: 10
