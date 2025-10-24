@@ -1,0 +1,9 @@
+tarefas:
+  - nome: "COLETA_METEOROS"
+    prioridade: 1
+  - nome: "BALANCO_TERMICO"
+    prioridade: 2
+  - nome: "NAV_CONTROL"
+    prioridade: 5
+  - nome: "REGISTRO_CIENTIFICO"
+    prioridade: 3

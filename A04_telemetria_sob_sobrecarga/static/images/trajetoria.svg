@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="140" rx="18" fill="url(#g3)"/>
+  <polyline points="20,110 60,60 110,90 170,40" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+  <circle cx="20" cy="110" r="6" fill="#1a1a1a"/>
+  <circle cx="170" cy="40" r="8" fill="#1a1a1a"/>
+  <text x="50%" y="20%" text-anchor="middle" fill="#1a1a1a" font-size="16" font-family="Arial">Trajetória segura</text>
+</svg>

@@ -1,0 +1,20 @@
+name: "A02 — Corrida pelo Controle"
+category: "Sistemas Embarcados"
+description: |-
+  <p>Dois subsistemas da Navegadora Lunar atualizam altitude e velocidade simultaneamente, mas sem
+  coordenação. Os relatórios lembram a filosofia de Margaret Hamilton: nenhuma condição de corrida
+  pode sobreviver em produção.</p>
+
+  <p>Acompanhe o arquivo <code>/var/log/navegadora/corrida.log</code>, entenda como os valores divergem e
+  habilite a proteção apropriada no arquivo <code>/app/config/controle_navegacao.json</code>. Quando a missão
+  voltar a registrar estados sincronizados, o console revelará a flag.</p>
+
+type: container
+value: 10
+connection_info: "Container"
+flags:
+  - "CTF{condicao_de_corrida_domada}"
+hints:
+  - content: >-
+      Só há uma chave no JSON. Ajuste-a para acionar o bloqueio das threads.
+    cost: 5

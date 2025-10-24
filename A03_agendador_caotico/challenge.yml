@@ -1,0 +1,19 @@
+name: "A03 — Agendador Caótico"
+category: "Sistemas Embarcados"
+description: |-
+  <p>O agendador de bordo está invertendo prioridades. A tarefa crítica <code>NAV_CONTROL</code> nunca
+  recebe a CPU primeiro e a missão fica em estado degradado.</p>
+
+  <p>Observe <code>/var/log/navegadora/scheduler.log</code> e edite o arquivo
+  <code>/app/config/tarefas.yaml</code> para garantir que <code>NAV_CONTROL</code> lidere a fila. Somente assim
+  o sistema registrará a restauração do fluxo nominal e apresentará a flag.</p>
+
+type: container
+value: 10
+connection_info: "Container"
+flags:
+  - "CTF{prioridades_em_orbita}"
+hints:
+  - content: >-
+      Reduza o valor numérico da prioridade de <code>NAV_CONTROL</code>.
+    cost: 5

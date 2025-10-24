@@ -1,0 +1,21 @@
+name: "A05 — Abort 1202 Revival"
+category: "Sistemas Embarcados"
+description: |-
+  <p>Esta simulação recria o famoso alarme 1202 enfrentado pela equipe de Margaret Hamilton. Um núcleo em
+  C com threads de baixa latência e um supervisor em Python convivem sob forte carga. Se as prioridades
+  estiverem erradas, o núcleo aborta a missão.</p>
+
+  <p>Investigue <code>/var/log/navegadora/abort1202.log</code> e ajuste <code>/app/config/prioridades.json</code>
+  para priorizar o módulo de navegação e reduzir a carga de interrupções. Só então o núcleo imprimirá o
+  relatório de sucesso com a flag.</p>
+
+type: container
+value: 25
+connection_info: "Container"
+flags:
+  - "CTF{abort_1202_superado}"
+hints:
+  - content: >-
+      Deixe <code>prioridade_nav</code> menor ou igual a 2 e abaixo de <code>prioridade_interface</code>.
+      Reduza também <code>carga_interruptores</code> para menos de 80.
+    cost: 10

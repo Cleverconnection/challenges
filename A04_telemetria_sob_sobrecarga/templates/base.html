@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>A Navegadora Lunar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>A Navegadora Lunar</h1>
+      <p class="frase">"Eu jamais deixaria uma falha passar despercebida." — Margaret Hamilton</p>
+      <nav>
+        <a href="{{ url_for('painel') }}">Painel</a>
+        <a href="{{ url_for('memoria') }}">Memória</a>
+        <a href="{{ url_for('trajetoria') }}">Trajetória</a>
+      </nav>
+    </header>
+    <main>
+      {% block conteudo %}{% endblock %}
+    </main>
+    <footer>
+      <small>Software crítico pintado em tons de laranja para honrar a engenheira.</small>
+    </footer>
+  </body>
+</html>

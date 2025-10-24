@@ -1,0 +1,8 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY app /app
+COPY config /app/config
+
+CMD ["python", "threads.py"]
