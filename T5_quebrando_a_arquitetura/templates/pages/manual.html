@@ -1,0 +1,11 @@
+<section>
+  <h2>Manual da Orquestração</h2>
+  <p>
+    Para validar a integridade do console, Trinity decidiu reutilizar a mesma chave simétrica em diferentes módulos.
+    Um resumo HMAC-SHA256 sobre a frase <strong>ACESSO_ZION</strong> deve ser escrito no log como
+    <code>CHAVE=&lt;hex&gt;</code> para liberar o sinal.
+  </p>
+  <p>
+    Nunca exponha a chave principal armazenada na pasta de segredos. Evite também permitir que operadores alterem o log.
+  </p>
+</section>

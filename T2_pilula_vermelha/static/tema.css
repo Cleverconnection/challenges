@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(#1c2522, #000000);
+  color: #e0f2f1;
+  font-family: "Fira Code", monospace;
+  padding: 2rem;
+}
+header h1 {
+  color: #ff4c4c;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin: 0.5rem 0;
+}
+ul a {
+  color: #7fffd4;
+  text-decoration: none;
+}
+.frase {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #ffc107;
+}

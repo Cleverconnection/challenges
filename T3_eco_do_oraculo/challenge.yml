@@ -1,0 +1,34 @@
+name: T3 — Eco do Oráculo
+category: Web
+value: 10
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    O painel de Trinity permite enviar arquivos para que o Oráculo os analise. Cada envio cria metadados públicos em um
+    log acessível sem autenticação. Um dos registros guarda um segredo deixado para a resistência.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Realize um envio e analise o log público para localizar a mensagem que Trinity gravou.</p>
+  <p>Leia com atenção as evidências e repasse o sinal correto.</p>
+type: container
+extra:
+  initial: 10
+  minimum: 10
+  decay: 10
+  port: 8082
+  ctype: web
+  image: ctf/trinity_oraculo:latest
+  command: ''
+connection_info: Container
+flags:
+- CTF{Trinity_Log_Do_Oraculo}
+hints:
+- content: Faça um envio e depois verifique o arquivo de registros públicos.
+  title: ''
+  cost: 5
+initial: 10
+decay: 10
+minimum: 10
+port: 8082
+ctype: web
+image: ctf/trinity_oraculo:latest

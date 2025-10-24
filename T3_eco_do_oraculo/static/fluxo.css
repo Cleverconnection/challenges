@@ -1,0 +1,32 @@
+body {
+  background: linear-gradient(120deg, #0f2d2d, #010101);
+  color: #e0ffff;
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+}
+header, footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+main {
+  padding: 2rem;
+}
+form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+input, button {
+  padding: 0.5rem;
+  background: rgba(7, 36, 36, 0.8);
+  color: #e0ffff;
+  border: 1px solid #64ffda;
+}
+.avisos {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid #ffc107;
+  margin-top: 1rem;
+}

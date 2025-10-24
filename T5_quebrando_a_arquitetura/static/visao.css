@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(140deg, #011c1f, #000000);
+  color: #c1fff2;
+  font-family: 'Inconsolata', monospace;
+  margin: 0;
+}
+header {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 2rem;
+}
+main {
+  padding: 2rem 3rem;
+}
+.frase {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #ffee58;
+}
+code {
+  color: #7fffd4;
+}
+a {
+  color: #7fffd4;
+}

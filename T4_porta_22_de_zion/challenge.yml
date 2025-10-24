@@ -1,0 +1,34 @@
+name: T4 — Porta 22 de Zion
+category: Web
+value: 25
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Para manter um canal seguro com Zion, Trinity deixou fragmentos de credenciais espalhados em memórias públicas.
+    Quem reunir os pedaços conseguirá autenticar-se na porta 22 e comprovar que é aliado.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Leia os arquivos expostos, reconstrua usuário e senha e autentique-se no endpoint protegido para revelar a flag.</p>
+  <p>Cada pista é curta, mas juntas completam a chave.</p>
+type: container
+extra:
+  initial: 25
+  minimum: 25
+  decay: 25
+  port: 8083
+  ctype: web
+  image: ctf/trinity_zion:latest
+  command: ''
+connection_info: Container
+flags:
+- CTF{Trinity_Zion_SSH}
+hints:
+- content: Procure fragmentos em arquivos públicos.
+  title: ''
+  cost: 10
+initial: 25
+decay: 25
+minimum: 25
+port: 8083
+ctype: web
+image: ctf/trinity_zion:latest

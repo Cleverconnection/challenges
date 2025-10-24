@@ -1,0 +1,35 @@
+name: T2 — Pílula Vermelha
+category: Web
+value: 10
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Trinity abriu um diretório de relatórios da nave e esqueceu de desativar a listagem automática. Qualquer visitante
+    pode navegar pelos arquivos e ler registros que deveriam ser privados.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Percorra a listagem e recupere o diário em que Trinity anotou a mensagem para Neo. Dentro dele está o segredo
+    solicitado pela resistência.</p>
+  <p>Escolha a pílula vermelha e leia o que foi deixado para você.</p>
+type: container
+extra:
+  initial: 10
+  minimum: 10
+  decay: 10
+  port: 8081
+  ctype: web
+  image: ctf/trinity_pilula:latest
+  command: ''
+connection_info: Container
+flags:
+- CTF{Trinity_Pilula_Listagem}
+hints:
+- content: Liste o diretório servido pela aplicação.
+  title: ''
+  cost: 5
+initial: 10
+decay: 10
+minimum: 10
+port: 8081
+ctype: web
+image: ctf/trinity_pilula:latest

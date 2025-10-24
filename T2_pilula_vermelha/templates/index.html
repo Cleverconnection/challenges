@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Pílula Vermelha</title>
+  <link rel="stylesheet" href="/static/tema.css">
+</head>
+<body>
+  <header>
+    <h1>Arquivos expostos na nave Nabucodonosor</h1>
+  </header>
+  <main>
+    <p>
+      Trinity deixou um aviso: os diretórios não foram protegidos. Se você realmente quer saber o que a Matrix esconde,
+      explore cada listagem.
+    </p>
+    <ul>
+      {% for arquivo in arquivos %}
+      <li><a href="/arquivos/{{ arquivo }}">{{ arquivo }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="frase">"Eu posso te conduzir, mas você precisa escolher acreditar."</p>
+  </main>
+</body>
+</html>
