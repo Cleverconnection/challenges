@@ -1,3 +1,0 @@
-[BPDU] src=00:11:22:33:44:55 root=00:11:22:33:44:55 cost=0
-[BPDU] src=00:11:22:33:44:66 root=00:11:22:33:44:55 cost=4
-[BPDU] src=00:11:22:33:44:99 root=00:11:22:33:44:99 cost=0 <-- possível root spoof
