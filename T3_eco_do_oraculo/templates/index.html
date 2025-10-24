@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Eco do Oráculo</title>
+  <link rel="stylesheet" href="/static/fluxo.css">
+</head>
+<body>
+  <header>
+    <h1>Oráculo recebe envios para Trinity</h1>
+  </header>
+  <main>
+    <section>
+      <p>
+        Trinity confiou a você o envio de arquivos para análise. Cada arquivo gera metadados registrados em um mural
+        acessível. Leia os registros e encontre o segredo deixado pela operadora.
+      </p>
+      <form method="post" action="/enviar" enctype="multipart/form-data">
+        <label for="arquivo">Selecionar arquivo:</label>
+        <input type="file" id="arquivo" name="arquivo">
+        <button type="submit">Enviar ao Oráculo</button>
+      </form>
+      {% with mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+          <ul class="avisos">
+            {% for mensagem in mensagens %}
+              <li>{{ mensagem }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <p>Consulte os <a href="/registros">registros públicos</a> para conferir cada eco.</p>
+    </section>
+  </main>
+  <footer>
+    <p>"O Oráculo apenas mostra o caminho. Você decide." — Trinity.</p>
+  </footer>
+</body>
+</html>

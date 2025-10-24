@@ -1,0 +1,35 @@
+name: T1 — Glitch na Simulação
+category: Web
+value: 10
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Trinity construiu um radar de buscas rápidas para encontrar ecos estranhos na Matrix. O formulário devolve o
+    parâmetro diretamente ao operador, e o navegador dela guarda um fragmento valioso em um cookie não protegido.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Faça a consulta refletir um script que leia os dados salvos pelo navegador e capture o fragmento deixado por
+    Trinity.</p>
+  <p>Mantenha o foco na resistência e evite ruídos no painel.</p>
+type: container
+extra:
+  initial: 10
+  minimum: 10
+  decay: 10
+  port: 8080
+  ctype: web
+  image: ctf/trinity_glitch:latest
+  command: ''
+connection_info: Container
+flags:
+- CTF{Trinity_Glitch_Vigilia}
+hints:
+- content: Observe o parâmetro <code>q</code> retornado pela própria página.
+  title: ''
+  cost: 5
+initial: 10
+decay: 10
+minimum: 10
+port: 8080
+ctype: web
+image: ctf/trinity_glitch:latest

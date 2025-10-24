@@ -1,0 +1,36 @@
+name: T5 — Quebrando a Arquitetura
+category: Web
+value: 40
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    O console modular de Trinity carrega arquivos diretamente do disco, registra ações em texto e reutiliza a mesma
+    chave simétrica para validações. Uma sequência bem orquestrada permite ler segredos, envenenar o log e liberar a
+    mensagem final.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Explore o parâmetro de inclusão de páginas para acessar arquivos sigilosos, calcule o HMAC exigido e escreva-o no
+    log para habilitar a flag em <code>/flag</code>.</p>
+  <p>Quebre a arquitetura e prove que está com a resistência.</p>
+type: container
+extra:
+  initial: 40
+  minimum: 40
+  decay: 40
+  port: 8084
+  ctype: web
+  image: ctf/trinity_arquitetura:latest
+  command: ''
+connection_info: Container
+flags:
+- CTF{Trinity_Arquitetura_Liberada}
+hints:
+- content: Use o carregamento de páginas para ler tanto o log quanto a chave secreta.
+  title: ''
+  cost: 10
+initial: 40
+decay: 40
+minimum: 40
+port: 8084
+ctype: web
+image: ctf/trinity_arquitetura:latest

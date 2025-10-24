@@ -1,0 +1,26 @@
+body {
+  background: radial-gradient(circle, #021410, #000000 80%);
+  color: #d9fff8;
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 0;
+}
+header {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+}
+main {
+  padding: 2rem 3rem;
+}
+ul {
+  list-style: square;
+}
+a {
+  color: #7ef9c3;
+  text-decoration: none;
+}
+.dica {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #ffee58;
+}
