@@ -12,5 +12,8 @@ laboratório.
 | `B08_radia_perlman` | STP Loop Recovery | Média | 150 | `CTF{loop_blocked_successfully}` |
 | `B09_radia_perlman` | Tree Guard | Média | 150 | `CTF{falsa_root_00:11:22:33:44:99}` |
 
-> Observação: mantenha os arquivos binários gerados (como PCAPs) fora do repositório público;
-os scripts distribuídos nas aplicações devem ser executados localmente para produzir os artefatos.
+> Observações:
+> - mantenha os arquivos binários gerados (como PCAPs) fora do repositório público; execute os scripts
+>   distribuídos nas aplicações localmente para produzir os artefatos.
+> - todas as interfaces web compartilham o tema `theme.css` inspirado nas tonalidades verdes da fotografia
+>   de Radia Perlman em 2014 (linkada diretamente nos templates), garantindo identidade visual consistente.
