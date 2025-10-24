@@ -1,0 +1,18 @@
+name: "G01 — Hello, Compiler"
+category: "Programação"
+description: |-
+  <p><strong>Contexto:</strong> Um laboratório lilás dedicado a Grace Hopper compartilha o código-fonte de
+  um executável simples. Ele imprime falas célebres e calcula um checksum misterioso. Hopper dizia que
+  "a linguagem deve ser tão simples quanto a poesia": investigue como os dados foram guardados.</p>
+
+  <p>Compile <code>src/hello_compiler.c</code> com <code>gcc</code>, examine a seção <code>.rodata</code> e reverta a ofuscação
+  XOR para chegar à flag no formato <code>CTF{...}</code>.</p>
+
+type: file
+value: 10
+flags:
+  - "CTF{grace_xor_matematica}"
+hints:
+  - content: >-
+      O vetor <code>flag_xor</code> usa uma chave curta que se repete. Desfaça o XOR ciclando a palavra.
+    cost: 5

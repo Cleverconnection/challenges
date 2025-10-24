@@ -1,0 +1,19 @@
+name: "G02 — Legacy Logger"
+category: "Programação"
+description: |-
+  <p><strong>Contexto:</strong> O auditório lilás de Grace Hopper preserva registros em arquivos de texto,
+  mas parte das mensagens foi convertida para ROT13 na década passada. A capitã deixou o código-fonte
+  para que novas cadetes modernizem a tradução.</p>
+
+  <p>Estude <code>app/main.py</code>, entenda como a função <code>processar_log</code> aplica ROT13 às linhas com
+  <code>mensagem:</code> e reproduza o procedimento no arquivo <code>data/registro_legacy.txt</code>.</p>
+
+type: container
+value: 10
+connection_info: "Web — http://HOST:PORT"
+flags:
+  - "CTF{grace_rot_traducao}"
+hints:
+  - content: >-
+      Concentre-se nas linhas que começam com <code>mensagem:</code>. Apenas o texto após os dois pontos é cifrado.
+    cost: 5
