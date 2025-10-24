@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Laboratório Lilás{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <header class="topo">
+        <h1>A Dama dos Compiladores</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Console</a>
+            <a href="{{ url_for('linha_do_tempo') }}">Linha do Tempo</a>
+            <a href="{{ url_for('laboratorio') }}">Laboratório</a>
+        </nav>
+    </header>
+    <main>
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% if mensagens %}
+                <ul class="avisos">
+                    {% for categoria, mensagem in mensagens %}
+                        <li class="{{ categoria }}">{{ mensagem }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>"A linguagem mais poderosa é aquela que qualquer pessoa consegue ler." — Grace Hopper</p>
+    </footer>
+</body>
+</html>

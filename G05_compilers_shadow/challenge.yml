@@ -1,0 +1,19 @@
+name: "G05 — Compiler's Shadow"
+category: "Programação"
+description: |-
+  <p><strong>Contexto:</strong> No laboratório lilás de Grace Hopper, um protótipo de compilador protege
+  suas rotinas com anti-debug, máquina de estados e um rotor inspirado em cifras antigas. Navegue por
+  cada camada para liberar a mensagem da almirante.</p>
+
+  <p>Compile <code>src/compilers_shadow.c</code>, descubra a sequência correta de comandos e o token
+  numérico derivado de <em>FLOWMATIC</em>. Em seguida, receba a flag.</p>
+
+type: container
+value: 25
+connection_info: "nc HOST PORT"
+flags:
+  - "CTF{grace_shadow_otimizacao}"
+hints:
+  - content: >-
+      Observe a função <code>calcular_meta</code>. Ela opera sobre "FLOWMATIC" e produz o token 907.
+    cost: 10

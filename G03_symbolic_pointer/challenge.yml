@@ -1,0 +1,17 @@
+name: "G03 — Symbolic Pointer"
+category: "Programação"
+description: |-
+  <p><strong>Contexto:</strong> Grace Hopper batizava variáveis com cuidado. Neste laboratório lilás, um
+  executável mantém símbolos públicos que apontam diretamente para uma homenagem à almirante.</p>
+
+  <p>Compile o código fonte em <code>src/symbolic_pointer.c</code> e utilize ferramentas de inspeção de
+  símbolos (como <code>nm</code> ou <code>readelf -s</code>) para localizar a string da flag.</p>
+
+type: file
+value: 10
+flags:
+  - "CTF{grace_symbol_legivel}"
+hints:
+  - content: >-
+      Procure por um símbolo com nome comemorativo — ele aponta diretamente para a flag em memória.
+    cost: 5

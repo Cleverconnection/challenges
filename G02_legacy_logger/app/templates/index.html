@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Console Lilás{% endblock %}
+{% block content %}
+<section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Grace_Hopper_and_UNIVAC.jpg" alt="Grace Hopper no UNIVAC">
+    <div>
+        <h2>Console Lilás de Tradução</h2>
+        <p>Faça upload de um log legado e permita que a oficina de Hopper o traduza. Depois, investigue o texto decodificado.</p>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <label for="arquivo">Selecione o arquivo:</label>
+            <input type="file" id="arquivo" name="arquivo" accept="text/plain" required>
+            <button type="submit">Enviar para tradução</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
