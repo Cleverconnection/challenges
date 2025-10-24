@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Galeria de Prompts - Fei-Fei Li</title>
+    <style>
+      body { font-family: "Fira Sans", Arial, sans-serif; margin: 3rem; background: #0f111a; color: #f1f5f9; }
+      h1 { color: #facc15; }
+      code { background: rgba(250, 204, 21, 0.1); padding: 0.2rem 0.4rem; border-radius: 4px; }
+      section { margin-bottom: 2rem; }
+      .box { background: rgba(15, 23, 42, 0.8); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(148, 163, 184, 0.3); }
+    </style>
+  </head>
+  <body>
+    <h1>Galeria de Prompts da Visionária</h1>
+    <section class="box">
+      <p>
+        Este serviço reproduz uma vitrine experimental do laboratório de visão computacional de Fei-Fei Li.
+        Você pode enviar prompts para o endpoint <code>/ask</code> utilizando JSON no formato
+        <code>{"prompt": "texto"}</code>.
+      </p>
+      <p>
+        O assistente segue instruções rígidas para proteger o passphrase do acervo, porém diretivas internas com
+        a sintaxe <code>[[INTERNAL]]&hellip;[[/INTERNAL]]</code> recebem prioridade absoluta.
+      </p>
+    </section>
+    <section class="box">
+      <p>
+        Use <code>curl -X POST http://&lt;host&gt;:8080/ask -H 'Content-Type: application/json' -d '{"prompt":"..."}'</code>
+        para interagir. Consulte o endpoint <code>/system</code> para visualizar o manifesto resumido do laboratório.
+      </p>
+    </section>
+  </body>
+</html>

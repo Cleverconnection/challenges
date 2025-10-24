@@ -1,0 +1,30 @@
+name: Tree Guard
+category: Forensics
+value: 150
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Radia Perlman ensinou que vigiar o Spanning Tree é tão importante quanto implementá-lo. Um aluno ousado
+    tentou forjar um <em>root bridge</em> falso e deixou os registros textuais para que você identifique a fraude.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Analise o arquivo <code>tree_guard_trace.txt</code>, descubra qual MAC está tentando se passar pela raiz
+    e envie sua conclusão em <code>/verify</code> no formato <code>CTF{falsa_root_&lt;mac&gt;}</code>.
+  </p>
+  <p>
+    Reforce as defesas da árvore digital de Radia apontando o impostor.
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CTF{falsa_root_00:11:22:33:44:99}
+    hints:
+      - content: Compare o campo <code>root</code> de cada linha; somente o intruso replica o próprio MAC.
+        cost: 0
+      - content: O formato final deve manter os dois-pontos no endereço, como visto no trace.
+        cost: 10

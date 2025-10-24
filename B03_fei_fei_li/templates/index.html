@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Atlas de Visão</title>
+    <style>
+      body { background: #0a1b2b; color: #e8f5ff; font-family: "Source Sans Pro", sans-serif; margin: 0; padding: 2rem; }
+      main { max-width: 800px; margin: auto; background: rgba(7, 26, 42, 0.9); border-radius: 16px; padding: 2.5rem; box-shadow: 0 0 30px rgba(0, 0, 0, 0.45); }
+      h1 { margin-top: 0; }
+      code { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; }
+      ul { line-height: 1.7; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Atlas de Visão</h1>
+      <p>Fei-Fei Li liderou a criação do ImageNet, um atlas gigantesco de imagens anotadas que redefiniu a visão
+      computacional. O laboratório pede ajuda para reconstruir a etiqueta principal usada na primeira versão pública
+      do conjunto.</p>
+      <p>Ferramentas liberadas:</p>
+      <ul>
+        <li><code>GET /dataset</code> — retorna segmentos com palavras-chave que, combinadas, formam a etiqueta principal.</li>
+        <li><code>GET /annotations</code> — mostra tags auxiliares usadas no laboratório.</li>
+        <li><code>POST /vision</code> — envie um JSON com a lista <code>{"tags": [...]}</code>. Inclua a etiqueta montada para receber a flag.</li>
+      </ul>
+      <p>Monte a tag histórica seguindo as pistas e lembre-se de usar letras maiúsculas. Ao enviar um JSON contendo a
+      string correta, o serviço responde com a flag.</p>
+      <p><strong>Formato da flag:</strong> <code>CTF{...}</code>.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Root Bridge Live</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Root Bridge Live</h1>
+      <p>A equipe de Radia Perlman montou um laboratório de topologias efêmeras. Cada iteração executa
+      uma eleição STP completa e transmite um resumo do que ocorreu para que você analise fora da linha
+      de comando.</p>
+      <p>Use a linha do tempo em <code>/timeline</code> e os parâmetros do cenário em <code>/lab</code>
+      para identificar o instante em que o root bridge muda. Envie a confirmação no endpoint
+      <code>/verify</code>.</p>
+      <ul>
+        <li><code>GET /lab</code> — descreve a topologia virtual disponibilizada pela equipe de Radia.</li>
+        <li><code>GET /timeline</code> — lista eventos relevantes capturados durante a sessão.</li>
+        <li><code>GET /hints</code> — oferece lembretes sobre prioridade e MAC.</li>
+      </ul>
+      <footer class="note">
+        O takeover legítimo sempre aparece marcado como <em>root takeover</em> antes da restauração do estado.
+      </footer>
+      <figure class="radia-portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Radia_Perlman_2014.jpg/320px-Radia_Perlman_2014.jpg" alt="Radia Perlman">
+        <figcaption>Radia Perlman inspirou este laboratório ao reforçar a importância da reconvergência controlada.</figcaption>
+      </figure>
+    </main>
+  </body>
+</html>

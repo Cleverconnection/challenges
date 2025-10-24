@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Guardiã das Árvores Digitais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Guardiã das Árvores Digitais</h1>
+      <p>Radia Perlman deixou uma marca eterna ao ensinar redes a convergirem em harmonia. A frota de
+      switches do laboratório perdeu a memória do <em>root bridge</em> e aguarda por alguém que saiba
+      decifrar o protocolo.</p>
+      <p>Você recebe um console de suporte com três comandos expostos:</p>
+      <ul>
+        <li><code>GET /topology</code> — retorna a lista completa de switches do domínio Spanning Tree.</li>
+        <li><code>GET /bridge/&lt;nome&gt;</code> — consulta individual com prioridade, MAC e uplinks.</li>
+        <li><code>GET /flag</code> — exige o header <code>X-Root-Bridge</code> preenchido corretamente.</li>
+        <li><code>GET /pcap-script</code> — libera o gerador de captura com BPDUs extras e ruído de laboratório.</li>
+      </ul>
+      <p>O formato do identificador esperado é <code>prioridade.MAC</code>, igual ao utilizado nas mensagens
+      de eleição do Spanning Tree Protocol. O analisador aceita letras maiúsculas.</p>
+      <p>Converta os dados em um plano sem laços, reporte o identificador raiz e recupere a mensagem de Perlman.</p>
+      <footer class="note">
+        Identificador atual calculado pela API: <strong>{{ root_bridge }}</strong>. Use o PCAP gerado como
+        referência visual se desejar revisar os BPDUs originais.
+      </footer>
+      <figure class="radia-portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Radia_Perlman_2014.jpg/320px-Radia_Perlman_2014.jpg" alt="Radia Perlman em 2014">
+        <figcaption>Radia Perlman, criadora do Spanning Tree Protocol, em palestra sobre redes resilientes.</figcaption>
+      </figure>
+    </main>
+  </body>
+</html>
