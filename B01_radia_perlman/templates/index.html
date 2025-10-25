@@ -4,12 +4,78 @@
     <meta charset="utf-8">
     <title>Guardiã das Árvores Digitais</title>
     <style>
-      body { font-family: "Fira Sans", Arial, sans-serif; background-color: #0b1d26; color: #f2f7ff; margin: 0; padding: 2rem; }
-      main { max-width: 760px; margin: auto; background: rgba(4, 26, 35, 0.85); padding: 2rem; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.45); }
-      h1 { margin-top: 0; }
-      code { background: rgba(255,255,255,0.08); padding: 0.15rem 0.35rem; border-radius: 4px; }
-      a { color: #6fe2ff; }
-      ul { line-height: 1.6; }
+      /* ======= Paleta verde tecnológica ======= */
+      :root{
+        --bg-main: #071710;           /* fundo geral escuro */
+        --bg-panel: rgba(6, 34, 22, .88);
+        --accent: #21c074;            /* verde primário brilhante */
+        --accent-soft: #18a25f;       /* apoio/acento secundário */
+        --cyan: #36d4c0;              /* elementos de destaque */
+        --text-main: #e6fff0;
+        --text-muted: #8fc8a7;
+        --code-bg: rgba(255,255,255,0.08);
+      }
+
+      /* ======= Estrutura ======= */
+      *{ box-sizing: border-box; }
+      body {
+        font-family: "Fira Sans", Arial, sans-serif;
+        background: radial-gradient(circle at 30% 20%, #093a25 0%, var(--bg-main) 80%);
+        color: var(--text-main);
+        margin: 0;
+        padding: 2rem;
+        line-height: 1.65;
+      }
+      main {
+        max-width: 760px;
+        margin: auto;
+        background: var(--bg-panel);
+        padding: 2rem 2.5rem;
+        border-radius: 14px;
+        border: 1px solid rgba(33,192,116,0.25);
+        box-shadow: 0 0 28px rgba(33,192,116,0.15);
+      }
+
+      h1 {
+        margin-top: 0;
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(33,192,116,0.4);
+      }
+
+      p {
+        margin: 1rem 0;
+        color: var(--text-main);
+      }
+      .hint {
+        color: var(--text-muted);
+        font-style: italic;
+        border-top: 1px dashed rgba(33,192,116,0.25);
+        padding-top: .75rem;
+        margin-top: 1.5rem;
+      }
+
+      code {
+        background: var(--code-bg);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        color: var(--cyan);
+        font-family: "Fira Code", monospace;
+        font-size: 0.95rem;
+      }
+
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+
+      ul {
+        line-height: 1.7;
+        margin: 1rem 0;
+      }
+      li::marker {
+        color: var(--accent-soft);
+      }
     </style>
   </head>
   <body>
@@ -17,17 +83,19 @@
       <h1>Guardiã das Árvores Digitais</h1>
       <p>Radia Perlman deixou uma marca eterna ao ensinar redes a convergirem em harmonia. A frota de switches
       do laboratório perdeu a memória do <em>root bridge</em> e aguarda por alguém que saiba decifrar o protocolo.</p>
+
       <p>Você recebe um console de suporte com três comandos expostos:</p>
       <ul>
-        <li><code>GET /topology</code> — retorna a lista completa de switches do domínio Spanning Tree.</li>
-        <li><code>GET /bridge/&lt;nome&gt;</code> — consulta individual com prioridade, MAC e uplinks.</li>
-        <li><code>GET /flag</code> — exige o header <code>X-Root-Bridge</code> preenchido corretamente.</li>
+        <li><code>GET /topology</code> ? retorna a lista completa de switches do domínio Spanning Tree.</li>
+        <li><code>GET /bridge/&lt;nome&gt;</code> ? consulta individual com prioridade, MAC e uplinks.</li>
+        <li><code>GET /flag</code> ? exige o header <code>X-Root-Bridge</code> preenchido corretamente.</li>
       </ul>
+
       <p>O formato do identificador esperado é <code>prioridade.MAC</code>, igual ao utilizado nas mensagens
       de eleição do Spanning Tree Protocol. O analisador aceita letras maiúsculas.</p>
+
       <p>Converta os dados em um plano sem laços, reporte o identificador raiz e recupere a mensagem de Perlman.</p>
-      <p class="hint">Dica histórica: Radia sempre priorizou a estabilidade. O menor par <code>(prioridade, MAC)</code>
-      governa o domínio.</p>
+
     </main>
   </body>
 </html>
