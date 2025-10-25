@@ -4,7 +4,7 @@ from pathlib import Path
 
 app = Flask(__name__)
 
-FLAG = os.environ.get("FLAG", "CECYBER{root_32768_001122334466}")
+FLAG = os.environ.get("FLAG", "FLAG{root_32768_001122334466}")
 EXPECTED_FLAG = "CECYBER{root_32768_001122334466}"
 
 BPDU_EVENTS = [
