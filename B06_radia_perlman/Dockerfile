@@ -7,7 +7,7 @@ COPY static /app/static
 
 RUN pip install flask
 
-ENV FLAG="CECYBER{root_32768_001122334466}"
+ENV FLAG="FLAG{root_32768_001122334466}"
 
 EXPOSE 8080
 
