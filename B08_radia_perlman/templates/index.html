@@ -4,6 +4,80 @@
   <meta charset="utf-8">
   <title>STP Loop Recovery</title>
 </head>
+   <style>
+      /* ======= Paleta verde tecnológica ======= */
+      :root{
+        --bg-main: #071710;           /* fundo geral escuro */
+        --bg-panel: rgba(6, 34, 22, .88);
+        --accent: #21c074;            /* verde primário brilhante */
+        --accent-soft: #18a25f;       /* apoio/acento secundário */
+        --cyan: #36d4c0;              /* elementos de destaque */
+        --text-main: #e6fff0;
+        --text-muted: #8fc8a7;
+        --code-bg: rgba(255,255,255,0.08);
+      }
+
+      /* ======= Estrutura ======= */
+      *{ box-sizing: border-box; }
+      body {
+        font-family: "Fira Sans", Arial, sans-serif;
+        background: radial-gradient(circle at 30% 20%, #093a25 0%, var(--bg-main) 80%);
+        color: var(--text-main);
+        margin: 0;
+        padding: 2rem;
+        line-height: 1.65;
+      }
+      main {
+        max-width: 760px;
+        margin: auto;
+        background: var(--bg-panel);
+        padding: 2rem 2.5rem;
+        border-radius: 14px;
+        border: 1px solid rgba(33,192,116,0.25);
+        box-shadow: 0 0 28px rgba(33,192,116,0.15);
+      }
+
+      h1 {
+        margin-top: 0;
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(33,192,116,0.4);
+      }
+
+      p {
+        margin: 1rem 0;
+        color: var(--text-main);
+      }
+      .hint {
+        color: var(--text-muted);
+        font-style: italic;
+        border-top: 1px dashed rgba(33,192,116,0.25);
+        padding-top: .75rem;
+        margin-top: 1.5rem;
+      }
+
+      code {
+        background: var(--code-bg);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        color: var(--cyan);
+        font-family: "Fira Code", monospace;
+        font-size: 0.95rem;
+      }
+
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+
+      ul {
+        line-height: 1.7;
+        margin: 1rem 0;
+      }
+      li::marker {
+        color: var(--accent-soft);
+      }
+    </style>
 <body>
   <h1>STP Loop Recovery</h1>
   <p>
