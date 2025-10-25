@@ -25,7 +25,7 @@ extra:
 connection_info:
   container:
     flags:
-      - CECYBER{root_32768_001122334466}
+      - FLAG{root_32768_001122334466}
     hints:
       - content: Baixe o gerador com <code>curl &lt;host&gt;:8080/pcap-script</code> e execute em seu ambiente.
         cost: 0
