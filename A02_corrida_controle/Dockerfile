@@ -1,8 +1,23 @@
 FROM python:3.11-slim
 
-WORKDIR /app
+ENV PYTHONUNBUFFERED=1 \
+    SSH_PORT=2222 \
+    CHALLENGE_CMD="python /opt/desafio/app/threads.py"
 
-COPY app /app
-COPY config /app/config
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openssh-server \
+    && rm -rf /var/lib/apt/lists/*
+RUN useradd -m -s /bin/bash player \
+    && echo 'player:player' | chpasswd
+RUN mkdir -p /var/run/sshd /var/log/navegadora \
+    && chown player:player /var/log/navegadora
 
-CMD ["python", "threads.py"]
+WORKDIR /opt/desafio
+COPY app ./app
+COPY config ./config
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
+    && chown -R player:player /opt/desafio
+
+EXPOSE 2222
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
