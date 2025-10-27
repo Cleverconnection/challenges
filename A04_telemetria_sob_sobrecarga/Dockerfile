@@ -23,6 +23,8 @@ COPY templates ./templates
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh /opt/desafio/app/start.sh \
     && chown -R player:player /opt/desafio
+RUN ln -s /opt/desafio/app /app
+   
 
 EXPOSE 2224 5000
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
