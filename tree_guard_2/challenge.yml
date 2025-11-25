@@ -1,0 +1,14 @@
+name: "Tree Guard"
+module: "radia_perlman"
+category: "Forensics"
+type: "standard"
+value: 150
+state: "visible"
+description: |
+  🌳 **Analise a captura STP e descubra a anomalia**  
+  O arquivo `tree_guard_trace.txt` contém logs extraídos de pacotes BPDU.  
+  Encontre a discrepância que indica um root falso (ataque STP spoofing).
+  \
+  Flag: `CECYBER{falsa_root_<mac>}`
+file: "tree_guard_trace.txt"
+flag: "CECYBER{falsa_root_00:11:22:33:44:99}"

@@ -1,87 +1,87 @@
 # Desafios Cleverconnection
 
-A tabela abaixo resume todos os desafios disponíveis no repositório.
+A tabela abaixo lista todos os desafios, já com os diretórios renomeados sem os códigos numéricos. Cada linha informa a equipe-alvo (Red ou Blue Team), a dificuldade, a principal tecnologia/conceito explorado e a flag correspondente.
 
-| ID                                 | Categoria           | Conceito explorado                        | Dificuldade | Equipe    | Motivo                                                                                 | Flag |
-| ---------------------------------- | ------------------- | ----------------------------------------- | ----------- | --------- | -------------------------------------------------------------------------------------- | ---- |
-| A01_loop_infinito_lunar            | Sistemas Embarcados | loop infinito; liberar sentinela          | **Fácil**   | Blue Team | Diagnóstico e correção de travamento de sistema — foco totalmente defensivo           | –    |
-| A02_corrida_controle               | Sistemas Embarcados | condição de corrida; habilitar trava      | **Fácil**   | Blue Team | Sincronização e estabilidade — atividade de engenharia defensiva                      | –    |
-| A03_agendador_caotico              | Sistemas Embarcados | ajuste de prioridades do scheduler        | **Fácil**   | Blue Team | Otimização e correção de comportamento — natureza defensiva                           | –    |
-| A04_telemetria_sob_sobrecarga      | Sistemas Embarcados | logs em sobrecarga; alterar nível de log  | **Médio**   | Blue Team | Monitoramento e controle de telemetria — claramente defensivo                         | –    |
-| A05_abort_1202_revival             | Sistemas Embarcados | alarme Abort 1202; reordenar tarefas      | **Difícil** | Blue Team | Tratamento de falhas críticas — parte da engenharia defensiva                         | –    |
-| B01_radia_perlman                  | Web                 | loop de rede e protocolo STP              | 180         | Red Team  | Exploração de comportamento de rede e ataque a STP                                     | –    |
-| B02_grace_hopper                   | –                   | depuração de computador antigo            | –           | Blue Team | Manutenção e análise de sistema legado                                                 | –    |
-| B03_fei_fei_li                     | –                   | análise de rótulos de imagem              | –           | Blue Team | Atividade analítica — não envolve exploração                                           | –    |
-| B04_margaret_hamilton              | –                   | gerenciamento de alarmes críticos         | –           | Blue Team | Resposta a incidentes — defesa                                                         | –    |
-| B05_trinity_matrix                 | Cultura Pop / OSINT | OSINT em banco de dados fictício          | 100         | Red Team  | OSINT é essencialmente ofensivo (coleta ativa)                                         | –    |
-| B06_pioneer_future                 | –                   |                                           | –           | Blue Team | Sem contexto técnico ofensivo — assume natureza analítica                              | –    |
-| B06_provisional                    | –                   |                                           | –           | Blue Team | Marcado como provisório — natureza padrão analítica                                    | –    |
-| B06_radia_perlman                  | Forensics           |                                           | 120         | Blue Team | Forense é parte do lado defensivo                                                      | –    |
-| B07_pioneer_future                 | –                   |                                           | –           | Blue Team | Sem elementos ofensivos identificáveis                                                  | –    |
-| B07_provisional                    | –                   |                                           | –           | Blue Team | Sem objetivo ofensivo definido                                                          | –    |
-| B07_radia_perlman                  | Network             |                                           | 150         | Red Team  | Exploração de rede — natureza ofensiva                                                 | –    |
-| B08_pioneer_future                 | –                   |                                           | –           | Blue Team | Classificação conservadora: defensiva                                                   | –    |
-| B08_provisional                    | –                   |                                           | –           | Blue Team | Categoria sem definição — defensivo por padrão                                          | –    |
-| B08_radia_perlman                  | Network             |                                           | 150         | Red Team  | Ações em rede frequentemente ofensivas                                                  | –    |
-| B09_pioneer_future                 | –                   |                                           | –           | Blue Team | Sem indícios de intenção ofensiva                                                      | –    |
-| B09_provisional                    | –                   |                                           | –           | Blue Team | Conteúdo provisório — assume defensivo                                                 | –    |
-| B09_radia_perlman                  | Forensics           |                                           | 150         | Blue Team | Forense = defesa                                                                        | –    |
-| B10_fei_fei_li                     | Web                 |                                           | 140         | Red Team  | Classificação baseada na série B10/B11 — exploração                                     | –    |
-| B11_fei_fei_li                     | Web                 |                                           | 200         | Red Team  | Continuação do módulo ofensivo anterior                                                 | –    |
-| E10_exposed_swagger                | Web                 | Swagger expõe tokens e rotas internas     | **Fácil**   | Red Team  | Enumerar APIs expostas é ofensivo                                                      | –    |
-| E11_info_headers                   | Web                 | cabeçalhos vazam caminhos internos        | **Fácil**   | Red Team  | Exploração de informações sensíveis                                                     | –    |
-| E12_future_challenge               | –                   |                                           | –           | Blue Team | Sem definição — assume neutro/defensivo                                                | –    |
-| E12_provisional                    | –                   | desafio não implementado                  | –           | Blue Team | Provisório — assume defensivo                                                          | –    |
-| E12_query_creds                    | Web                 |                                           | **Fácil**   | Red Team  | Coleta de credenciais = ofensivo                                                       | –    |
-| E13_log_injection                  | Web                 | injeção em logs                           | **Fácil**   | Red Team  | Injeção é ofensivo                                                                     | –    |
-| E14_timestamp_replay               | Web                 | replay de timestamp                       | **Fácil**   | Red Team  | Replay é ataque clássico                                                                | –    |
-| E15_weak_crypto                    | Web                 | criptografia sem IV                       | **Fácil**   | Red Team  | Exploração de falhas criptográficas                                                     | –    |
-| E16_public_backup                  | Web                 | backup público exposto                    | **Fácil**   | Red Team  | Vazamentos são explorados por atacantes                                                 | –    |
-| E17_password_reset_enum            | Web                 | enumeração de usuário via reset           | **Fácil**   | Red Team  | Enumeração de contas é ofensivo                                                         | –    |
-| E18_missing_tls_redirect           | Web                 | sem redirecionamento HTTPS                | **Fácil**   | Red Team  | Exploração de falha de TLS                                                              | –    |
-| E19_file_download_path             | Web                 | path traversal em download                | **Fácil**   | Red Team  | Path traversal = ataque                                                                 | –    |
-| E1_auth_weak_pwd                   | Web                 | credenciais padrão fracas                 | **Fácil**   | Red Team  | Uso de senhas fracas — ataque                                                           | –    |
-| E20_rate_limit_none                | Web                 | brute force sem rate limit                | **Fácil**   | Red Team  | Brute force                                                                             | –    |
-| E2_jwt_noexp                       | Web                 | JWT sem expiração; alterar role           | **Fácil**   | Red Team  | Manipulação de token                                                                    | –    |
-| E3_idor_account                    | Web                 | IDOR via parâmetro id                     | **Fácil**   | Red Team  | IDOR é ataque de elevação/abuso                                                         | –    |
-| E4_open_redirect                   | Web                 | proxy aberto / SSRF                       | **Fácil**   | Red Team  | Redirecionamento malicioso/SSRF                                                         | –    |
-| E5_file_read                       | Web                 | directory traversal para ler arquivo      | **Fácil**   | Red Team  | Leitura arbitrária = ofensivo                                                           | –    |
-| E6_sql_injection_basic             | Web                 | SQL Injection                             | **Fácil**   | Red Team  | Clássico ataque SQL                                                                     | –    |
-| E7_xxe_simple                      | Web                 | XXE                                       | **Fácil**   | Red Team  | Ataque XXE                                                                              | –    |
-| E8_upload_exec_hint                | Web                 | uploads previsíveis; enumerar             | **Fácil**   | Red Team  | Execução via upload                                                                     | –    |
-| E9_cors_wildcard                   | Web                 |                                           | **Fácil**   | Red Team  | Exploração de configuração CORS insegura                                                | –    |
-| G01_hello_compiler                 | Programação         | ler .rodata de binário C                  | **Fácil**   | Blue Team | Engenharia reversa suave/diagnóstico                                                    | –    |
-| G02_legacy_logger                  | Programação         | decodificar logs ROT13                    | **Fácil**   | Blue Team | Atividade de análise                                                                    | –    |
-| G03_symbolic_pointer               | Programação         | usar tabela de símbolos                   | **Fácil**   | Blue Team | Operação interna, não ataque                                                             | –    |
-| G04_printf_whisper                 | Programação         | explorar vulnerabilidade de format string | **Médio**   | Red Team  | Exploração direta de vulnerabilidade                                                     | –    |
-| G05_compilers_shadow               | Programação         | antidebugging e máquina de estados        | **Difícil** | Red Team  | Evadir análise é ofensivo                                                               | –    |
-| G06_who_is_in_the_image            | –                   | enviar cor correta para API de cores      | –           | Blue Team | Atividade de classificação, não ofensiva                                                | –    |
-| G07_phash_match                    | Visão Computacional | comparar perceptual hash (pHash)          | **Médio**   | Blue Team | Conteúdo analítico                                                                      | –    |
-| G08_labeling_bias                  | Visão Computacional | corrigir viés nos rótulos                 | **Médio**   | Blue Team | Mitigação de viés                                                                      | –    |
-| G09_prompt_inject_vision           | Visão Computacional | injetar prompt [[INTERN]]                 | **Médio**   | Red Team  | Prompt injection = ofensivo                                                             | –    |
-| G10_trustworthy_model_escape       | Visão Computacional | injetar mensagem LIBERAR_FLAG no pipeline | **Difícil** | Red Team  | Escapar de controles do modelo = ofensivo                                               | –    |
-| M01_auth_bypass_logic              | Web                 | bypass de autenticação multi-fator        | **Médio**   | Red Team  | Bypass de MFA — ataque                                                                  | –    |
-| M02_jwt_kid_attack                 | Web                 | confusão de kid e alg=none no JWT         | **Médio**   | Red Team  | Ataque direto a JWT                                                                     | –    |
-| M03_ssrf_internal_svc              | Web                 | SSRF para serviço interno via proxy       | **Médio**   | Red Team  | SSRF = ofensivo                                                                         | –    |
-| M04_concurrent_transfer_race       | Web                 | race condition em transferências          | **Médio**   | Red Team  | Ataque de race condition                                                                 | –    |
-| M05_payment_replay                 | Web                 | replay de pagamento                       | **Médio**   | Red Team  | Replay é ataque                                                                         | –    |
-| M06_xml_dos_xxe_combo              | Web                 | XXE e DoS em XML                          | **Médio**   | Red Team  | DoS + XXE                                                                               | –    |
-| M07_insecure_deserialize           | Web                 | desserialização insegura em Java          | **Médio**   | Red Team  | Exploração de desserialização                                                            | –    |
-| M08_supply_chain_devops            | Web                 | exposição de tokens de pipeline           | **Médio**   | Red Team  | Supply-chain attack                                                                     | –    |
-| M09_privilege_escalation_api       | Web                 | campo role mal validado                   | **Médio**   | Red Team  | Escalada de privilégios                                                                  | –    |
-| M10_ssrf_s3_misuse                 | Web                 | SSRF para bucket S3 interno               | **Médio**   | Red Team  | SSRF                                                                                    | –    |
-| M11_confd_leak                     | Web                 | servidor de config vaza segredos          | **Médio**   | Red Team  | Vazamento explorável                                                                     | –    |
-| M12_otp_bypass                     | Web                 | OTP previsível                            | **Médio**   | Red Team  | Previsão de OTP                                                                         | –    |
-| M13_csrf_api                       | Web                 | CSRF via CORS permissivo e cookie         | **Médio**   | Red Team  | CSRF                                                                                   | –    |
-| M14_account_merge_bug              | Web                 | fusão de contas vaza dados                | **Médio**   | Red Team  | Vazamento e abuso de API                                                                | –    |
-| M15_ssrf_internal_metadata         | Web                 | SSRF para serviço de metadados            | **Médio**   | Red Team  | Exploração de metadata server                                                            | –    |
-| M16_race_balance_check             | Web                 | race condition no saldo                   | **Médio**   | Red Team  | Race condition ofensivo                                                                  | –    |
-| M17_timing_attack                  | Web                 | ataque de temporização                    | **Médio**   | Red Team  | Timing attack                                                                           | –    |
-| M18_insecure_file_serve            | Web                 | path traversal em serviço de arquivos     | **Médio**   | Red Team  | Path traversal                                                                          | –    |
-| M19_authorization_header_splitting | Web                 | separação de header Authorization         | **Médio**   | Red Team  | Exploração direta                                                                        | –    |
-| M20_log_forensics_tamper           | Web                 | manipulação de logs e exportação          | **Médio**   | Red Team  | Log tampering                                                                           | –    |
-| T1_glitch_na_simulacao             | Web                 | XSS para roubar cookie                    | **Fácil**   | Red Team  | XSS                                                                                     | –    |
-| T2_pilula_vermelha                 | Web                 | listagem de diretórios                    | **Fácil**   | Red Team  | Directory listing                                                                       | –    |
-| T3_eco_do_oraculo                  | Web                 | upload inseguro e logs                    | **Fácil**   | Red Team  | Upload + manipulação                                                                    | –    |
-| T4_porta_22_de_zion                | Web                 | reconstruir credenciais SSH               | **Difícil** | Red Team  | Ataque a chaves SSH                                                                     | –    |
-| T5_quebrando_a_arquitetura         | Web                 | LFI + log poisoning + HMAC                | **Difícil** | Red Team  | Cadeia ofensiva complexa                                                                | –    |
+| Desafio | Equipe | Dificuldade | Tecnologia | Flag |
+| --- | --- | --- | --- | --- |
+| Loop Infinito Lunar | Blue Team | Fácil | loop infinito; liberar sentinela | `CTF{loop_infinito_corrigido}` |
+| Corrida pelo Controle | Blue Team | Fácil | condição de corrida; habilitar trava | `CTF{condicao_de_corrida_domada}` |
+| Agendador Caótico | Blue Team | Fácil | ajuste de prioridades do scheduler | `CTF{prioridades_em_orbita}` |
+| Telemetria Sob Sobrecarga | Blue Team | Médio | logs em sobrecarga; alterar nível de log | `CTF{telemetria_em_modo_safe}` |
+| Abort 1202 Revival | Blue Team | Difícil | alarme Abort 1202; reordenar tarefas | `CTF{abort_1202_superado}` |
+| Guardiã das Árvores Digitais | Red Team | 180 | loop de rede e protocolo STP | `CTF{Arvores_Digitais_Seguras}` |
+| Depuradora do Mark I | Blue Team | – | depuração de computador antigo | `CTF{Flowmatic_Debug_Master}` |
+| Atlas de Visão | Blue Team | – | análise de rótulos de imagem | `CTF{Seeing_The_Unseen}` |
+| Supervisora do Apollo | Blue Team | – | gerenciamento de alarmes críticos | `CTF{Software_On_The_Moon}` |
+| Trinity — A Hacker que Libertou Consciências | Red Team | 100 | OSINT em banco de dados fictício | `CTF{Banco_de_Dados_da_Receita}` |
+| Pioneiro do Futuro 1 | Blue Team | – | – | `–` |
+| Desafio Provisório 1 | Blue Team | – | – | `–` |
+| Weaving the Tree | Blue Team | 120 | – | `FLAG{root_32768_001122334466}` |
+| Pioneiro do Futuro 2 | Blue Team | – | – | `–` |
+| Desafio Provisório 2 | Blue Team | – | – | `–` |
+| Root Bridge Live | Red Team | 150 | – | `CECYBER{root_change_detected}` |
+| Pioneiro do Futuro 3 | Blue Team | – | – | `–` |
+| Desafio Provisório 3 | Blue Team | – | – | `–` |
+| STP Loop Recovery | Red Team | 150 | – | `CECYBER{loop_blocked_successfully}` |
+| Pioneiro do Futuro 4 | Blue Team | – | – | `–` |
+| Desafio Provisório 4 | Blue Team | – | – | `–` |
+| Tree Guard | Blue Team | 150 | – | `CECYBER{falsa_root_00:11:22:33:44:99}` |
+| Galeria de Prompts da Visionária | Red Team | 140 | – | `CECYBER{prompt_guard_breached}` |
+| Atlas Visionário | Red Team | 200 | – | `CECYBER{analysis_mode_victory}` |
+| Manual Público | Red Team | Fácil | Swagger expõe tokens e rotas internas | `CTF{swagger_spill}` |
+| Cabeçalhos Reveladores | Red Team | Fácil | cabeçalhos vazam caminhos internos | `CTF{headers_tell_secrets}` |
+| Desafio Futuro | Blue Team | – | – | `–` |
+| Desafio Provisório | Blue Team | – | desafio não implementado | `–` |
+| Link Compartilhado | Red Team | Fácil | – | `CTF{creds_in_query}` |
+| Registros Não Confiáveis | Red Team | Fácil | injeção em logs | `CTF{logs_are_trust_issue}` |
+| Transação Repetida | Red Team | Fácil | replay de timestamp | `CTF{timestamp_replay_attack}` |
+| Token Frágil | Red Team | Fácil | criptografia sem IV | `CTF{weak_crypto_modes}` |
+| Backup Público | Red Team | Fácil | backup público exposto | `CTF{public_backup_flag}` |
+| Redefinição Generosa | Red Team | Fácil | enumeração de usuário via reset | `CTF{reset_enum_abuse}` |
+| Transporte Opcional | Red Team | Fácil | sem redirecionamento HTTPS | `CTF{tls_redirect_missing}` |
+| Download Genérico | Red Team | Fácil | path traversal em download | `CTF{file_download_traversal}` |
+| Sessão Reutilizável | Red Team | Fácil | credenciais padrão fracas | `CTF{weak_passwords_ruin_security}` |
+| Validador Infinito | Red Team | Fácil | brute force sem rate limit | `CTF{rate_limit_none}` |
+| Chave Persistente | Red Team | Fácil | JWT sem expiração; alterar role | `CTF{jwt_without_expiration}` |
+| Consulta por Identificador | Red Team | Fácil | IDOR via parâmetro id | `CTF{idor_bank_accounts}` |
+| Requisição Transparente | Red Team | Fácil | proxy aberto / SSRF | `CTF{ssrf_proxy_to_flag}` |
+| Leitor Amplo | Red Team | Fácil | directory traversal para ler arquivo | `CTF{path_traversal_master}` |
+| Relatório Aberto | Red Team | Fácil | SQL Injection | `CTF{sqli_in_the_branch}` |
+| Importação XML | Red Team | Fácil | XXE | `CTF{xxe_into_core}` |
+| Envio Público | Red Team | Fácil | uploads previsíveis; enumerar | `CTF{predictable_upload_leak}` |
+| Compartilhamento Cruzado | Red Team | Fácil | – | `CTF{cors_wildcard_token}` |
+| Hello, Compiler | Blue Team | Fácil | ler .rodata de binário C | `CTF{grace_xor_matematica}` |
+| Legacy Logger | Blue Team | Fácil | decodificar logs ROT13 | `CTF{grace_rot_traducao}` |
+| Symbolic Pointer | Blue Team | Fácil | usar tabela de símbolos | `CTF{grace_symbol_legivel}` |
+| Printf Whisper | Red Team | Médio | explorar vulnerabilidade de format string | `CTF{grace_printf_confiança}` |
+| Compiler's Shadow | Red Team | Difícil | antidebugging e máquina de estados | `CTF{grace_shadow_otimizacao}` |
+| Quem está na imagem? | Blue Team | – | enviar cor correta para API de cores | `CTF{fei_fei_memoria_azul}` |
+| Correspondência pHash | Blue Team | Médio | comparar perceptual hash (pHash) | `CTF{fei_fei_phash_match}` |
+| Viés de Rotulagem | Blue Team | Médio | corrigir viés nos rótulos | `CTF{fei_fei_bias_ajustado}` |
+| Prompt Injection Vision | Red Team | Médio | injetar prompt [[INTERN]] | `CTF{fei_fei_prompt_fluxo}` |
+| Trustworthy Model Escape | Red Team | Difícil | injetar mensagem LIBERAR_FLAG no pipeline | `CTF{fei_fei_pipeline_escape}` |
+| MFA sem Ordem | Red Team | Médio | bypass de autenticação multi-fator | `CTF{auth_logic_mfa_bypass}` |
+| Token Confuso | Red Team | Médio | confusão de kid e alg=none no JWT | `CTF{jwt_kid_none_alg}` |
+| Proxy Cego | Red Team | Médio | SSRF para serviço interno via proxy | `CTF{ssrf_internal_service}` |
+| Corrida de Transferências | Red Team | Médio | race condition em transferências | `CTF{race_condition_transfer}` |
+| Pagamentos Replay | Red Team | Médio | replay de pagamento | `CTF{payment_replay_bonus}` |
+| XML Explosivo | Red Team | Médio | XXE e DoS em XML | `CTF{xml_xxe_resource_exhaust}` |
+| Job Java Inseguro | Red Team | Médio | desserialização insegura em Java | `CTF{java_insecure_deserialize}` |
+| Artifact Exposure | Red Team | Médio | exposição de tokens de pipeline | `CTF{supply_chain_artifact}` |
+| Patch Indireto | Red Team | Médio | campo role mal validado | `CTF{api_privilege_escalation}` |
+| Proxy S3 Interno | Red Team | Médio | SSRF para bucket S3 interno | `CTF{ssrf_s3_traversal}` |
+| Config Leak | Red Team | Médio | servidor de config vaza segredos | `CTF{config_endpoint_leak}` |
+| OTP Previsível | Red Team | Médio | OTP previsível | `CTF{predictable_otp_bypass}` |
+| CSRF API | Red Team | Médio | CSRF via CORS permissivo e cookie | `CTF{csrf_cookie_api}` |
+| Fusão Curiosa | Red Team | Médio | fusão de contas vaza dados | `CTF{account_merge_disclosure}` |
+| Metadata SSRF | Red Team | Médio | SSRF para serviço de metadados | `CTF{metadata_ssrf_flag}` |
+| Saldo Negativo Corrida | Red Team | Médio | race condition no saldo | `CTF{race_negative_balance}` |
+| Timing Attack | Red Team | Médio | ataque de temporização | `CTF{timing_leak_username}` |
+| Object Storage Exposto | Red Team | Médio | path traversal em serviço de arquivos | `CTF{object_storage_flag}` |
+| Authorization Split | Red Team | Médio | separação de header Authorization | `CTF{auth_header_split}` |
+| Forensics Tamper | Red Team | Médio | manipulação de logs e exportação | `CTF{log_tamper_flag}` |
+| Glitch na Simulação | Red Team | Fácil | XSS para roubar cookie | `CTF{Trinity_Glitch_Vigilia}` |
+| Pílula Vermelha | Red Team | Fácil | listagem de diretórios | `CTF{Trinity_Pilula_Listagem}` |
+| Eco do Oráculo | Red Team | Fácil | upload inseguro e logs | `CTF{Trinity_Log_Do_Oraculo}` |
+| Porta 22 de Zion | Red Team | Difícil | reconstruir credenciais SSH | `CTF{Trinity_Zion_SSH}` |
+| Quebrando a Arquitetura | Red Team | Difícil | LFI + log poisoning + HMAC | `CTF{Trinity_Arquitetura_Liberada}` |
