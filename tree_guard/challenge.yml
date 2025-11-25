@@ -1,14 +1,31 @@
-name: "Tree Guard"
-module: "radia_perlman"
-category: "Forensics"
-type: "standard"
+name: Tree Guard
+category: Forensics
 value: 150
-state: "visible"
-description: |
-  🌳 **Analise a captura STP e descubra a anomalia**  
-  O arquivo `tree_guard_trace.txt` contém logs extraídos de pacotes BPDU.  
-  Encontre a discrepância que indica um root falso (ataque STP spoofing).
-  \
-  Flag: `CECYBER{falsa_root_<mac>}`
-file: "tree_guard_trace.txt"
-flag: "CECYBER{falsa_root_00:11:22:33:44:99}"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Durante um treinamento conduzido por Radia Perlman, um estudante tentou sequestrar a eleição do
+    Spanning Tree Protocol enviando um BPDU fraudulento. Os sensores registraram todo o fluxo para
+    que você possa investigar com calma.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Analise o log disponível em <code>/trace</code> e a síntese em <code>/analysis</code> para descobrir
+    qual endereço MAC foi utilizado no golpe. Envie o resultado no endpoint <code>/verify</code>.
+  </p>
+  <p>
+    Mostre que você também consegue proteger as árvores digitais de Radia.
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CECYBER{falsa_root_00:11:22:33:44:99}
+    hints:
+      - content: Compare as três linhas do log e procure pelo campo <code>root</code> divergente.
+        cost: 0
+      - content: Use <code>/analysis</code> para confirmar a interpretação do sensor.
+        cost: 10

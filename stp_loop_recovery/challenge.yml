@@ -1,12 +1,31 @@
-name: "STP Loop Recovery"
-module: "radia_perlman"
-category: "Network"
-type: "container"
+name: STP Loop Recovery
+category: Network
 value: 150
-state: "visible"
-description: |
-  🔁 **Monte dois bridges e crie um loop físico**  
-  Observe o STP atuando, identifique a porta que entra em blocking e recupere a flag.
-  \
-  Dica: execute `brctl showstp br0` e observe o campo `port id`.
-flag: "CECYBER{loop_blocked_successfully}"
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>
+    Uma dupla de bridges educacionais de Radia Perlman entrou em loop após um estagiário conectar
+    os cabos redundantes errados. O laboratório registrou os papéis atribuídos a cada porta durante
+    a correção automática.
+  </p>
+  <p><strong>Objetivo:</strong><br>
+    Analise os dados retornados pela API para descobrir qual interface ficou em estado
+    <em>blocking</em>. Confirme sua conclusão enviando a flag no endpoint <code>/verify</code>.
+  </p>
+  <p>
+    Desvende o raciocínio que mantém a árvore de Radia saudável.
+  </p>
+type: container
+extra:
+  initial: 150
+  delay: 0
+  minimum: 150
+connection_info:
+  container:
+    flags:
+      - CECYBER{loop_blocked_successfully}
+    hints:
+      - content: O JSON de <code>/states</code> exibe <em>role</em> e <em>state</em> para cada interface.
+        cost: 0
+      - content: Use <code>/metrics</code> para confirmar qual enlace possui custo maior.
+        cost: 10
