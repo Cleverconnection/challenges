@@ -1,22 +1,19 @@
-# Desafio M15 — SSRF contra Metadata Service
+# Metadata SSRF
 
-## Descrição
+## Visão geral
 Um recurso de geração de relatórios aceita URLs arbitrárias e as requisita do lado do servidor. Isso possibilita atingir o endpoint de metadata da infraestrutura, restrito a chamadas locais, que expõe credenciais com a flag.
 
-## Objetivos de Aprendizagem
-- Investigar SSRF para atingir serviços de metadata.
-- Analisar respostas JSON retornadas pelo serviço interno.
-- Entender a criticidade de proteger credenciais temporárias de instâncias.
+## Tabela de referência interna
 
-## Serviços Disponíveis
-- `GET /api/report?url=` — Fetch remoto sem validação de destino.
-- `GET /metadata/iam` — Metadata service simulado com credenciais (somente localhost).
+| Desafio | Flag | Dificuldade |
+| ------- | ----- | --------- |
+| Metadata SSRF | `CTF{metadata_ssrf_flag}` | Médio |
 
-## Como Executar
-1. Suba o container.
-2. Teste `/api/report?url=http://example.com` para ver a resposta padrão.
-3. Aponte para o metadata service.
+## Execução
+1. Investigar SSRF para atingir serviços de metadata.; Analisar respostas JSON retornadas pelo serviço interno.; Entender a criticidade de proteger credenciais temporárias de instâncias.
+2. `GET /api/report?url=` — Fetch remoto sem validação de destino.; `GET /metadata/iam` — Metadata service simulado com credenciais (somente localhost).
+3. Suba o container. 2. Teste `/api/report?url=http://example.com` para ver a resposta padrão. 3. Aponte para o metadata service.
+4. Envie `GET /api/report?url=http://127.0.0.1:8080/metadata/iam`.; A resposta conterá o JSON com `SecretAccessKey` igual à flag.
 
-## Como Capturar a Flag
-- Envie `GET /api/report?url=http://127.0.0.1:8080/metadata/iam`.
-- A resposta conterá o JSON com `SecretAccessKey` igual à flag.
+## Narrativa
+Explorar Metadata SSRF revela a flag quando a vulnerabilidade principal é compreendida e explorada.
