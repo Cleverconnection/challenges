@@ -1,0 +1,17 @@
+name: Relatório Vazado
+category: Web
+description: |-
+  <p><strong>Cenário:</strong></p>
+  <p>O Banco Polar Nacional (BPN) mantém um painel de auditoria interno.</p>
+  <p>Através deste módulo, analistas podem consultar registros usando filtros textuais.</p>
+  <p>Seu objetivo é identificar um token administrativo e validá-lo no endpoint apropriado.</p>
+  <p>Dica de formato da flag: <code>CTF{*******}</code></p>
+value: 10
+type: container
+connection_info: Container
+flags:
+  - CTF{vazamento_natalino_sql}
+hints:
+  - content: >-
+      Observe atentamente como o filtro altera a resposta do painel.
+    cost: 5

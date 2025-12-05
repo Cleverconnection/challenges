@@ -1,0 +1,7 @@
+version: "3"
+services:
+  r02_relatorio_vazado:
+    build: .
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

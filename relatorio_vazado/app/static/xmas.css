@@ -1,0 +1,173 @@
+:root {
+  --x-bg: #0c1b2e;
+  --x-panel: rgba(255, 255, 255, 0.08);
+  --x-accent: #cde7ff;
+  --x-primary: #d83f61;
+  --x-secondary: #1ba1f2;
+  --x-text: #e8f1ff;
+  --x-muted: #9db3cf;
+  --x-border: rgba(255, 255, 255, 0.1);
+  --x-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+              radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.06), transparent 35%),
+              linear-gradient(145deg, #0b1220, #0d2038 45%, #0e2744);
+  color: var(--x-text);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.xmas-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.xmas-overlay .snowflake {
+  position: absolute;
+  top: -10%;
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  opacity: 0.7;
+  animation: snowfall 14s linear infinite;
+}
+
+.xmas-overlay .snowflake.large {
+  width: 72px;
+  height: 72px;
+  animation-duration: 16s;
+  background-image: url('/static/snowflake-large.svg');
+}
+
+.xmas-overlay .snowflake.medium {
+  width: 52px;
+  height: 52px;
+  animation-duration: 14s;
+  background-image: url('/static/snowflake-med.svg');
+}
+
+.xmas-overlay .snowflake.small {
+  width: 32px;
+  height: 32px;
+  animation-duration: 12s;
+  background-image: url('/static/snowflake-small.svg');
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(180deg); opacity: 0.05; }
+}
+
+.x-header {
+  position: sticky;
+  top: 0;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-bottom: 1px solid var(--x-border);
+  backdrop-filter: blur(6px);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  z-index: 2;
+}
+
+.x-panel {
+  position: relative;
+  z-index: 1;
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 2rem 2.25rem;
+  background: var(--x-panel);
+  border: 1px solid var(--x-border);
+  border-radius: 16px;
+  box-shadow: var(--x-shadow);
+  backdrop-filter: blur(6px);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.4px;
+}
+
+p, li {
+  color: var(--x-muted);
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--x-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--x-text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+  border-color: rgba(219, 126, 169, 0.9);
+  box-shadow: 0 0 0 3px rgba(216, 63, 97, 0.2);
+}
+
+.x-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  margin-top: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.x-btn-primary {
+  background: linear-gradient(135deg, var(--x-primary), #ff6f91);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(216, 63, 97, 0.35);
+}
+
+.x-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(216, 63, 97, 0.45);
+}
+
+a {
+  color: var(--x-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .x-panel {
+    margin: 1.25rem;
+    padding: 1.5rem;
+  }
+}
