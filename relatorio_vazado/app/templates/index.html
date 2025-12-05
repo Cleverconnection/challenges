@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Painel de Auditoria</h2>
+
+<p>
+  Bem-vindo ao painel de auditoria do Banco Polar Nacional (BPN).
+  Utilize as ferramentas internas para localizar registros de interesse.
+</p>
+
+<!-- comentário secreto:
+  Alguns registros internos possuem campos utilizados apenas por auditores.
+  Certas equipes têm conseguido acessá-los manipulando filtros avançados.
+-->
+
+<form method="GET" action="/auditoria/search">
+  <input type="text" name="campo" placeholder="Ex.: auditoria, renas, trenó...">
+  <button class="x-btn x-btn-primary" type="submit">Buscar</button>
+</form>
+
+<nav style="margin-top: 1.8rem;">
+  <a href="/">Início</a> |
+  <a href="/sobre">Sobre</a> |
+  <a href="/suporte">Suporte</a>
+</nav>
+
+{% endblock %}
