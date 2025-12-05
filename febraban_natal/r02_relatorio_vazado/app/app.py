@@ -15,14 +15,13 @@ SECRET_TOKEN = "BPN-NATAL-ADMIN-94821"
 
 
 def query_db(query, params=None):
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
+    params = params or ()
     try:
-        rows = cursor.execute(query, params or ()).fetchall()
-    except Exception:
-        rows = []
-    conn.close()
-    return rows
+        with sqlite3.connect(DB_PATH) as conn:
+            cursor = conn.cursor()
+            return cursor.execute(query, params).fetchall()
+    except sqlite3.Error:
+        return []
 
 
 @app.route("/")
@@ -33,7 +32,7 @@ def index():
 
 @app.route("/auditoria/search")
 def search():
-    campo = request.args.get("campo", "")
+    campo = request.args.get("campo", "").strip()[:80]
     query = "SELECT descricao, valor FROM transacoes WHERE descricao LIKE ?"
     rows = query_db(query, (f"%{campo}%",))
     return render_template("search.html", rows=rows)
